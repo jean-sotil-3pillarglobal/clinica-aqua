@@ -1,3 +1,10 @@
+import CLERK_1_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+import CLERK_2_IMAGE from './../../../../../../static/images/clerks/IMG-1400.jpg';
+import CLERK_3_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+import CLERK_4_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+import CLERK_5_IMAGE from './../../../../../../static/images/clerks/IMG-1397.jpg';
+import CLERK_6_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+
 import {
   constants,
 } from './../../../../../config';
@@ -29,7 +36,7 @@ const Clerks = [
       `,
     },
     id: CLERK_1,
-    image: './src/static/images/clerks/_MG_6998.jpg',
+    image: CLERK_1_IMAGE,
     label: {
       en: 'Generente y Administrador de Clínica Aqua.',
       es: 'Generente y Administrador de Clínica Aqua.',
@@ -43,8 +50,8 @@ const Clerks = [
       es: 'Conocer más',
     },
     name: {
-      en: 'Dr. Luis Roberto Elizondo',
-      es: 'Dr. Luis Roberto Elizondo',
+      en: 'Master Luis Roberto Elizondo',
+      es: 'Master Luis Roberto Elizondo',
     },
   },
   {
@@ -65,7 +72,7 @@ const Clerks = [
       `,
     },
     id: CLERK_2,
-    image: './src/static/images/clerks/IMG-1400.jpg',
+    image: CLERK_2_IMAGE,
     label: {
       en: 'Médico Cirujano Dermatólogo',
       es: 'Médico Cirujano Dermatólogo',
@@ -95,7 +102,7 @@ const Clerks = [
       `,
     },
     id: CLERK_3,
-    image: './src/static/images/IMG-1400.jpg',
+    image: CLERK_3_IMAGE,
     label: {
       en: 'Médico Cirujano Dermatólogo',
       es: 'Médico Cirujano Dermatólogo',
@@ -133,7 +140,7 @@ const Clerks = [
       `,
     },
     id: CLERK_4,
-    image: './src/static/images/IMG-1400.jpg',
+    image: CLERK_4_IMAGE,
     label: {
       en: 'Médica Cirujana Dermatóloga',
       es: 'Médica Cirujana Dermatóloga',
@@ -167,7 +174,7 @@ const Clerks = [
       `,
     },
     id: CLERK_5,
-    image: './src/static/images/IMG-1400.jpg',
+    image: CLERK_5_IMAGE,
     label: {
       en: 'Nutricionista',
       es: 'Nutricionista',
@@ -197,7 +204,7 @@ const Clerks = [
       `,
     },
     id: CLERK_6,
-    image: './src/static/images/clerks/IMG-1400.jpg',
+    image: CLERK_6_IMAGE,
     label: {
       en: 'Fisioterapeuta',
       es: 'Fisioterapeuta',

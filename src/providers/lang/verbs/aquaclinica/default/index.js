@@ -15,6 +15,8 @@ import forms from '../shared/forms';
 import promos from '../shared/promos';
 import services from '../shared/services';
 
+import CONTACT_FORM_SVG from '../../../../../static/svg/coming.svg';
+
 const {
   LINK_CONTACT_FORM_1,
   LINK_SECTION_1,
@@ -47,7 +49,7 @@ const Verbiage = {
       id: LINK_CONTACT_FORM_1,
       services,
       svg_show: true,
-      svg: '/src/static/svg/coming.svg',
+      svg: CONTACT_FORM_SVG,
     },
     default: {},
     services_1: {
