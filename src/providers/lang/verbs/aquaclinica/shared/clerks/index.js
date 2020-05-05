@@ -43,8 +43,8 @@ const Clerks = [
       es: 'Conocer más',
     },
     name: {
-      en: 'Dr. Luis Roberto Elizondo',
-      es: 'Dr. Luis Roberto Elizondo',
+      en: 'Master Luis Roberto Elizondo',
+      es: 'Master Luis Roberto Elizondo',
     },
   },
   {
