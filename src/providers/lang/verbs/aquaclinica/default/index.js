@@ -16,6 +16,8 @@ import promos from '../shared/promos';
 import services from '../shared/services';
 
 import CONTACT_FORM_SVG from '../../../../../static/svg/coming.svg';
+import IMG_LOGO from '../../../../../static/images/logo.jpg';
+import IMG_SECTION_1 from '../../../../../static/images/d-bg-1.png';
 
 const {
   LINK_CONTACT_FORM_1,
@@ -86,8 +88,8 @@ const Verbiage = {
       ],
       langs,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
     },
     header: {
@@ -97,8 +99,8 @@ const Verbiage = {
       },
       featured,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       publics,
       social,
@@ -209,7 +211,7 @@ const Verbiage = {
       ],
     },
     section_1: {
-      background: '/src/static/images/d-bg-1.png',
+      background: IMG_SECTION_1,
       background_show: true,
       cta: {
         en: 'ver todas las especialidades',
@@ -217,8 +219,8 @@ const Verbiage = {
       },
       id: LINK_SECTION_1,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       subtitle: {
         en: '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
@@ -356,8 +358,8 @@ const Verbiage = {
       categories,
       id: 'services_index',
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       promos,
       services,

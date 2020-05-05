@@ -1,9 +1,8 @@
 import CLERK_1_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
 import CLERK_2_IMAGE from './../../../../../../static/images/clerks/IMG-1400.jpg';
-import CLERK_3_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
-import CLERK_4_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+import CLERK_3_IMAGE from './../../../../../../static/images/clerks/IMG-1399.jpg';
+import CLERK_4_IMAGE from './../../../../../../static/images/clerks/IMG-1402.jpg';
 import CLERK_5_IMAGE from './../../../../../../static/images/clerks/IMG-1397.jpg';
-import CLERK_6_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
 
 import {
   constants,
@@ -142,8 +141,8 @@ const Clerks = [
     id: CLERK_4,
     image: CLERK_4_IMAGE,
     label: {
-      en: 'Médica Cirujana Dermatóloga',
-      es: 'Médica Cirujana Dermatóloga',
+      en: 'Médica Homeopata',
+      es: 'Médica Homeopata',
     },
     less: {
       en: 'Cerrar',
@@ -204,7 +203,7 @@ const Clerks = [
       `,
     },
     id: CLERK_6,
-    image: CLERK_6_IMAGE,
+    image: CLERK_5_IMAGE,
     label: {
       en: 'Fisioterapeuta',
       es: 'Fisioterapeuta',
