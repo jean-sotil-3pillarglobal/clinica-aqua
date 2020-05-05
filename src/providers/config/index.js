@@ -1,3 +1,7 @@
+import SOCIAL_SVG_1 from '../../static/svg/social/fb.svg';
+import SOCIAL_SVG_2 from '../../static/svg/social/ig.svg';
+import SOCIAL_SVG_3 from '../../static/svg/social/email.svg';
+
 // constants
 export const constants = {
   // categories
@@ -112,19 +116,19 @@ export const privates = [];
 // social links
 export const social = [
   {
-    icon: '/src/static/svg/social/fb.svg',
+    icon: SOCIAL_SVG_1,
     isFab: true,
     label: 'facebook',
     link: 'https://www.facebook.com/AQUApz/',
   },
   {
-    icon: '/src/static/svg/social/ig.svg',
+    icon: SOCIAL_SVG_2,
     isFab: true,
     label: 'instagram',
     link: 'https://www.instagram.com/clinicaaquapz/',
   },
   {
-    icon: '/src/static/svg/social/email.svg',
+    icon: SOCIAL_SVG_3,
     isFab: true,
     label: 'email',
     link: 'mailto:contacto@clinicaaqua.com',

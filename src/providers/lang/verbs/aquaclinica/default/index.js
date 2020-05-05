@@ -19,6 +19,15 @@ import CONTACT_FORM_SVG from '../../../../../static/svg/coming.svg';
 import IMG_LOGO from '../../../../../static/images/logo.jpg';
 import IMG_SECTION_1 from '../../../../../static/images/d-bg-1.png';
 
+import IMG_BANNER_1 from '../../../../../static/images/logos/dysport.png';
+import IMG_BANNER_2 from '../../../../../static/images/logos/emsculpt.png';
+import IMG_BANNER_3 from '../../../../../static/images/logos/fotona.png';
+import IMG_BANNER_4 from '../../../../../static/images/logos/geneo.png';
+import IMG_BANNER_5 from '../../../../../static/images/logos/lumenis.png';
+import IMG_BANNER_6 from '../../../../../static/images/logos/neauvia.png';
+import IMG_BANNER_7 from '../../../../../static/images/logos/tentrek.png';
+import IMG_BANNER_8 from '../../../../../static/images/logos/venus.png';
+
 const {
   LINK_CONTACT_FORM_1,
   LINK_SECTION_1,
@@ -157,56 +166,56 @@ const Verbiage = {
             en: 'dysport',
             es: 'dysport',
           },
-          logo: '/src/static/images/logos/dysport.png',
+          logo: IMG_BANNER_1,
         },
         {
           alt: {
             en: 'EMSCULPT',
             es: 'EMSCULPT',
           },
-          logo: '/src/static/images/logos/emsculpt.png',
+          logo: IMG_BANNER_2,
         },
         {
           alt: {
             en: 'fotona',
             es: 'fotona',
           },
-          logo: '/src/static/images/logos/fotona.png',
+          logo: IMG_BANNER_3,
         },
         {
           alt: {
             en: 'geneo',
             es: 'geneo',
           },
-          logo: '/src/static/images/logos/geneo.png',
+          logo: IMG_BANNER_4,
         },
         {
           alt: {
             en: 'lumenis',
             es: 'lumenis',
           },
-          logo: '/src/static/images/logos/lumenis.png',
+          logo: IMG_BANNER_5,
         },
         {
           alt: {
             en: 'neauvia',
             es: 'neauvia',
           },
-          logo: '/src/static/images/logos/neauvia.png',
+          logo: IMG_BANNER_6,
         },
         {
           alt: {
             en: 'tentrek',
             es: 'tentrek',
           },
-          logo: '/src/static/images/logos/tentrek.png',
+          logo: IMG_BANNER_7,
         },
         {
           alt: {
             en: 'venus',
             es: 'venus',
           },
-          logo: '/src/static/images/logos/venus.png',
+          logo: IMG_BANNER_8,
         },
       ],
     },
