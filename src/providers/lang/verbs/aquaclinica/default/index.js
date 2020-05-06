@@ -27,6 +27,9 @@ import IMG_BANNER_5 from '../../../../../static/images/logos/lumenis.png';
 import IMG_BANNER_6 from '../../../../../static/images/logos/neauvia.png';
 import IMG_BANNER_7 from '../../../../../static/images/logos/tentrek.png';
 import IMG_BANNER_8 from '../../../../../static/images/logos/venus.png';
+import IMG_BANNER_9 from '../../../../../static/images/logos/storzmedical.png';
+import IMG_BANNER_10 from '../../../../../static/images/logos/chattanooga.png';
+import IMG_BANNER_11 from '../../../../../static/images/logos/radiesse.png';
 
 const {
   LINK_CONTACT_FORM_1,
@@ -216,6 +219,27 @@ const Verbiage = {
             es: 'venus',
           },
           logo: IMG_BANNER_8,
+        },
+        {
+          alt: {
+            en: 'storzmedical',
+            es: 'storzmedical',
+          },
+          logo: IMG_BANNER_9,
+        },
+        {
+          alt: {
+            en: 'chattanooga',
+            es: 'chattanooga',
+          },
+          logo: IMG_BANNER_10,
+        },
+        {
+          alt: {
+            en: 'radiesse',
+            es: 'radiesse',
+          },
+          logo: IMG_BANNER_11,
         },
       ],
     },
