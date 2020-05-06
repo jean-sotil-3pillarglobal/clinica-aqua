@@ -76,7 +76,7 @@ const palette = {
     blur: 'rgba(255,255,255,0.3)',
     darker: Color(PRIMARY.dark).fade(0.5).string(),
     grey: '#e1e2e1',
-    highlight: 'rgba(0,0,0,0.2)',
+    highlight: 'rgba(76,75,255,0.8)',
     input: '#f7f7f7',
     light: Color(PRIMARY.main).fade(0.2).string(),
     lighter: Color(PRIMARY.main).fade(0.35).toString(),

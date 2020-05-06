@@ -146,7 +146,8 @@ const ForwardTextField = React.forwardRef((props: {
       borderRadius: '0 0 0 0',
       fontSize: '1rem',
       fontWeight: 400,
-      padding: '8px',
+      padding: '8px 0',
+      position: 'relative',
       textTransform: 'capitalize',
     });
   }
@@ -177,7 +178,7 @@ const ForwardTextField = React.forwardRef((props: {
     <FormControl>
       <InputLabel
         style={{
-          fontSize: '0.6em',
+          fontSize: '1rem',
           position: 'relative',
           top: '-12px',
           transform: 'initial',
