@@ -26,6 +26,11 @@ import {
 
 import { Link } from 'react-scroll';
 
+// Config
+import {
+  constants,
+} from '../../providers/config';
+
 // provider
 import LangToggler from '../../providers/lang/toggler';
 import LangGenerateTree from '../../providers/utils/lang.generate.tree';
@@ -36,6 +41,13 @@ import ThemeColor from './../../providers/utils/theme.color';
 import { LangButton, TYPES } from './../commons/button';
 import SmartImg from './../commons/img';
 import Icon from './../commons/icon';
+
+// paths
+const {
+  PATHS: {
+    SERVICES,
+  },
+} = constants;
 
 const drawerWidth = 240;
 
@@ -198,6 +210,8 @@ class Header extends Component {
     category: Object,
     classes: Object,
     device: String,
+    history: Object,
+    language: String,
     theme: Object,
     verbiage: Object,
   };
@@ -207,18 +221,23 @@ class Header extends Component {
       category,
       classes,
       device,
-      verbiage,
+      history,
+      language,
       theme,
+      verbiage,
     } = this.props;
 
     const proxy = {
       category,
       device,
+      language,
       verbiage,
     };
 
     const { open } = this.state;
     const isMobile = device === 'mobile';
+
+    const isLanding = (`/${language}/${SERVICES[language]}` !== this.props.history.location.pathname) && category === null;
 
     return (
       verbiage &&
@@ -282,7 +301,7 @@ class Header extends Component {
                 }
                 <SmartImg proxy={proxy} src={verbiage(copy.logo)} className={classes.logo} />
               </Grid>
-              {!category && (
+              {isLanding && (
                 <Fragment>
                   <Grid
                     item
@@ -362,7 +381,7 @@ class Header extends Component {
                   </Grid>
                 </Fragment>
               )}
-              {category && (
+              {!isLanding && (
                 <Box
                   display="flex"
                   flexDirection="row"
@@ -378,6 +397,9 @@ class Header extends Component {
                       pos="left"
                       typeButton={TYPES.BUTTON}
                       variant="light"
+                      onClick={() => {
+                        history.push('/');
+                      }}
                     />
                   </Box>
                 </Box>
@@ -423,6 +445,7 @@ function mapStateToProps (state) {
   return {
     category: state.category,
     device: state.device,
+    language: state.language,
     verbiage: state.verbiage,
   };
 }

@@ -28,6 +28,7 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
+    maxWidth: 900,
   },
   stepper: props => ({
     background: ThemeBackground(props, theme, 'main'),
@@ -42,7 +43,7 @@ const styles = theme => ({
     bottom: 0,
     position: 'absolute',
     right: 0,
-    width: '100%',
+    width: '120%',
     zIndex: -1,
   },
   title: props => ({

@@ -23,7 +23,7 @@ const asyncComponent = (importComponent) => {
 
       return C ? (
         <Fragment>
-          <Header />
+          <Header {...this.props} />
           <C {...this.props} />
           <ScrollToTopOnMount />
           <ScrollToTopButton />
