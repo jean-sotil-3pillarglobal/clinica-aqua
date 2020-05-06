@@ -31,9 +31,8 @@ const styles = theme => ({
   },
   description: props => ({
     color: ThemeColor(props, theme),
-    display: 'block',
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(2),
+    display: 'inline-block',
+    margin: `${theme.spacing(2)}px auto`,
     maxHeight: 160,
     overflowY: 'scroll',
     padding: theme.spacing(1),
@@ -71,7 +70,7 @@ const styles = theme => ({
   media: {
     backgroundPosition: 'center',
     filter: 'grayscale(100%) blur(.4px) contrast(90%)',
-    height: 400,
+    height: 550,
     imageRendering: 'pixelated',
     padding: `${theme.spacing(2)}px`,
     transition: theme.transitions.create(

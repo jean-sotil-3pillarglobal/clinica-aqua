@@ -255,10 +255,12 @@ class Header extends Component {
           </Grid>
         </Grid>
         <AppBar
-          position="fixed"
           className={classnames(classes.appBar, {
             [classes.appBarShift]: open,
-          })}>
+          })}
+          elevation={0}
+          position="fixed"
+        >
           <Toolbar variant="dense" disableGutters={!open} className={classes.toolbar}>
             <Grid
               container

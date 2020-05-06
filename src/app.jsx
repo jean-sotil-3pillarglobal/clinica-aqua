@@ -138,7 +138,7 @@ class App extends Component {
           <title>Clinica Aqua ...</title>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+          <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
           <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
         </Helmet>
         <CssBaseline />

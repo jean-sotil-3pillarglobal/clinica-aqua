@@ -1,7 +1,7 @@
 import CLERK_1_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
 import CLERK_2_IMAGE from './../../../../../../static/images/clerks/IMG-1400.jpg';
-import CLERK_3_IMAGE from './../../../../../../static/images/clerks/IMG-1399.jpg';
-import CLERK_4_IMAGE from './../../../../../../static/images/clerks/IMG-1402.jpg';
+// import CLERK_3_IMAGE from './../../../../../../static/images/clerks/IMG-1399.jpg';
+import CLERK_4_IMAGE from './../../../../../../static/images/clerks/DRA.jpeg';
 import CLERK_5_IMAGE from './../../../../../../static/images/clerks/IMG-1397.jpg';
 
 import {
@@ -101,7 +101,7 @@ const Clerks = [
       `,
     },
     id: CLERK_3,
-    image: CLERK_3_IMAGE,
+    image: CLERK_2_IMAGE,
     label: {
       en: 'Médico Cirujano Dermatólogo',
       es: 'Médico Cirujano Dermatólogo',

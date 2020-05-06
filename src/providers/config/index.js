@@ -1,6 +1,9 @@
-import SOCIAL_SVG_1 from '../../static/svg/social/fb.svg';
-import SOCIAL_SVG_2 from '../../static/svg/social/ig.svg';
-import SOCIAL_SVG_3 from '../../static/svg/social/email.svg';
+import SVG_SOCIAL_1 from '../../static/svg/social/fb.svg';
+import SVG_SOCIAL_2 from '../../static/svg/social/ig.svg';
+import SVG_SOCIAL_3 from '../../static/svg/social/email.svg';
+
+import IMG_INFO_1 from '../../static/svg/social/phone.svg';
+import IMG_INFO_4 from '../../static/svg/social/location.svg';
 
 // constants
 export const constants = {
@@ -34,7 +37,7 @@ export const constants = {
 
   PATHS: {
     SERVICES: {
-      en: 'specialities',
+      en: 'services',
       es: 'especialidades',
     },
     SERVICES_DETAILS: {
@@ -67,11 +70,11 @@ export const publics = [
     id: constants.LINK_SERVICES_1,
     label: {
       en: 'services',
-      es: 'servicios',
+      es: 'especialidades',
     },
     route: {
       en: '/services',
-      es: '/servicios',
+      es: '/especialidades',
     },
   },
   {
@@ -116,19 +119,19 @@ export const privates = [];
 // social links
 export const social = [
   {
-    icon: SOCIAL_SVG_1,
+    icon: SVG_SOCIAL_1,
     isFab: true,
     label: 'facebook',
     link: 'https://www.facebook.com/AQUApz/',
   },
   {
-    icon: SOCIAL_SVG_2,
+    icon: SVG_SOCIAL_2,
     isFab: true,
     label: 'instagram',
     link: 'https://www.instagram.com/clinicaaquapz/',
   },
   {
-    icon: SOCIAL_SVG_3,
+    icon: SVG_SOCIAL_3,
     isFab: true,
     label: 'email',
     link: 'mailto:contacto@clinicaaqua.com',
@@ -137,22 +140,22 @@ export const social = [
 
 export const info = [
   {
-    icon: '/src/static/svg/social/phone.svg',
+    icon: IMG_INFO_1,
     isFab: false,
     label: '+506 2772-0960',
   },
   {
-    icon: '/src/static/svg/social/phone.svg',
+    icon: IMG_INFO_1,
     isFab: false,
     label: '+506 8801-2626',
   },
   {
-    icon: '/src/static/svg/social/email.svg',
+    icon: SVG_SOCIAL_3,
     isFab: false,
     label: 'contacto@clinicaaqua.com',
   },
   {
-    icon: '/src/static/svg/social/location.svg',
+    icon: IMG_INFO_4,
     isFab: false,
     label: 'Pérez Zeledón, Costa Rica',
   },
