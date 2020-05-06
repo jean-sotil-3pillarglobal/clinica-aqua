@@ -37,6 +37,7 @@ import ThemeBackground from './../../../providers/utils/theme.background';
 import ThemeColor from './../../../providers/utils/theme.color';
 
 // components
+import { LangButton } from './../../../components/commons/button';
 import { TYPES } from './../../../components/commons/button';
 import Callout from './../../../components/commons/callout/';
 import Icon from './../../../components/commons/icon';
@@ -516,22 +517,17 @@ function SectionA (props: {
                       className={classes.itemActions}
                       disableSpacing
                     >
-                      <LangButtonAnimate
+                      <LangButton
                         className={classnames(classes.button, seleted && classes.itemSelected)}
-                        color="black"
-                        iconClassName={classes.icon}
-                        iconx="arrowUp"
-                        icony="fwd"
                         lang={category.cta}
                         onClick={() => {
                           setShowForm(false);
                           onServiceListClick(category, item);
                         }}
-                        pos="right"
-                        size={30}
                         typeButton={TYPES.BUTTON}
-                        variant="light"
-                      />
+                        variant="dark"
+                      >
+                      </LangButton>
                     </CardActions>
                   </Card>
                 );
