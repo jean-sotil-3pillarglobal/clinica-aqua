@@ -186,7 +186,7 @@ function Footer (props: {
         <Typography
           variant="caption"
           className={classes.copyright}>
-          2020 | ibudi Solutions
+          ibudi.dev • 2020
         </Typography>
       </Grid>
     </SectionBlock>

@@ -27,6 +27,7 @@ import {
 import Helmet from '../../components/commons/helmet';
 import Footer from '../../components/footer';
 
+import BannerA from '../home/banner-1';
 import SectionA from './section-1/index';
 
 // commons
@@ -34,6 +35,7 @@ import ContactFormLayout from '../../components/layouts/commons/contact_1';
 import Loading from './../../components/commons/preloader';
 import ScrollToTopOnMount from '../../components/commons/scrollToTopOnMount';
 import ServicesLayout from '../../components/layouts/commons/services_1';
+import ClerksLayout from '../../components/layouts/commons/clerks_1';
 
 // provider
 import LangGenerateTree from './../../providers/utils/lang.generate.tree';
@@ -91,7 +93,7 @@ class Services extends Component {
       selectVariantVerbiage('default');
     }
 
-    this.setServicesState();
+    this.setServicesState(true);
   }
 
   componentDidUpdate = (prevProps) => {
@@ -230,8 +232,9 @@ class Services extends Component {
                 />
               </SectionA>
             )}
-
+            <BannerA proxy={proxy} />
             <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="secondary" />
+            <ClerksLayout proxy={proxy} variant="dark2" />
             <Footer proxy={proxy} variant="light" />
             <ScrollToTopOnMount />
           </Fragment>
