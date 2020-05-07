@@ -1,3 +1,5 @@
+import IMG_SERVICE_4 from '../../../../../../static/images/nutri/nutricion.jpg'
+
 import {
   constants,
 } from './../../../../../config';
@@ -153,7 +155,7 @@ const Services = [
     },
   },
   {
-    background: `/src/static/images/${CATEGORY_4}/nutricion.jpg`,
+    background: IMG_SERVICE_4,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
