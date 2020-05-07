@@ -56,7 +56,7 @@ import {
 
 const styles = (theme) => ({
   container: {
-    margin: `${theme.spacing(12)}px 0 0 0`,
+    margin: `${theme.spacing(11)}px 0 0 0`,
   },
 });
 
@@ -228,7 +228,7 @@ class Services extends Component {
             )}
             <Paper className={classes.container}>
               <BannerA proxy={proxy} />
-              <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="secondary" />
+              <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant={category && category.id ? 'secondary' : 'primary'} />
               <ClerksLayout proxy={proxy} variant="dark2" />
               <Footer proxy={proxy} variant="light" />
             </Paper>
