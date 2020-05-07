@@ -18,7 +18,7 @@ const styles = theme => ({
     top: theme.spacing(0.5),
   },
   icon: {
-    fontSize: 16,
+    fontSize: '.8rem!important',
     lineHeight: '18px',
     marginRight: '4px',
   },
@@ -27,6 +27,7 @@ const styles = theme => ({
     display: 'inline',
     position: 'relative',
     top: '-3px',
+    fontSize: '.8rem',
   },
 });
 

@@ -8,6 +8,7 @@ import {
 } from 'lodash';
 
 import {
+  Paper,
   withStyles,
 } from '@material-ui/core';
 
@@ -55,15 +56,7 @@ import {
 
 const styles = (theme) => ({
   container: {
-    margin: 0,
-  },
-  logo: {
-    display: 'block',
-    margin: 0,
-    width: '50%',
-  },
-  navigation: {
-    padding: theme.spacing(2),
+    margin: `${theme.spacing(12)}px 0 0 0`,
   },
 });
 
@@ -196,6 +189,7 @@ class Services extends Component {
   render () {
     const {
       category,
+      classes,
       device,
       language,
       service,
@@ -232,10 +226,12 @@ class Services extends Component {
                 />
               </SectionA>
             )}
-            <BannerA proxy={proxy} />
-            <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="secondary" />
-            <ClerksLayout proxy={proxy} variant="dark2" />
-            <Footer proxy={proxy} variant="light" />
+            <Paper className={classes.container}>
+              <BannerA proxy={proxy} />
+              <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="secondary" />
+              <ClerksLayout proxy={proxy} variant="dark2" />
+              <Footer proxy={proxy} variant="light" />
+            </Paper>
             <ScrollToTopOnMount />
           </Fragment>
         ) || <Loading />

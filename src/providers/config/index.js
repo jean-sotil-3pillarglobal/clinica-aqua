@@ -192,6 +192,7 @@ export const assets = {
 const config = {
   assets,
   defaultLang: 'es',
+  font: 'Poppins!important',
   info,
   langs,
   routes: {

@@ -15,6 +15,8 @@ import {
 // components
 import Error from '../error';
 
+import config from '../../../../../providers/config';
+
 const styles = () => ({
   root: {},
 });
@@ -54,7 +56,6 @@ const ForwardCheckField = (props: {
     setCheckVal(target.checked);
     setValue(name, target.checked, true);
 
-    console.log(target.checked, 'here');
     proxy.handleChange({
       target: {
         name,
@@ -67,7 +68,8 @@ const ForwardCheckField = (props: {
     <FormControl>
       <InputLabel
         style={{
-          fontSize: '0.6em',
+          fontFamily: config.font,
+          fontSize: '.9rem',
           position: 'relative',
           top: '-12px',
           transform: 'initial',

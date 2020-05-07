@@ -53,7 +53,7 @@ const drawerWidth = 240;
 
 const styles = theme => ({
   appBar: {
-    background: ThemeBackground({ variant: 'primary' }, theme, 'light'),
+    background: ThemeBackground({ variant: 'primary' }, theme),
     padding: 0,
     transition: theme.transitions.create(['background-color', 'margin', 'width'], {
       duration: theme.transitions.duration.leavingScreen,

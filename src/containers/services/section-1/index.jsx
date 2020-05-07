@@ -254,7 +254,7 @@ function SectionA (props: {
     history,
     match: {
       params: {
-        serviceUrl,
+        url,
       },
     },
     onReset,
@@ -289,7 +289,7 @@ function SectionA (props: {
         );
       });
 
-      if (!service && serviceUrl) {
+      if (url && !service) {
         view = (
           <Fragment>
             <Callout

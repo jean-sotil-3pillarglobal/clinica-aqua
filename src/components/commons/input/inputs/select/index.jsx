@@ -26,9 +26,13 @@ const styles = () => ({
 const customStyles = {
   container: () => ({
     background: 'transparent',
+    position: 'relative',
   }),
   indicatorsContainer: () => ({
-    padding: '4px',
+    '& div[class*="indicatorContainer"]:last-child': {
+      display: 'none',
+    },
+    padding: '8px 4px',
     position: 'absolute',
     right: 0,
     top: 0,
@@ -49,7 +53,7 @@ const customStyles = {
       },
       borderRadius: '0 0 0 0',
       fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-      fontSize: '.6rem',
+      fontSize: '.7rem',
       padding: '0',
       textTransform: 'capitalize',
     });
@@ -146,7 +150,7 @@ const ForwardTextField = React.forwardRef((props: {
       borderRadius: '0 0 0 0',
       fontSize: '1rem',
       fontWeight: 400,
-      padding: '8px 0',
+      padding: '7px 0',
       position: 'relative',
       textTransform: 'capitalize',
     });

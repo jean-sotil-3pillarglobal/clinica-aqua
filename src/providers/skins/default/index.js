@@ -1,5 +1,7 @@
 import Color from 'color';
 
+import config from '../../config/index';
+
 const PRIMARY = {
   contrastText: 'rgba(0,0,0,1)',
   dark: 'rgba(151,153,154,0.9)',
@@ -13,8 +15,6 @@ const SECONDARY = {
   light: 'rgba(72,72,72,0.9)',
   main: 'rgba(33,33,33,0.9)',
 };
-
-const fontFamily = 'Poppins!important';
 
 const palette = {
   background: {
@@ -76,7 +76,7 @@ const palette = {
     blur: 'rgba(255,255,255,0.3)',
     darker: Color(PRIMARY.dark).fade(0.5).string(),
     grey: '#e1e2e1',
-    highlight: 'rgba(13,71,161,0.5)',
+    highlight: 'rgb(102,255,255)',
     input: '#f7f7f7',
     light: Color(PRIMARY.main).fade(0.2).string(),
     lighter: Color(PRIMARY.main).fade(0.35).toString(),
@@ -98,7 +98,7 @@ const overrides = {
       borderColor: 'transparent',
       borderRadius: '0 0 0 0',
       boxShadow: 'none',
-      fontFamily,
+      fontFamily: config.font,
       fontSize: '.7em',
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -178,10 +178,8 @@ const overrides = {
       '&.Mui-error': {
         color: PRIMARY.contrastText,
       },
-      bottom: '-1.6em',
-      fontSize: '.5em',
+      fontSize: '.8rem',
       fontWeight: 300,
-      position: 'absolute',
       textTransform: 'capitalize',
     },
   },
@@ -189,9 +187,12 @@ const overrides = {
     root: {
       '&$focused': {
         color: palette.utils.highlight,
+        fontWeight: 600,
       },
-      fontSize: '.8em',
-      fontWeight: 300,
+      '&[class*="MuiInputLabel"]': {
+        fontSize: '1.3rem',
+        fontWeight: 400,
+      },
     },
   },
   MuiIconButton: {
@@ -221,7 +222,7 @@ const overrides = {
         border: `1px solid ${PRIMARY.dark}`,
       },
       '&.Mui-error.MuiInput-root': {
-        border: `1px solid ${palette.error.main}`,
+        border: `1px solid ${palette.error.main}!important`,
       },
       '&.Mui-focused.MuiInput-root': {
         border: `2px solid ${palette.utils.highlight}`,
@@ -352,7 +353,7 @@ const overrides = {
   },
   MuiTypography: {
     root: {
-      fontFamily,
+      fontFamily: config.font,
       lineHeight: 'normal!important',
     },
   },
