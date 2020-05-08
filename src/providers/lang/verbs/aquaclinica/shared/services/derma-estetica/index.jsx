@@ -36,8 +36,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_1,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_1}`,
@@ -66,8 +66,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_2,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     featured: false,
     featuredText: {
@@ -101,8 +101,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_3,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_3}`,
@@ -131,8 +131,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_3,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_4}`,
@@ -161,8 +161,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_5,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_5}`,
@@ -191,8 +191,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_6,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_6}`,
@@ -221,8 +221,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_7,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_7}`,
@@ -251,8 +251,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_8,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_8}`,
@@ -281,8 +281,8 @@ const Services = [
     ],
     content: CONTENT_SERVICE_9,
     cta: {
-      en: 'learn more',
-      es: 'me interesa',
+      en: 'conocer más',
+      es: 'conocer más',
     },
     ico: 'cloud-download',
     id: `${CATEGORY_2}-${SERVICE_9}`,

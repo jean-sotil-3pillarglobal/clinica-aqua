@@ -57,6 +57,7 @@ import {
 const styles = (theme) => ({
   container: {
     margin: `${theme.spacing(11)}px 0 0 0`,
+    position: 'relative',
   },
 });
 

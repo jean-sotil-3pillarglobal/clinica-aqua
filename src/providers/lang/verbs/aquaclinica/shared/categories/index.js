@@ -46,8 +46,8 @@ const Services = [
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     description: {
       en: 'Un cuidado de la piel especializado siempre será mejor que cualquier remedio casero improvisado que puede traer efectos adversos. Así que si desea revitalizar la piel y darle un nuevo aire más saludable, la dermatología clinica es lo que necesitas.',
@@ -91,8 +91,8 @@ const Services = [
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     description: {
       en: 'La dermatología estética se define como un área de la medicina que tiene como objetivo mejorar el aspecto de la piel de una persona que no padece ninguna patología, pero que desea corregir o retrasar el envejecimiento cutáneo, o paliar cualquier otro defecto físico.',
@@ -136,8 +136,8 @@ const Services = [
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_3,
@@ -176,8 +176,8 @@ const Services = [
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_4,
@@ -216,8 +216,8 @@ const Services = [
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     description: {
       en: 'La terapia física tiene gran cantidad de beneficios para aquellos que se encuentran en proceso de recuperación de una lesión o enfermedad. Sirve también para los que necesitan asistencia adicional con respecto a la movilidad de los miembros afectados e incluso en caso de padecer alguna discapacidad.',

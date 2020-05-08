@@ -78,6 +78,7 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
+    position: 'relative',
   },
   copy: {
     margin: `${theme.spacing(2)}px 0 0 0`,
@@ -121,7 +122,7 @@ const styles = theme => ({
   header: {
     display: 'flex',
     flexFlow: 'column',
-    margin: '0 auto',
+    margin: `0 0 ${theme.spacing(2)}px 0`,
     maxWidth: '100%',
     minHeight: '100vh',
     overflow: 'hidden',
@@ -291,6 +292,29 @@ function SectionA (props: {
 
   const servicePath = SERVICES[language];
 
+  const LinkForm = (() => (
+    <Link
+      className={classes.button}
+      activeClass="active"
+      smooth
+      spy
+      to={constants.LINK_CONTACT_FORM_2}
+    >
+      <LangButtonAnimate
+        color="white"
+        iconClassName={classes.icon}
+        iconx="arrowUp"
+        icony="fwd"
+        lang={category && category.cta}
+        onClick={() => setShowForm(true)}
+        pos="right"
+        size={30}
+        typeButton={TYPES.BUTTON}
+        variant="dark2"
+      />
+    </Link>
+  ));
+
   if (!showForm) {
     if (!service) {
       view = category.images && category.images.map((image, i) => {
@@ -361,26 +385,7 @@ function SectionA (props: {
             <CardActions
               disableSpacing
             >
-              <Link
-                className={classes.button}
-                activeClass="active"
-                smooth
-                spy
-                to={constants.LINK_CONTACT_FORM_2}
-              >
-                <LangButtonAnimate
-                  color="white"
-                  iconClassName={classes.icon}
-                  iconx="arrowUp"
-                  icony="fwd"
-                  lang={service.cta}
-                  onClick={() => setShowForm(true)}
-                  pos="right"
-                  size={30}
-                  typeButton={TYPES.BUTTON}
-                  variant="dark2"
-                />
-              </Link>
+              {LinkForm()}
             </CardActions>
           </Card>
         </Paper>
@@ -388,7 +393,6 @@ function SectionA (props: {
     }
   }
 
-  console.log(category);
   return (
     <Element name={constants.LINK_CONTACT_FORM_2}>
       <Paper className={classes.container} elevation={0}>
@@ -457,7 +461,7 @@ function SectionA (props: {
                 alignItems="flex-start"
                 spacing={4}
               >
-                {!service && (
+                {(!showForm && !service) && (
                   <Grid
                     item
                     sm={12}
@@ -471,6 +475,7 @@ function SectionA (props: {
                       subtitle={category.description}
                       variant={variant}
                     />
+                    {LinkForm()}
                   </Grid>)
                 }
                 {showForm && (
@@ -481,10 +486,11 @@ function SectionA (props: {
                     lg={(!service || showForm) ? 6 : 12}
                   >
                     <Callout
+                      className={classes.header}
                       align="left"
-                      title={category.description}
+                      title={category.title}
+                      subtitle={category.description}
                       variant={variant}
-                      transparent
                     />
                   </Grid>
                 )}
@@ -534,7 +540,7 @@ function SectionA (props: {
                     >
                       <LangButton
                         className={classnames(classes.button, seleted && classes.itemSelected)}
-                        lang={category.cta}
+                        lang={item.cta}
                         onClick={() => {
                           setShowForm(false);
                           onServiceListClick(category, item);
