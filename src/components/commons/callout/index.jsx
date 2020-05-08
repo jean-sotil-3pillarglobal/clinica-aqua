@@ -31,7 +31,7 @@ const styles = theme => ({
     color: ThemeColor(props, theme),
     marginBottom: theme.spacing(3),
     textAlign: props.align || 'left',
-    textTransform: 'initial',
+    textTransform: 'capitalize',
   }),
 });
 

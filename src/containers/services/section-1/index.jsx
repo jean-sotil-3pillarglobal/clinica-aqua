@@ -98,13 +98,14 @@ const styles = theme => ({
   },
   description: {
     color: theme.palette.primary.contrastText,
+    margin: theme.spacing(1),
     textAlign: 'center',
   },
   descriptionContainer: {
     background: ThemeBackground({ variant }, theme, 'light'),
     maxWidth: 'initial',
     minHeight: 'initial',
-    padding: `${theme.spacing(1)}px 0`,
+    padding: `${theme.spacing(1)}px 0 0 0`,
   },
   details: {
     padding: `${theme.spacing(10)}px 0 0 0`,
@@ -117,21 +118,32 @@ const styles = theme => ({
     display: 'inline-block',
     padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
   },
+  header: {
+    display: 'flex',
+    flexFlow: 'column',
+    margin: '0 auto',
+    maxWidth: '100%',
+    minHeight: '100vh',
+    overflow: 'hidden',
+    padding: `${theme.spacing(16)}px 0`,
+    textAlign: 'justify',
+  },
   icon: {
     lineHeight: 0,
   },
-
   images: {
     '&:hover': {
       filter: 'initial',
       imageRendering: 'initial',
+      transform: 'scale(1.05)',
     },
-    border: `1px solid ${ThemeBackground({ variant }, theme, 'light')}`,
-    filter: 'grayscale(100%) blur(.4px) contrast(90%)',
+    border: `1px solid ${ThemeBackground({ variant }, theme, 'dark')}`,
+    filter: 'grayscale(100%) contrast(90%)',
     imageRendering: 'pixelated',
-    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    transform: 'scale(1)',
     transition: theme.transitions.create(
-      ['filter'],
+      ['filter', 'transform'],
       { duration: theme.transitions.duration.complex },
     ),
   },
@@ -376,6 +388,7 @@ function SectionA (props: {
     }
   }
 
+  console.log(category);
   return (
     <Element name={constants.LINK_CONTACT_FORM_2}>
       <Paper className={classes.container} elevation={0}>
@@ -442,6 +455,7 @@ function SectionA (props: {
                 direction="row"
                 justify="flex-start"
                 alignItems="flex-start"
+                spacing={4}
               >
                 {!service && (
                   <Grid
@@ -451,10 +465,11 @@ function SectionA (props: {
                     lg={6}
                   >
                     <Callout
+                      className={classes.header}
                       align="left"
-                      title={category.description}
+                      title={category.title}
+                      subtitle={category.description}
                       variant={variant}
-                      transparent
                     />
                   </Grid>)
                 }

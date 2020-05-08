@@ -95,6 +95,13 @@ const styles = theme => ({
     cursor: 'default',
     display: 'block',
     padding: theme.spacing(1),
+    transition: theme.transitions.create(
+      ['borderWidth'],
+      { duration: theme.transitions.duration.complex },
+    ),
+  }),
+  cardTitleImageHover: props => ({
+    borderWidth: 0,
   }),
   cta: {
     padding: `${theme.spacing(2)}px 0`,
@@ -235,15 +242,16 @@ function ServicesLayout (props: {
                 </Fab>
               </Fragment>
             }
-            className={classes.cardTitleImage}
+            className={classnames(classes.cardTitleImage, isHover && classes.cardTitleImageHover)}
             style={{
               backgroundImage: `url(${item.background})`,
               backgroundPosition: 'center',
-              filter: !isHover ? 'grayscale(100%) blur(.4px) contrast(90%)' : '',
+              filter: !isHover ? 'grayscale(100%) contrast(90%)' : '',
+              transform: !isHover ? 'scale(1)' : 'scale(1.05)',
               height: 300,
               imageRendering: isHover ? 'pixelated' : '',
               transition: theme.transitions.create(
-                ['filter'],
+                ['filter', 'transform'],
                 { duration: theme.transitions.duration.complex },
               ),
               width: '100%',
