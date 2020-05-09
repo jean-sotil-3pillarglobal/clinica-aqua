@@ -69,7 +69,7 @@ const styles = theme => ({
   }),
   media: {
     backgroundPosition: 'center',
-    filter: 'grayscale(100%) blur(.4px) contrast(90%)',
+    filter: 'grayscale(100%) contrast(90%)',
     height: 550,
     imageRendering: 'pixelated',
     padding: `${theme.spacing(2)}px`,

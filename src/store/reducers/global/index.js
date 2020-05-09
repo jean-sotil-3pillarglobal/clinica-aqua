@@ -16,7 +16,7 @@ export const getDeviceReducer = (state = null, action) => {
 export const getSectionReducer = (state = null, action) => {
   switch (action.type) {
   case SET_SECTION:
-    return action.payload;
+    return action.payload || null;
   default:
     return state;
   }

@@ -141,7 +141,7 @@ const styles = theme => ({
     textAlign: 'left',
   },
   navbarItem: props => ({
-    textAlign: props.device === 'mobile' ? 'left%' : 'initial',
+    textAlign: props.device === 'mobile' ? 'left' : 'initial',
     width: props.device === 'mobile' ? '100%' : 'initial',
   }),
   navbarItemSelected: {
@@ -278,19 +278,6 @@ class Header extends Component {
                 m={1}
                 className={classes.navbar}>
                 {copy.publics.map((item) => {
-                  console.log(section && verbiage(item.id) === section);
-                  const CustomButton = (
-                    <LangButton
-                      className={classnames(classes.navbarItem, (section && verbiage(item.id) === section) && classes.navbarItemSelected)}
-                      key={item.label}
-                      lang={item.label}
-                      pos="right"
-                      typeButton={TYPES.LINK}
-                      active={section && verbiage(item.id) === section}
-                      variant={isMobile ? 'light2' : 'light'}
-                    />
-                  );
-
                   return (
                     <Link
                       activeClass="active"
@@ -299,12 +286,15 @@ class Header extends Component {
                       spy
                       to={verbiage(item.id)}
                     >
-                      {!isMobile && (
-                        <Box p={1} key={item.id}>
-                          {CustomButton}
-                        </Box>
-                      )}
-                      {isMobile && CustomButton}
+                      <LangButton
+                        className={classnames(classes.navbarItem, (section && verbiage(item.id) === section) && classes.navbarItemSelected)}
+                        key={item.label}
+                        lang={item.label}
+                        pos="right"
+                        typeButton={TYPES.LINK}
+                        active={section && verbiage(item.id) === section}
+                        variant={isMobile ? 'light2' : 'light'}
+                      />
                     </Link>
                   );
                 })}
@@ -324,17 +314,6 @@ class Header extends Component {
                 m={1}
                 className={classes.navbar}>
                 {copy.featured.map((featured) => {
-                  const CustomButton = (
-                    <LangButton
-                      className={classes.navbarItem}
-                      key={featured.label}
-                      lang={featured.label}
-                      pos="right"
-                      typeButton={TYPES.CONTAINED}
-                      variant={isMobile ? 'secondary' : 'dark'}
-                    />
-                  );
-
                   return (
                     <Link
                       activeClass="active"
@@ -343,12 +322,14 @@ class Header extends Component {
                       spy
                       to={verbiage(featured.id)}
                     >
-                      {!isMobile && (
-                        <Box p={1} key={featured.id}>
-                          {CustomButton}
-                        </Box>
-                      )}
-                      {isMobile && CustomButton}
+                      <LangButton
+                        className={classes.navbarItem}
+                        key={featured.label}
+                        lang={featured.label}
+                        pos="right"
+                        typeButton={TYPES.CONTAINED}
+                        variant={isMobile ? 'secondary' : 'dark'}
+                      />
                     </Link>
                   );
                 })}
@@ -426,7 +407,7 @@ class Header extends Component {
               alignItems="center"
               container
               direction="row"
-              justify={isMobile ? 'flex-start' : 'space-between'}
+              justify={isMobile ? 'flex-start' : isLanding ? 'space-between' : 'flex-end'}
             >
               {isMobile && (
                 <Grid
