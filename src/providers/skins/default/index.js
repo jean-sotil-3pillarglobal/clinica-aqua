@@ -245,13 +245,13 @@ const overrides = {
   MuiLink: {
     root: {
       borderBottom: '0 solid transparent',
-      fontSize: '1rem',
+      fontSize: '1.02rem',
       fontWeight: 400,
       textTransform: 'capitalize',
     },
     underlineHover: {
       '&:hover *, &:hover': {
-        fontWeight: 500,
+        fontWeight: 800,
       },
     },
   },

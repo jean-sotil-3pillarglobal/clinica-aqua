@@ -208,6 +208,14 @@ const Clerks = [
       en: 'Fisioterapeuta',
       es: 'Fisioterapeuta',
     },
+    less: {
+      en: 'Cerrar',
+      es: 'Cerrar',
+    },
+    more: {
+      en: 'Conocer más',
+      es: 'Conocer más',
+    },
     name: {
       en: 'Lic. Helyani Lopez Solano',
       es: 'Lic. Helyani Lopez Solano',

@@ -71,6 +71,10 @@ const Verbiage = {
         en: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
         es: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
       },
+      cta: {
+        en: 'conocer más',
+        es: 'conocer más',
+      },
       categories,
       id: LINK_SERVICES_1,
       services,

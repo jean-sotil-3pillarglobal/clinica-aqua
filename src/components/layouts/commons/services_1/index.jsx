@@ -167,6 +167,7 @@ const SLOT = 'services_1';
 const copy = LangGenerateTree([NODE, SLOT], [
   'body',
   'categories',
+  'cta',
   'id',
   'services',
   'title',
@@ -330,7 +331,7 @@ function ServicesLayout (props: {
             >
               <LangButton
                 className={classnames(classes.button, isHover && classes.buttonHover)}
-                lang={item.cta}
+                lang={copy.cta}
                 typeButton={TYPES.CONTAINED}
                 variant={variant}
               />

@@ -11,10 +11,7 @@ import {
   Drawer,
   Grid,
   IconButton,
-  List,
-  ListItem,
   Toolbar,
-  Typography,
   withStyles,
 } from '@material-ui/core';
 
@@ -32,7 +29,6 @@ import {
 } from '../../providers/config';
 
 // provider
-import LangToggler from '../../providers/lang/toggler';
 import LangGenerateTree from '../../providers/utils/lang.generate.tree';
 import ThemeBackground from './../../providers/utils/theme.background';
 import ThemeColor from './../../providers/utils/theme.color';
@@ -67,9 +63,6 @@ const styles = theme => ({
       easing: theme.transitions.easing.easeOut,
     }),
     width: `calc(100% - ${drawerWidth}px)`,
-  },
-  back: {
-    background: ThemeBackground({ variant: 'primary' }, theme, 'light'),
   },
   burger: {
     color: theme.palette.secondary.contrastText,
@@ -138,8 +131,14 @@ const styles = theme => ({
   },
   navbar: {
     background: 'transparent',
+    margin: 0,
     padding: 0,
+    textAlign: 'left',
   },
+  navbarItem: props => ({
+    textAlign: props.device === 'mobile' ? 'left%' : 'initial',
+    width: props.device === 'mobile' ? '100%' : 'initial',
+  }),
   phone: () => ({
     color: theme.palette.utils.hightlight,
     marginRight: theme.spacing(1),
@@ -239,6 +238,124 @@ class Header extends Component {
 
     const isLanding = (`/${language}/${SERVICES[language]}` !== this.props.history.location.pathname) && category === null;
 
+    const HeaderLinks = (
+      <Fragment>
+        {isLanding && (
+          <Fragment>
+            <Grid
+              item
+              sm={12}
+              md={7}
+              lg={7}
+            >
+              <Box
+                display="flex"
+                flexDirection={isMobile ? 'column' : 'row'}
+                justifyContent="flex-start"
+                p={1}
+                m={1}
+                className={classes.navbar}>
+                {copy.publics.map((item) => {
+                  const CustomButton = (
+                    <LangButton
+                      className={classes.navbarItem}
+                      key={item.label}
+                      lang={item.label}
+                      pos="right"
+                      typeButton={TYPES.LINK}
+                      variant={isMobile ? 'light2' : 'light'}
+                    />
+                  );
+
+                  return (
+                    <Link
+                      activeClass="active"
+                      key={item.id}
+                      smooth
+                      spy
+                      to={verbiage(item.id)}
+                    >
+                      {!isMobile && (
+                        <Box p={1} key={item.id}>
+                          {CustomButton}
+                        </Box>
+                      )}
+                      {isMobile && CustomButton}
+                    </Link>
+                  );
+                })}
+              </Box>
+            </Grid>
+            <Grid
+              item
+              sm={10}
+              md={3}
+              lg={3}
+            >
+              <Box
+                display="flex"
+                flexDirection={isMobile ? 'column' : 'row'}
+                justifyContent="flex-end"
+                p={1}
+                m={1}
+                className={classes.navbar}>
+                {copy.featured.map((featured) => {
+                  const CustomButton = (
+                    <LangButton
+                      className={classes.navbarItem}
+                      key={featured.label}
+                      lang={featured.label}
+                      pos="right"
+                      typeButton={TYPES.CONTAINED}
+                      variant={isMobile ? 'secondary' : 'dark'}
+                    />
+                  );
+
+                  return (
+                    <Link
+                      activeClass="active"
+                      key={featured.id}
+                      smooth
+                      spy
+                      to={verbiage(featured.id)}
+                    >
+                      {!isMobile && (
+                        <Box p={1} key={featured.id}>
+                          {CustomButton}
+                        </Box>
+                      )}
+                      {isMobile && CustomButton}
+                    </Link>
+                  );
+                })}
+              </Box>
+            </Grid>
+          </Fragment>
+        )}
+        {!isLanding && (
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="flex-start"
+            p={1}
+            m={1}
+            className={classes.navbar}>
+            <LangButton
+              className={classes.navbarItem}
+              key={copy.back}
+              lang={copy.back}
+              pos="left"
+              typeButton={TYPES.BUTTON}
+              variant="light"
+              onClick={() => {
+                history.push('/');
+              }}
+            />
+          </Box>
+        )}
+      </Fragment>
+    );
+
     return (
       verbiage &&
       <div className={classes.root}>
@@ -282,10 +399,11 @@ class Header extends Component {
         >
           <Toolbar variant="dense" disableGutters={!open} className={classes.toolbar}>
             <Grid
+              alignItems="center"
               container
               direction="row"
-              justify="flex-end"
-              alignItems="center">
+              justify={isMobile ? 'flex-start' : 'flex-end'}
+            >
               <Grid
                 item
                 sm={10}
@@ -299,111 +417,16 @@ class Header extends Component {
                     <Menu />
                   </IconButton> : null
                 }
+              </Grid>
+              <Grid
+                item
+                sm={10}
+                md={1}
+                lg={1}
+              >
                 <SmartImg proxy={proxy} src={verbiage(copy.logo)} className={classes.logo} />
               </Grid>
-              {isLanding && (
-                <Fragment>
-                  <Grid
-                    item
-                    sm={12}
-                    md={8}
-                    lg={8}
-                  >
-                    {(!open && !isMobile) &&
-                      <Box
-                        display="flex"
-                        flexDirection="row"
-                        justifyContent="flex-start"
-                        p={1}
-                        m={1}
-                        className={classes.navbar}>
-                        {copy.publics.map((item) => {
-                          return (
-                            <Link
-                              activeClass="active"
-                              key={item.id}
-                              smooth
-                              spy
-                              to={verbiage(item.id)}
-                            >
-                              <Box p={1} className={classes.navbarItem} key={item.id}>
-                                <LangButton
-                                  key={item.label}
-                                  lang={item.label}
-                                  pos="right"
-                                  typeButton={TYPES.LINK}
-                                  variant="light"
-                                />
-                              </Box>
-                            </Link>
-                          );
-                        })}
-                      </Box>
-                    }
-                  </Grid>
-                  <Grid
-                    item
-                    sm={10}
-                    md={3}
-                    lg={3}
-                  >
-                    {(!open && !isMobile) && (
-                      <Box
-                        display="flex"
-                        flexDirection="row"
-                        justifyContent="flex-end"
-                        p={1}
-                        m={1}
-                        className={classes.navbar}>
-                        {copy.featured.map((featured) => {
-                          return (
-                            <Link
-                              activeClass="active"
-                              key={featured.id}
-                              smooth
-                              spy
-                              to={verbiage(featured.id)}
-                            >
-                              <Box p={1} className={classes.navbarItem} key={featured.id}>
-                                <LangButton
-                                  key={featured.label}
-                                  lang={featured.label}
-                                  pos="right"
-                                  typeButton={TYPES.CONTAINED}
-                                  variant="dark"
-                                />
-                              </Box>
-                            </Link>
-                          );
-                        })}
-                      </Box>
-                    )}
-                  </Grid>
-                </Fragment>
-              )}
-              {!isLanding && (
-                <Box
-                  display="flex"
-                  flexDirection="row"
-                  justifyContent="flex-start"
-                  p={1}
-                  m={1}
-                  className={classes.navbar}>
-                  <Box p={1} className={classes.navbarItem} key={copy.back}>
-                    <LangButton
-                      className={classes.back}
-                      key={copy.back}
-                      lang={copy.back}
-                      pos="left"
-                      typeButton={TYPES.BUTTON}
-                      variant="light"
-                      onClick={() => {
-                        history.push('/');
-                      }}
-                    />
-                  </Box>
-                </Box>
-              )}
+              {!isMobile && HeaderLinks}
             </Grid>
           </Toolbar>
         </AppBar>
@@ -422,15 +445,7 @@ class Header extends Component {
               </IconButton>
             </div>
             <Divider className={classes.divider} />
-            <List>
-              {copy.publics.map(item => (
-                <ListItem button key={item.label} className={classes.menuItem}>
-                  <Typography variant="body1" component="span" className={classes.menuLabel}>
-                    <LangToggler id={item.label} />
-                  </Typography>
-                </ListItem>
-              ))}
-            </List>
+            {isMobile && HeaderLinks}
           </Drawer>
         }
       </div>
