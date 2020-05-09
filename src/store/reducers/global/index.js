@@ -1,11 +1,21 @@
 import {
   SET_DEVICE,
   SET_LEAD_TYPE,
+  SET_SECTION,
 } from '../../actions/global';
 
 export const getDeviceReducer = (state = null, action) => {
   switch (action.type) {
   case SET_DEVICE:
+    return action.payload;
+  default:
+    return state;
+  }
+};
+
+export const getSectionReducer = (state = null, action) => {
+  switch (action.type) {
+  case SET_SECTION:
     return action.payload;
   default:
     return state;

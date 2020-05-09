@@ -1,7 +1,8 @@
 
-import { connect } from 'react-redux';
-import classnames from 'classnames';
 import React, { Component, Fragment } from 'react';
+import classnames from 'classnames';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import {
   AppBar,
@@ -21,12 +22,16 @@ import {
   Menu,
 } from '@material-ui/icons';
 
-import { Link } from 'react-scroll';
+import { Events, Link } from 'react-scroll';
 
 // Config
 import {
   constants,
 } from '../../providers/config';
+
+import {
+  setSectionAction,
+} from '../../store/actions/global';
 
 // provider
 import LangGenerateTree from '../../providers/utils/lang.generate.tree';
@@ -139,6 +144,10 @@ const styles = theme => ({
     textAlign: props.device === 'mobile' ? 'left%' : 'initial',
     width: props.device === 'mobile' ? '100%' : 'initial',
   }),
+  navbarItemSelected: {
+    fontWeight: 600,
+    textDecoration: 'underline',
+  },
   phone: () => ({
     color: theme.palette.utils.hightlight,
     marginRight: theme.spacing(1),
@@ -193,6 +202,16 @@ class Header extends Component {
     open: false,
   };
 
+  componentDidMount = () => {
+    const {
+      setSection,
+    } = this.props;
+
+    Events.scrollEvent.register('begin', (to) => {
+      setSection(to);
+    });
+  }
+
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -211,6 +230,8 @@ class Header extends Component {
     device: String,
     history: Object,
     language: String,
+    section: String,
+    setSection: Function,
     theme: Object,
     verbiage: Object,
   };
@@ -222,6 +243,7 @@ class Header extends Component {
       device,
       history,
       language,
+      section,
       theme,
       verbiage,
     } = this.props;
@@ -256,13 +278,15 @@ class Header extends Component {
                 m={1}
                 className={classes.navbar}>
                 {copy.publics.map((item) => {
+                  console.log(section && verbiage(item.id) === section);
                   const CustomButton = (
                     <LangButton
-                      className={classes.navbarItem}
+                      className={classnames(classes.navbarItem, (section && verbiage(item.id) === section) && classes.navbarItemSelected)}
                       key={item.label}
                       lang={item.label}
                       pos="right"
                       typeButton={TYPES.LINK}
+                      active={section && verbiage(item.id) === section}
                       variant={isMobile ? 'light2' : 'light'}
                     />
                   );
@@ -402,22 +426,22 @@ class Header extends Component {
               alignItems="center"
               container
               direction="row"
-              justify={isMobile ? 'flex-start' : 'flex-end'}
+              justify={isMobile ? 'flex-start' : 'space-between'}
             >
-              <Grid
-                item
-                sm={10}
-                md={1}
-                lg={1}>
-                {isMobile ?
+              {isMobile && (
+                <Grid
+                  item
+                  sm={10}
+                  md={1}
+                  lg={1}>
                   <IconButton
                     aria-label="Open drawer"
                     onClick={this.handleDrawerOpen}
                     className={classnames(classes.menuButton, open && classes.hide)}>
                     <Menu />
-                  </IconButton> : null
-                }
-              </Grid>
+                  </IconButton>
+                </Grid>
+              )}
               <Grid
                 item
                 sm={10}
@@ -454,15 +478,21 @@ class Header extends Component {
   }
 }
 
-
 // map state to props
 function mapStateToProps (state) {
   return {
     category: state.category,
     device: state.device,
     language: state.language,
+    section: state.section,
     verbiage: state.verbiage,
   };
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles, { withTheme: true })(Header));
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    setSection: setSectionAction,
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(Header));

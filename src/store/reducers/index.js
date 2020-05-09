@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import {
   getDeviceReducer,
   getLeadTypeReducer,
+  getSectionReducer,
 } from './global';
 
 // header
@@ -43,6 +44,7 @@ const rootReducer = combineReducers({
   language: selectedLanguageReducer,
   lead: getLeadReducer,
   leadType: getLeadTypeReducer,
+  section: getSectionReducer,
   service: getServiceReducer,
   services: getServicesReducer,
   verbiage: selectedVariantVerbiageReducer,
