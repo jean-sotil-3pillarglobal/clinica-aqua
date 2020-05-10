@@ -1,6 +1,5 @@
 
 import classnames from 'classnames';
-import Fade from 'react-reveal/Fade';
 import React from 'react';
 
 import {
@@ -54,11 +53,9 @@ function Callout (props: {
   return (
     <Card className={classnames(classes.card, className)} elevation={0}>
       <CardContent className={classes.container}>
-        <Fade top>
-          <Typography variant="h1" component="p" className={classes.title}>
-            <LangToggler id={title} />
-          </Typography>
-        </Fade>
+        <Typography variant="h1" component="p" className={classes.title}>
+          <LangToggler id={title} />
+        </Typography>
         {subtitle && (
           <Typography variant="body1" component="p" className={classes.subtitle}>
             <LangToggler id={subtitle} />

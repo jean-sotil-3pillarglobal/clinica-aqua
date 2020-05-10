@@ -33,7 +33,7 @@ const styles = theme => ({
     width: '100%',
   },
   item: {
-    padding: `${theme.spacing(6)}px ${theme.spacing(2)}px`,
+    padding: `0 ${theme.spacing(2)}px`,
   },
   nextArrow: {},
   prevArrow: {},
@@ -58,19 +58,20 @@ function SliderLayout (props: {
   } = props;
 
   const sliderProps = {
+    autoplay: true,
     dots: true,
     infinite: false,
+    infinite: true,
+    lazyLoad: true,
+    slidesToScroll: 5,
+    slidesToShow: 5,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
           dots: true
         }
@@ -78,9 +79,9 @@ function SliderLayout (props: {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          initialSlide: 3
         }
       },
       {
