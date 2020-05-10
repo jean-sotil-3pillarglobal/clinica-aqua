@@ -63,7 +63,17 @@ function SliderLayout (props: {
     autoplaySpeed: 2000,
     centerPadding: '60px',
     className: 'container',
+    dots: true,
     infinite: true,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
     slidesToShow: slidesToShow || 4,
     swipeToSlide: true,
   };

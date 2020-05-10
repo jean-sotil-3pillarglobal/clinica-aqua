@@ -291,7 +291,7 @@ class Header extends Component {
                         key={item.label}
                         lang={item.label}
                         pos="right"
-                        typeButton={TYPES.LINK}
+                        typeButton={isMobile ? TYPES.BUTTON : TYPES.LINK}
                         active={section && verbiage(item.id) === section}
                         variant={isMobile ? 'light2' : 'light'}
                       />
