@@ -8336,10 +8336,10 @@ react-move@^2.7.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-parallax@^2.2.3:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/react-parallax/-/react-parallax-2.2.4.tgz#c02e2e550c701c82d6febbf426f288b75c9cfd95"
-  integrity sha512-HdKyD845NmaxN+zOFcGPereG59DEgCB0wXJvvOomgwISMr4tVyTlspJGviVl5JVVCER5bmG6crMkDhBkJPRZvQ==
+react-parallax@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-parallax/-/react-parallax-3.0.3.tgz#5550f1e81bf040b240045348cb3b039b73a735ef"
+  integrity sha512-kdoMjg5B9nQFh3mTFrnzkr7AoG89L/tq1c98ho3g+11UwfeYePji9D3oeqN/oDtJemWKypnB8OYrzQ/BTazrNA==
 
 react-redux@^7.0.2:
   version "7.2.0"
@@ -8440,10 +8440,10 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
-react-slick@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.24.0.tgz#1a4e078a82de4e9458255d9ce26aa6f3b17b168b"
-  integrity sha512-Pvo0B74ohumQdYOf0qP+pdQpj9iUbAav7+2qiF3uTc5XeQp/Y/cnIeDBM2tB3txthfSe05jKIqLMJTS6qVvt5g==
+react-slick@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.26.0.tgz#4dfa593fee467b9e0eb725403e63c4f7ba4e4b54"
+  integrity sha512-f0pHnKF00xJTlAdb6igspJUgYIFUGTJixOnOIKZV+thTfUOOFmCPrXMYlZ4toUg2ovlgC2bc2nIxu19aKKFwCw==
   dependencies:
     classnames "^2.2.5"
     enquire.js "^2.1.6"

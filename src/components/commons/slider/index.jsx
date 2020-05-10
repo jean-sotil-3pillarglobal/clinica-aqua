@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import React from 'react';
 
 import {
-  Grid,
+  Paper,
   withStyles,
 } from '@material-ui/core';
 
@@ -58,40 +58,46 @@ function SliderLayout (props: {
   } = props;
 
   const sliderProps = {
-    adaptiveHeight: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    centerPadding: '60px',
-    className: 'container',
     dots: true,
-    infinite: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    autoplay: true,
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-    slidesToShow: slidesToShow || 4,
-    swipeToSlide: true,
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      }
+    ]
   };
 
   return (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      className={classes.container}>
-      <Grid
-        item
-        sm={sm || 12}
-        md={md || 12}
-        lg={lg || 12}
-      >
-        <Slider {...sliderProps}>
+    <Paper
+      className={classes.container}
+      elevation={0}>
+      <Slider {...sliderProps}>
           {items.map((item) => {
             return (
               <div className={classes.item} key={`${item.key}-slider-item`}>
@@ -100,8 +106,7 @@ function SliderLayout (props: {
             );
           })}
         </Slider>
-      </Grid>
-    </Grid>
+    </Paper>
   );
 }
 
