@@ -102,12 +102,13 @@ const styles = theme => ({
     color: theme.palette.secondary.contrastText,
     width: drawerWidth,
   },
-  fab: {
+  fab: props => ({
     '&:hover': {
       background: ThemeBackground({ variant: 'primary' }, theme, 'dark'),
     },
     background: ThemeBackground({ variant: 'primary' }, theme),
-  },
+    marginRight: props.device === 'mobile' ? 0 : theme.spacing(4),
+  }),
   h3: {
     color: theme.palette.primary.contrastText,
     marginBottom: 0,
@@ -153,16 +154,13 @@ const styles = theme => ({
     marginRight: theme.spacing(1),
   }),
   root: () => ({}),
-  socialButtons: {
-    padding: 0,
-  },
-  socialButtonsFixed: {
+  socialButtonsFixed: props => ({
     display: 'block',
     position: 'fixed',
-    right: theme.spacing(3),
-    top: theme.spacing(14),
+    right: 0,
+    top: props.device === 'mobile' ? theme.spacing(18) : theme.spacing(8),
     zIndex: 999,
-  },
+  }),
   toolbar: {
     margin: '0 auto',
     maxWidth: 1240,
@@ -365,36 +363,21 @@ class Header extends Component {
       verbiage &&
       <div className={classes.root}>
         <CssBaseline />
-        <Grid
-          container
-          alignItems="flex-start"
-          direction="row"
-          justify="flex-start"
-          className={classes.topHeader}>
-          <Grid
-            item
-            sm={12}
-            md={9}
-            lg={9}
-            className={classes.socialButtons}
-          >
-            <Box display="flex" flexDirection="row" justifyContent="flex-end" p={1} m={1} className={classnames(classes.topHeaderSocial, classes.socialButtonsFixed)}>
-              {copy.social.map(item => (
-                <Box key={item.label} p={2}>
-                  <LangButton
-                    href={verbiage(item.link)}
-                    key={item.label}
-                    typeButton={TYPES.FAB}
-                    variant="primary"
-                    className={classes.fab}
-                  >
-                    <Icon image={verbiage(item.icon)} className={classes.iconFab} />
-                  </LangButton>
-                </Box>
-              ))}
+        <Box display="flex" flexDirection="row" justifyContent="flex-end" p={1} m={1} className={classnames(classes.topHeaderSocial, classes.socialButtonsFixed)}>
+          {copy.social.map(item => (
+            <Box key={item.label} p={2}>
+              <LangButton
+                href={verbiage(item.link)}
+                key={item.label}
+                typeButton={TYPES.FAB}
+                variant="primary"
+                className={classes.fab}
+              >
+                <Icon image={verbiage(item.icon)} className={classes.iconFab} />
+              </LangButton>
             </Box>
-          </Grid>
-        </Grid>
+          ))}
+        </Box>
         <AppBar
           className={classnames(classes.appBar, {
             [classes.appBarShift]: open,

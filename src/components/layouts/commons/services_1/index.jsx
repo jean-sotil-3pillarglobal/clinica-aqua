@@ -349,24 +349,23 @@ function ServicesLayout (props: {
       variant={variant}
     >
       <Grid
+        item
+        sm={12}
+        md={12}
+        lg={12}
+        >
+        <Callout
+          align="center"
+          title={copy.title}
+          subtitle={copy.body}
+          variant={variant}
+          transparent
+        />
+      </Grid>
+      <Grid
         container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className={classes.items}
-        spacing={2}>
-        <Grid
-          item
-          sm={12}
-          md={12}>
-          <Callout
-            align="center"
-            title={copy.title}
-            subtitle={copy.body}
-            variant={variant}
-            transparent
-          />
-        </Grid>
+        spacing={4}
+      >
         {categories.map(item => (
           <Grid
             item
@@ -379,7 +378,7 @@ function ServicesLayout (props: {
             onMouseLeave={() => handleHover({
               hover: false,
             })}
-            sm={12}
+            sm={10}
             md={4}
             lg={4}
           >

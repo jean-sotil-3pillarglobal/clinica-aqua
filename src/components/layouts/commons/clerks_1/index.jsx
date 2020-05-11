@@ -114,102 +114,97 @@ function ClerksLayout (props: {
   } = props;
 
   const { verbiage, language } = proxy;
-  const items = [];
 
-  if (verbiage && language) {
-    verbiage(copy.clerks).forEach((item, i) => {
-      items.push({
-        key: i,
-        render: () => (
-          <Grid
-            item
-            className={classnames(classes.item, isHover && classes.itemHover)}
-            key={item.id}
-            md={item.size_md || 12}
-            sm={item.size_sm || 12}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-            >
-              <Grid
-                item
-                sm={12}
-                md={5}
-              >
-                <Card key={item.id} dense="true" elevation={0} className={classes.card}>
-                  <CardMedia
-                    className={classnames(classes.media, isHover && classes.mediaHover)}
-                    image={item.image}
-                  />
-                </Card>
-              </Grid>
-              <Grid
-                item
-                sm={12}
-                md={7}
-              >
-                <div className={classes.details}>
-                  <CardContent
-                    className={classes.content}>
-                    <Typography
-                      variant="h3"
-                      className={classes.title}
-                    >
-                      <LangToggler id={item.name} />
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      className={classes.label}
-                    >
-                      <LangToggler id={item.label} />
-                    </Typography>
-
-                    <Typography
-                      variant="caption"
-                      className={classes.description}
-                    >
-                      <ShowMoreText
-                          anchorClass={classes.expand}
-                          expanded={false}
-                          less={verbiage(item.less)[language]}
-                          lines={3}
-                          more={verbiage(item.more)[language]}
-                          width={"100%"}
-                      >
-                        <LangToggler id={item.description} />
-                      </ShowMoreText>
-                    </Typography>
-                  </CardContent>
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
-        ),
-      });
-    });
-  }
-
-  return (
+  return verbiage && (
     <SectionBlock variant={variant} className={classes.container}>
+      <Grid item sm={12} md={12}>
+        <Callout
+          align="center"
+          title={copy.title}
+          subtitle={copy.body}
+          variant={variant}
+          transparent
+        />
+      </Grid>
       <Grid
         container
-        spacing={8}
+        spacing={4}
       >
-        <Grid item sm={12} md={12}>
-          <Callout
-            align="center"
-            title={copy.title}
-            subtitle={copy.body}
-            variant={variant}
-            transparent
-          />
-        </Grid>
-        {items.map((item, i) => item.render())}
+        {verbiage(copy.clerks).map((item, i) => {
+          const key = `${i}-item`;
+
+          return (
+            <Grid
+              item
+              className={classnames(classes.item, isHover && classes.itemHover)}
+              key={item.id}
+              md={item.size_md || 12}
+              sm={item.size_sm || 12}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              key={key}
+            >
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid
+                  item
+                  sm={12}
+                  md={5}
+                >
+                  <Card key={item.id} dense="true" elevation={0} className={classes.card}>
+                    <CardMedia
+                      className={classnames(classes.media, isHover && classes.mediaHover)}
+                      image={item.image}
+                    />
+                  </Card>
+                </Grid>
+                <Grid
+                  item
+                  sm={12}
+                  md={7}
+                >
+                  <div className={classes.details}>
+                    <CardContent
+                      className={classes.content}>
+                      <Typography
+                        variant="h3"
+                        className={classes.title}
+                      >
+                        <LangToggler id={item.name} />
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        className={classes.label}
+                      >
+                        <LangToggler id={item.label} />
+                      </Typography>
+
+                      <Typography
+                        variant="caption"
+                        className={classes.description}
+                      >
+                        <ShowMoreText
+                            anchorClass={classes.expand}
+                            expanded={false}
+                            less={verbiage(item.less)[language]}
+                            lines={3}
+                            more={verbiage(item.more)[language]}
+                            width={"100%"}
+                        >
+                          <LangToggler id={item.description} />
+                        </ShowMoreText>
+                      </Typography>
+                    </CardContent>
+                  </div>
+                </Grid>
+              </Grid>
+            </Grid>
+          );
+        })}
       </Grid>
     </SectionBlock>
   );
