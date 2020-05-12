@@ -83,7 +83,7 @@ function Footer (props: {
     variant,
   } = props;
 
-  const { verbiage } = proxy || {};
+  const { verbiage, device } = proxy || {};
 
   const history = useHistory();
 
@@ -99,17 +99,17 @@ function Footer (props: {
   return verbiage && (
     <SectionBlock className={classes.container} variant={variant}>
       <Grid
-        alignItems="flex-start"
+        alignItems={device === 'mobile' ? 'center' : 'flex-start'}
         className={classes.container}
         container
-        direction="row"
+        direction={device === 'mobile' ? 'column' : 'row'}
         justify="center"
         spacing={8}
       >
         {copy.column.map(column => (
           <Grid
             item
-            sm={12}
+            sm={10}
             md={5}
             lg={5}
             key={column.title}
@@ -123,11 +123,11 @@ function Footer (props: {
               alignItems="flex-start"
               className={classes.items}
               container
-              direction="row"
+              direction={device === 'mobile' ? 'row' : 'row'}
               justify="flex-start"
             >
               {verbiage(column.items).map(item => (
-                <Grid item key={item.label} sm={12} md={item.isFab ? 2 : 12}>
+                <Grid item key={item.label} xs={12} sm={12} md={item.isFab ? 2 : 12}>
                   {item.isFab && (
                     <LangButton
                       href={item.link}

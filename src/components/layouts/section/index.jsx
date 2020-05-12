@@ -58,31 +58,29 @@ function SectionBlock (props: {
   } = props;
 
   return (
-    <Fade>
-      <Paper
-        elevation={0}
-        className={variant ? classes[variant] : classes.primary}
-        square
-      >
-        {!outside && (
+    <Paper
+      elevation={0}
+      className={variant ? classes[variant] : classes.primary}
+      square
+    >
+      {!outside && (
+        <Grid
+          container
+          direction="row"
+          justify={!align ? 'center' : align}
+          alignItems="center"
+          className={classnames(className, classes.container)}>
           <Grid
-            container
-            direction="row"
-            justify={!align ? 'center' : align}
-            alignItems="center"
-            className={classnames(className, classes.container)}>
-            <Grid
-              item
-              sm={12}
-              md={11}
-              lg={10}>
-              {children}
-            </Grid>
+            item
+            sm={12}
+            md={11}
+            lg={10}>
+            {children}
           </Grid>
-        )}
-        {outside && children}
-      </Paper>
-    </Fade>
+        </Grid>
+      )}
+      {outside && children}
+    </Paper>
   );
 }
 

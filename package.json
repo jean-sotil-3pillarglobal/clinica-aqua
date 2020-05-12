@@ -61,7 +61,7 @@
     "react-svg-buttons": "^0.4.0",
     "react-svgmt": "^1.1.8",
     "react-text-mask": "^5.4.3",
-    "react-toggle": "^4.0.2",
+    "react-toggle": "^4.1.1",
     "react-transition-group": "^4.0.1",
     "react-use-gesture": "^6.0.12",
     "redux": "^4.0.1",

@@ -18,6 +18,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Paper,
   Typography,
   useTheme,
   withStyles,
@@ -38,6 +39,7 @@ import {
 import Callout from './../../../commons/callout/';
 import Icon from './../../../commons/icon';
 import SectionBlock from './../../section';
+import Slider from './../../../commons/slider';
 
 import { LangButton, TYPES } from './../../../commons/button';
 
@@ -103,6 +105,9 @@ const styles = theme => ({
   cardTitleImageHover: props => ({
     borderWidth: 0,
   }),
+  container: props => ({
+    background: ThemeBackground(props, theme, 'light')
+  }),
   cta: {
     padding: `${theme.spacing(2)}px 0`,
   },
@@ -131,6 +136,7 @@ const styles = theme => ({
     border: `0 solid ${ThemeColor(props, theme)}`,
     marginBottom: theme.spacing(1),
     overflow: 'hidden',
+    width: '100%',
   }),
   items: {
     padding: `${theme.spacing(6)}px 0`,
@@ -189,6 +195,7 @@ function ServicesLayout (props: {
   } = props;
 
   const {
+    device,
     language,
     verbiage,
   } = proxy;
@@ -342,51 +349,82 @@ function ServicesLayout (props: {
     });
   });
 
-  return (
-    verbiage &&
-    <SectionBlock
-      id={verbiage(copy.id)}
-      variant={variant}
+  const items = categories.map(item => (
+    <Grid
+      item
+      key={item.id}
+      className={classes.item}
+      onMouseEnter={() => handleHover({
+        hover: true,
+        id: item.id,
+      })}
+      onMouseLeave={() => handleHover({
+        hover: false,
+      })}
+      xs={12}
+      sm={12}
+      md={4}
+      lg={4}
     >
-      <Grid
-        item
-        sm={12}
-        md={12}
-        lg={12}
-        >
-        <Callout
-          align="center"
-          title={copy.title}
-          subtitle={copy.body}
-          variant={variant}
-          transparent
-        />
-      </Grid>
-      <Grid
-        container
-        spacing={4}
-      >
-        {categories.map(item => (
-          <Grid
-            item
-            key={item.id}
-            className={classes.item}
-            onMouseEnter={() => handleHover({
-              hover: true,
-              id: item.id,
-            })}
-            onMouseLeave={() => handleHover({
-              hover: false,
-            })}
-            sm={10}
-            md={4}
-            lg={4}
+      {item.render()}
+    </Grid>
+  ));
+
+  return (
+    verbiage && (
+      <Fragment>
+        {device !== 'mobile' && (
+          <SectionBlock
+            id={verbiage(copy.id)}
+            variant={variant}
           >
-            {item.render()}
-          </Grid>
-        ))}
-      </Grid>
-    </SectionBlock>
+            <Grid
+              container
+              spacing={4}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid
+                item
+                xs={10}
+                sm={10}
+                md={12}
+                lg={12}
+                >
+                <Callout
+                  align="center"
+                  title={copy.title}
+                  subtitle={copy.body}
+                  variant={variant}
+                  transparent
+                />
+              </Grid>
+              {items}
+            </Grid>
+          </SectionBlock>
+        )}
+        {device === 'mobile' && (
+          <Paper className={classes.container}>
+            <Callout
+              align="center"
+              title={copy.title}
+              subtitle={copy.body}
+              variant={variant}
+              transparent
+            />
+            <Slider sm={12} items={items.map((item, i) => ({
+              key: i,
+              render: () => (
+                <Fragment>
+                  {item}
+                </Fragment>
+              ),
+            }))} />
+          </Paper>
+        )}
+      </Fragment>
+    )
   );
 }
 

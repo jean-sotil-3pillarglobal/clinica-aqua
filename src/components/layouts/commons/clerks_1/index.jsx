@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import ShowMoreText from 'react-show-more-text';
 import classnames from 'classnames';
 
@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Paper,
   Typography,
   withStyles,
 } from '@material-ui/core';
@@ -19,6 +20,7 @@ import ThemeColor from './../../../../providers/utils/theme.color';
 // provider
 import SectionBlock from './../../section';
 
+import Slider from './../../../commons/slider';
 import Callout from './../../../commons/callout/';
 
 const styles = theme => ({
@@ -26,9 +28,13 @@ const styles = theme => ({
     borderRadius: '0 0 0 0',
     display: 'flex',
   }),
-  container: {
+  callout: props => ({
+    margin: '0 auto',
+  }),
+  container: props => ({
+    background: ThemeBackground(props, theme),
     textAlign: 'center',
-  },
+  }),
   description: props => ({
     color: ThemeColor(props, theme),
     display: 'inline-block',
@@ -113,100 +119,134 @@ function ClerksLayout (props: {
     variant,
   } = props;
 
-  const { verbiage, language } = proxy;
+  const {
+    device,
+    language,
+    verbiage,
+  } = proxy;
+
+  const items = verbiage && verbiage(copy.clerks).map((item, i) => {
+    const key = `${i}-item`;
+
+    return (
+      <Grid
+        item
+        className={classnames(classes.item, isHover && classes.itemHover)}
+        key={item.id}
+        md={item.size_md || 12}
+        sm={item.size_sm || 12}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        key={key}
+      >
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={5}
+          >
+            <Card key={item.id} dense="true" elevation={0} className={classes.card}>
+              <CardMedia
+                className={classnames(classes.media, isHover && classes.mediaHover)}
+                image={item.image}
+              />
+            </Card>
+          </Grid>
+          <Grid
+            item
+            sm={12}
+            md={7}
+          >
+            <div className={classes.details}>
+              <CardContent
+                className={classes.content}>
+                <Typography
+                  variant="h3"
+                  className={classes.title}
+                >
+                  <LangToggler id={item.name} />
+                </Typography>
+                <Typography
+                  variant="caption"
+                  className={classes.label}
+                >
+                  <LangToggler id={item.label} />
+                </Typography>
+
+                <Typography
+                  variant="caption"
+                  className={classes.description}
+                >
+                  <ShowMoreText
+                      anchorClass={classes.expand}
+                      expanded={false}
+                      less={verbiage(item.less)[language]}
+                      lines={3}
+                      more={verbiage(item.more)[language]}
+                      width={"100%"}
+                  >
+                    <LangToggler id={item.description} />
+                  </ShowMoreText>
+                </Typography>
+              </CardContent>
+            </div>
+          </Grid>
+        </Grid>
+      </Grid>
+    );
+  }) || [];
 
   return verbiage && (
-    <SectionBlock variant={variant} className={classes.container}>
-      <Grid item sm={12} md={12}>
-        <Callout
-          align="center"
-          title={copy.title}
-          subtitle={copy.body}
-          variant={variant}
-          transparent
-        />
-      </Grid>
-      <Grid
-        container
-        spacing={4}
-      >
-        {verbiage(copy.clerks).map((item, i) => {
-          const key = `${i}-item`;
-
-          return (
-            <Grid
-              item
-              className={classnames(classes.item, isHover && classes.itemHover)}
-              key={item.id}
-              md={item.size_md || 12}
-              sm={item.size_sm || 12}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              key={key}
-            >
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid
-                  item
-                  sm={12}
-                  md={5}
-                >
-                  <Card key={item.id} dense="true" elevation={0} className={classes.card}>
-                    <CardMedia
-                      className={classnames(classes.media, isHover && classes.mediaHover)}
-                      image={item.image}
-                    />
-                  </Card>
-                </Grid>
-                <Grid
-                  item
-                  sm={12}
-                  md={7}
-                >
-                  <div className={classes.details}>
-                    <CardContent
-                      className={classes.content}>
-                      <Typography
-                        variant="h3"
-                        className={classes.title}
-                      >
-                        <LangToggler id={item.name} />
-                      </Typography>
-                      <Typography
-                        variant="caption"
-                        className={classes.label}
-                      >
-                        <LangToggler id={item.label} />
-                      </Typography>
-
-                      <Typography
-                        variant="caption"
-                        className={classes.description}
-                      >
-                        <ShowMoreText
-                            anchorClass={classes.expand}
-                            expanded={false}
-                            less={verbiage(item.less)[language]}
-                            lines={3}
-                            more={verbiage(item.more)[language]}
-                            width={"100%"}
-                        >
-                          <LangToggler id={item.description} />
-                        </ShowMoreText>
-                      </Typography>
-                    </CardContent>
-                  </div>
-                </Grid>
-              </Grid>
+    <Fragment>
+      {device !== 'mobile' && (
+        <SectionBlock variant={variant} className={classes.container}>
+          <Grid
+            container
+            spacing={4}
+            direction="row"
+            justify="flex-start"
+            alignItems="flex-start"
+          >
+            <Grid item xs={10} sm={12} md={12}>
+              <Callout
+                align="center"
+                className={classes.callout}
+                subtitle={copy.body}
+                title={copy.title}
+                transparent
+                variant={variant}
+              />
             </Grid>
-          );
-        })}
-      </Grid>
-    </SectionBlock>
+            {items}
+          </Grid>
+        </SectionBlock>
+      )}
+      {device === 'mobile' && (
+        <Paper className={classes.container}>
+          <Callout
+            align="center"
+            title={copy.title}
+            subtitle={copy.body}
+            variant={variant}
+            transparent
+          />
+          <Slider sm={12} items={items.map((item, i) => ({
+            key: i,
+            render: () => (
+              <Fragment>
+                {item}
+              </Fragment>
+            ),
+          }))} />
+        </Paper>
+      )}
+    </Fragment>
   );
 }
 
