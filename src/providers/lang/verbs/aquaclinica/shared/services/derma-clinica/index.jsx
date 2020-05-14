@@ -1,11 +1,11 @@
-import IMG_SERVICE_1 from '../../../../../../../static/images/derma-clinica/dc-1.jpg';
-import IMG_SERVICE_2 from '../../../../../../../static/images/derma-clinica/dc-2.jpg';
-import IMG_SERVICE_3 from '../../../../../../../static/images/derma-clinica/dc-3.jpg';
-import IMG_SERVICE_4 from '../../../../../../../static/images/derma-clinica/dc-4.jpg';
-import IMG_SERVICE_5 from '../../../../../../../static/images/derma-clinica/dc-5.jpg';
-import IMG_SERVICE_6 from '../../../../../../../static/images/derma-clinica/dc-6.jpg';
-import IMG_SERVICE_7 from '../../../../../../../static/images/derma-clinica/dc-7.jpg';
-import IMG_SERVICE_8 from '../../../../../../../static/images/derma-clinica/dc-8.jpg';
+import IMG_SERVICE_1 from './../../../../../../../static/images/derma-clinica/dc-1.jpg';
+import IMG_SERVICE_2 from './../../../../../../../static/images/derma-clinica/dc-2.jpg';
+import IMG_SERVICE_3 from './../../../../../../../static/images/derma-clinica/dc-3.jpg';
+import IMG_SERVICE_4 from './../../../../../../../static/images/derma-clinica/dc-4.jpg';
+import IMG_SERVICE_5 from './../../../../../../../static/images/derma-clinica/dc-5.jpg';
+import IMG_SERVICE_6 from './../../../../../../../static/images/derma-clinica/dc-6.jpg';
+import IMG_SERVICE_7 from './../../../../../../../static/images/derma-clinica/dc-7.jpg';
+import IMG_SERVICE_8 from './../../../../../../../static/images/derma-clinica/dc-8.jpg';
 
 import {
   constants,
