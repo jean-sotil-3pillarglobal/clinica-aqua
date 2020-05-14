@@ -1,3 +1,11 @@
+import IMG_SERVICE_1 from '../../../../../../../static/images/spa-clinico/1.jpg';
+import IMG_SERVICE_2 from '../../../../../../../static/images/spa-clinico/2.jpg';
+import IMG_SERVICE_3 from '../../../../../../../static/images/spa-clinico/3.jpg';
+import IMG_SERVICE_4 from '../../../../../../../static/images/spa-clinico/4.jpg';
+import IMG_SERVICE_5 from '../../../../../../../static/images/spa-clinico/5.jpg';
+import IMG_SERVICE_6 from '../../../../../../../static/images/spa-clinico/6.jpg';
+import IMG_SERVICE_7 from '../../../../../../../static/images/spa-clinico/7.jpg';
+
 import {
   constants,
 } from './../../../../../../config';
@@ -27,7 +35,7 @@ const {
 
 const Services = [
   {
-    background: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/85256415_3117063394970639_905862560400539648_o.jpg?_nc_cat=108&_nc_sid=2d5d41&_nc_oc=AQnlVnZD_pJxFkphrzCEHqkBU7UqIwdjcQ-Gde4Z1ST1U-5TPksZfzAjJjAka5USL7M&_nc_ht=scontent.fsyq2-1.fna&oh=d66b7308421338a2516fa128665322ec&oe=5EB59A94',
+    background: IMG_SERVICE_1,
     categories: [
       CATEGORY_3,
     ],
@@ -57,7 +65,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_1}`,
   },
   {
-    background: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/p960x960/88374516_3135287593148219_8145759674226966528_o.jpg?_nc_cat=109&_nc_sid=2d5d41&_nc_oc=AQmijZ6cRvUJ5rKdI-Em3TYEMR61bZKGFwd9fGuOG6IpXgI5q2dJ4jdsac7MPQ0VK0Q&_nc_ht=scontent.fsyq2-1.fna&_nc_tp=6&oh=3717ecb7b6f2d31d412d217ba9c5aeb3&oe=5EB6F0DD',
+    background: IMG_SERVICE_2,
     categories: [
       CATEGORY_3,
     ],
@@ -87,7 +95,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_2}`,
   },
   {
-    background: `/src/static/images/${CATEGORY_3}/ondas-de-choque.jpg`,
+    background: IMG_SERVICE_3,
     categories: [
       CATEGORY_3,
     ],
@@ -117,7 +125,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_3}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/82018340_1174937352710356_5549820483152426103_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=cmU4-Me5pkoAX-DFmvF&oh=a4401788d66e0fe9d64796cc0679f3cb&oe=5EBB7B33',
+    background: IMG_SERVICE_4,
     categories: [
       CATEGORY_3,
     ],
@@ -147,7 +155,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_4}`,
   },
   {
-    background: `/src/static/images/${CATEGORY_3}/preso-terapia.jpg`,
+    background: IMG_SERVICE_5,
     categories: [
       CATEGORY_3,
     ],
@@ -177,7 +185,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_5}`,
   },
   {
-    background: `/src/static/images/${CATEGORY_3}/meso-terapia.jpg`,
+    background: IMG_SERVICE_6,
     categories: [
       CATEGORY_3,
     ],
@@ -207,7 +215,7 @@ const Services = [
     value: `${CATEGORY_3}-${SERVICE_6}`,
   },
   {
-    background: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/32130348_1944831762193814_8809183850597974016_o.jpg?_nc_cat=106&_nc_sid=2d5d41&_nc_oc=AQl3MZz6Zgx0wg1-66_bZ7dUdJQSl-8Qw0r2Hc5Qf-M_xgS1I36QuZqt5udQ36OOnN0&_nc_ht=scontent.fsyq2-1.fna&oh=8666d6357f3f10012c4627996e31b775&oe=5EB73DAA',
+    background: IMG_SERVICE_7,
     categories: [
       CATEGORY_3,
     ],

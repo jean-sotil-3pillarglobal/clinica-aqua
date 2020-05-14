@@ -1,11 +1,11 @@
-import IMG_SERVICE_1_1 from '../../../../../../../static/images/derma-clinica/1.jpg';
-import IMG_SERVICE_1_2 from '../../../../../../../static/images/derma-clinica/2.jpg';
-import IMG_SERVICE_1_3 from '../../../../../../../static/images/derma-clinica/3.jpg';
-import IMG_SERVICE_1_4 from '../../../../../../../static/images/derma-clinica/4.jpg';
-import IMG_SERVICE_1_5 from '../../../../../../../static/images/derma-clinica/5.jpg';
-import IMG_SERVICE_1_6 from '../../../../../../../static/images/derma-clinica/6.jpg';
-import IMG_SERVICE_1_7 from '../../../../../../../static/images/derma-clinica/7.jpg';
-import IMG_SERVICE_1_8 from '../../../../../../../static/images/derma-clinica/8.jpg';
+import IMG_SERVICE_1 from '../../../../../../../static/images/derma-clinica/dc-1.jpg';
+import IMG_SERVICE_2 from '../../../../../../../static/images/derma-clinica/dc-2.jpg';
+import IMG_SERVICE_3 from '../../../../../../../static/images/derma-clinica/dc-3.jpg';
+import IMG_SERVICE_4 from '../../../../../../../static/images/derma-clinica/dc-4.jpg';
+import IMG_SERVICE_5 from '../../../../../../../static/images/derma-clinica/dc-5.jpg';
+import IMG_SERVICE_6 from '../../../../../../../static/images/derma-clinica/dc-6.jpg';
+import IMG_SERVICE_7 from '../../../../../../../static/images/derma-clinica/dc-7.jpg';
+import IMG_SERVICE_8 from '../../../../../../../static/images/derma-clinica/dc-8.jpg';
 
 import {
   constants,
@@ -33,7 +33,7 @@ const {
 
 const Services = [
   {
-    background: IMG_SERVICE_1_1,
+    background: IMG_SERVICE_1,
     categories: [
       CATEGORY_1,
     ],
@@ -63,7 +63,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_1}`,
   },
   {
-    background: IMG_SERVICE_1_2,
+    background: IMG_SERVICE_2,
     categories: [
       CATEGORY_1,
     ],
@@ -93,7 +93,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_2}`,
   },
   {
-    background: IMG_SERVICE_1_3,
+    background: IMG_SERVICE_3,
     categories: [
       CATEGORY_1,
     ],
@@ -123,7 +123,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_3}`,
   },
   {
-    background: IMG_SERVICE_1_4,
+    background: IMG_SERVICE_4,
     categories: [
       CATEGORY_1,
     ],
@@ -153,7 +153,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_4}`,
   },
   {
-    background: IMG_SERVICE_1_5,
+    background: IMG_SERVICE_5,
     categories: [
       CATEGORY_1,
     ],
@@ -183,7 +183,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_5}`,
   },
   {
-    background: IMG_SERVICE_1_6,
+    background: IMG_SERVICE_6,
     categories: [
       CATEGORY_1,
     ],
@@ -213,7 +213,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_6}`,
   },
   {
-    background: IMG_SERVICE_1_7,
+    background: IMG_SERVICE_7,
     categories: [
       CATEGORY_1,
     ],
@@ -243,7 +243,7 @@ const Services = [
     value: `${CATEGORY_1}-${SERVICE_7}`,
   },
   {
-    background: IMG_SERVICE_1_8,
+    background: IMG_SERVICE_8,
     categories: [
       CATEGORY_1,
     ],

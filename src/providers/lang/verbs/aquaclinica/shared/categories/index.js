@@ -139,6 +139,10 @@ const Services = [
       en: 'cita gratuita online',
       es: 'cita gratuita online',
     },
+    description: {
+      en: 'En Clinica Aqua ofrecemos tratamientos corporales reductores, faciales, relajantes y de spa.',
+      es: 'En Clinica Aqua ofrecemos tratamientos corporales reductores, faciales, relajantes y de spa.',
+    },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_3,
     image: {
@@ -178,6 +182,10 @@ const Services = [
     cta: {
       en: 'cita gratuita online',
       es: 'cita gratuita online',
+    },
+    description: {
+      en: 'La nutrición es el proceso biológico en el que los organismos asimilan los alimentos y los líquidos necesarios para el funcionamiento, el crecimiento y el mantenimiento de sus funciones vitales. La nutrición es el estudio de la relación que existe entre los alimentos y la salud, especialmente en la determinación de una dieta.',
+      es: 'La nutrición es el proceso biológico en el que los organismos asimilan los alimentos y los líquidos necesarios para el funcionamiento, el crecimiento y el mantenimiento de sus funciones vitales. La nutrición es el estudio de la relación que existe entre los alimentos y la salud, especialmente en la determinación de una dieta.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_4,

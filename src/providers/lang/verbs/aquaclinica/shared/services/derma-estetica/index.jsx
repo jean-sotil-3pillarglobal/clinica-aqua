@@ -1,3 +1,13 @@
+import IMG_SERVICE_1 from '../../../../../../../static/images/derma-estetica/de-1.jpg';
+import IMG_SERVICE_2 from '../../../../../../../static/images/derma-estetica/de-2.jpg';
+import IMG_SERVICE_3 from '../../../../../../../static/images/derma-estetica/de-3.jpg';
+import IMG_SERVICE_4 from '../../../../../../../static/images/derma-estetica/de-4.jpg';
+import IMG_SERVICE_5 from '../../../../../../../static/images/derma-estetica/de-5.jpg';
+import IMG_SERVICE_6 from '../../../../../../../static/images/derma-estetica/de-6.jpg';
+import IMG_SERVICE_7 from '../../../../../../../static/images/derma-estetica/de-7.jpg';
+import IMG_SERVICE_8 from '../../../../../../../static/images/derma-estetica/de-8.jpg';
+import IMG_SERVICE_9 from '../../../../../../../static/images/derma-estetica/de-9.jpg';
+
 import {
   constants,
 } from './../../../../../../config';
@@ -30,7 +40,7 @@ const {
 
 const Services = [
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/90094741_212597326491602_5959261155739393737_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=Y6N__dw4eT4AX_QLmSw&oh=0353e5391705940c6ab37fb222cb0dd6&oe=5EBB38B8',
+    background: IMG_SERVICE_1,
     categories: [
       CATEGORY_2,
     ],
@@ -60,7 +70,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_1}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/92212863_224115295497937_7067596318172578339_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=101&_nc_ohc=20zBN0LnlaUAX8OYbf8&oh=4a0eb066bef94a8a25b5ea5184459adf&oe=5EB7DC56',
+    background: IMG_SERVICE_2,
     categories: [
       CATEGORY_2,
     ],
@@ -95,7 +105,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_2}`,
   },
   {
-    background: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/90985031_3187027017974276_7358354085671600128_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnV2fBTKN5GGlBW_KxH0tA6IYy-i-qdPIhijmEio8FB91S6eYbfPrqez7kUJESkBGo&_nc_ht=scontent.fsyq2-1.fna&oh=a3b546be40ead4bcde9d17f510aec2ed&oe=5EB5FFEB',
+    background: IMG_SERVICE_3,
     categories: [
       CATEGORY_2,
     ],
@@ -125,7 +135,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_3}`,
   },
   {
-    background: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/26731691_1903227339687590_953116594622486815_n.jpg?_nc_cat=110&_nc_sid=2d5d41&_nc_oc=AQleGAw0edPxZC7YVfGEcGxVYsa-FVCv-DYvu6VcMS_fSBqel9lojw7T6dNLOCnYku0&_nc_ht=scontent.fsyq2-1.fna&oh=c27dc1945f25ce50219dbdef4d9be439&oe=5EB73FC0',
+    background: IMG_SERVICE_4,
     categories: [
       CATEGORY_2,
     ],
@@ -155,7 +165,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_4}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/88914932_209546233484830_2414603747451561110_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=110&_nc_ohc=ic4fPfd9gCgAX8IskH1&oh=ea0db77cdd66daef9d664305cfc4b6e3&oe=5EBABEEF',
+    background: IMG_SERVICE_5,
     categories: [
       CATEGORY_2,
     ],
@@ -185,7 +195,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_5}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/88996757_101200761467747_1092533075145567976_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=111&_nc_ohc=ooukiuDhyiwAX9MPgSV&oh=b568e84616398339c74cbccebcd2d125&oe=5EB95965',
+    background: IMG_SERVICE_6,
     categories: [
       CATEGORY_2,
     ],
@@ -215,7 +225,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_6}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/91945961_244340756751540_3782027988701750604_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=100&_nc_ohc=jgqFliFF5GEAX_AFk0i&oh=8fdc028389dc5d304998ab8eecc40d6f&oe=5EBACFFE',
+    background: IMG_SERVICE_7,
     categories: [
       CATEGORY_2,
     ],
@@ -245,7 +255,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_7}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/82566913_497125587887405_1254547906495460120_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=105&_nc_ohc=fMFcOkDNXCcAX-CobK_&oh=a974155da824b0efda0896d81bda02fb&oe=5EBA212E',
+    background: IMG_SERVICE_8,
     categories: [
       CATEGORY_2,
     ],
@@ -275,7 +285,7 @@ const Services = [
     value: `${CATEGORY_2}-${SERVICE_8}`,
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/75341386_482014349104838_1887599136698810401_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=NEOb8VQUZFYAX-fLU0u&oh=cd72e0cd9e0b9e6dcb058f180c73f1b6&oe=5EBB5CB8',
+    background: IMG_SERVICE_9,
     categories: [
       CATEGORY_2,
     ],
