@@ -44,13 +44,13 @@ const Verbiage = {
   commons: {
     clerks_1: {
       body: {
-        en: 'Somos un equipo de profesionales altamente calificado<br/>Trabajando con la tecnología más moderna de la zona sur.',
-        es: 'Somos un equipo de profesionales altamente calificado<br/>Trabajando con la tecnología más moderna de la zona sur.',
+        en: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
+        es: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
       },
       clerks,
       title: {
-        en: 'Nuestros Profesionales a Cargo<br/>De tu Salud y Bienestar',
-        es: 'Nuestros Profesionales a Cargo<br/>De tu Salud y Bienestar',
+        en: 'Nuestros Profesionales a Cargo <br/>De tu Salud y Bienestar',
+        es: 'Nuestros Profesionales a Cargo <br/>De tu Salud y Bienestar',
       },
     },
     contact_1: {
