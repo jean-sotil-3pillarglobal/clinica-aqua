@@ -102,7 +102,7 @@ function Footer (props: {
         alignItems={device === 'mobile' ? 'center' : 'flex-start'}
         className={classes.container}
         container
-        direction={device === 'mobile' ? 'column' : 'row'}
+        direction={device === 'mobile' ? 'row' : 'row'}
         justify="center"
         spacing={8}
       >

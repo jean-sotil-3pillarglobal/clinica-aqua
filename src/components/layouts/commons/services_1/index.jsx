@@ -224,7 +224,8 @@ function ServicesLayout (props: {
   const services = verbiage && verbiage(copy.services);
 
   const categories = verbiage && verbiage(copy.categories).map((item, id) => {
-    const isHover = useHover.id === `item-${id}`;
+    let isHover = useHover.id === `item-${id}`;
+    isHover = (isHover || device === 'mobile');
 
     const filteredServices = services.filter(service => service.categories && service.categories.includes(item.id)) || [];
 

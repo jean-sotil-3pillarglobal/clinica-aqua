@@ -129,12 +129,13 @@ function ClerksLayout (props: {
   } = proxy;
 
   const items = verbiage && verbiage(copy.clerks).map((item, i) => {
+    const hover = device === 'mobile' || isHover;
     const key = `${i}-item`;
 
     return (
       <Grid
         item
-        className={classnames(classes.item, isHover && classes.itemHover)}
+        className={classnames(classes.item, (hover || device === 'mobile') && classes.itemHover)}
         key={item.id}
         md={item.size_md || 12}
         sm={item.size_sm || 12}
@@ -156,7 +157,7 @@ function ClerksLayout (props: {
           >
             <Card key={item.id} dense="true" elevation={0} className={classes.card}>
               <CardMedia
-                className={classnames(classes.media, isHover && classes.mediaHover)}
+                className={classnames(classes.media, hover && classes.mediaHover)}
                 image={item.image}
               />
             </Card>
