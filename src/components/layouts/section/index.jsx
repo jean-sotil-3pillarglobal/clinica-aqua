@@ -17,6 +17,9 @@ const styles = theme => ({
     minHeight: '100vh',
     overflow: 'hidden',
     padding: `${theme.spacing(16)}px 0`,
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(2),
+    },
   },
   dark: {
     backgroundColor: theme.palette.primary.dark,

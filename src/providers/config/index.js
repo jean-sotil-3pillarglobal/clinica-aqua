@@ -64,6 +64,15 @@ export const constants = {
   SERVICE_10: 'service_10',
 };
 
+// backend
+export const root = {
+  prod: 'https://clinica-aqua-api.uc.r.appspot.com/',
+};
+
+export const urls = {
+  form: `${root.prod}api/email`,
+};
+
 // public routes
 export const publics = [
   {
@@ -201,6 +210,7 @@ const config = {
     publics,
   },
   social,
+  urls,
 };
 
 

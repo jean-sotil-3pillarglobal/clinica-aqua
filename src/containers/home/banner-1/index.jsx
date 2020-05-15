@@ -32,7 +32,7 @@ function BannerA (props: {
   proxy: Object,
 }) {
   const { classes, proxy } = props;
-  const { verbiage, language } = proxy;
+  const { verbiage, language, device } = proxy;
   const items = [];
 
   if (verbiage && language) {
@@ -48,7 +48,7 @@ function BannerA (props: {
 
   return (
     <Paper elevation={0} className={classes.container}>
-      <Slider sm={12} md={10} lg={10} items={items} slidesToShow={6} />
+      <Slider sm={12} md={10} lg={10} items={items} slidesToShow={(device === 'mobile' && 2) || 6} />
     </Paper>
   );
 }

@@ -34,6 +34,9 @@ const styles = theme => ({
   container: props => ({
     background: ThemeBackground(props, theme),
     textAlign: 'center',
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(10)}px ${theme.spacing(1)}px`,
+    },
   }),
   description: props => ({
     color: ThemeColor(props, theme),
@@ -243,7 +246,9 @@ function ClerksLayout (props: {
                 {item}
               </Fragment>
             ),
-          }))} />
+            }))}
+            auto={false}
+          />
         </Paper>
       )}
     </Fragment>

@@ -24,6 +24,7 @@ const styles = theme => ({
   subtitle: props => ({
     color: ThemeColor(props, theme),
     marginBottom: theme.spacing(3),
+    textAlign: props.align || 'left',
     width: '100%',
   }),
   title: props => ({

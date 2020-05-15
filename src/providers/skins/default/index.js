@@ -1,5 +1,9 @@
 import Color from 'color';
 
+import {
+  createMuiTheme,
+} from '@material-ui/core';
+
 import config from '../../config/index';
 
 const PRIMARY = {
@@ -90,6 +94,8 @@ const palette = {
     main: 'rgb(244,243,86)',
   },
 };
+
+const theme = createMuiTheme();
 
 const overrides = {
   MuiButton: {
@@ -256,6 +262,13 @@ const overrides = {
     },
   },
   MuiListItem: {},
+  MuiListItemText: {
+    primary: {
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.6rem',
+      },
+    },
+  },
   MuiMobileStepper: {
     dotActive: {
       backgroundColor: PRIMARY.contrastText,
@@ -364,11 +377,20 @@ const typography = {
     fontSize: '1.2em',
     fontWeight: 400,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      '& br': {
+        display: 'none',
+      },
+      fontSize: '.8rem',
+    },
   },
   body2: {
     fontSize: '1.2em',
     fontWeight: 500,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '.7rem',
+    },
   },
   caption: {
     display: 'inline-block',
@@ -381,6 +403,12 @@ const typography = {
     fontSize: '2.2rem',
     fontWeight: 600,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      '& br': {
+        display: 'none',
+      },
+      fontSize: '1.5rem',
+    },
   },
   h2: {
     fontSize: '2.2rem',
@@ -394,7 +422,10 @@ const typography = {
   },
   h4: {
     fontSize: '1.2rem',
-    fontWeight: 300,
+    fontWeight: 400,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.6rem',
+    },
   },
   h5: {
     fontSize: '1rem',

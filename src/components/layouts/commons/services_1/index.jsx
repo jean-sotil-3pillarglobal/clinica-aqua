@@ -86,6 +86,9 @@ const styles = theme => ({
     border: `${theme.spacing(1)}px solid ${ThemeBackground(props, theme, 'main')}`,
     padding: `${theme.spacing(2)}px 20%`,
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(1)}px 20%`,
+    },
   }),
   cardTitleHover: () => ({
     textDecoration: 'underline',
@@ -106,7 +109,10 @@ const styles = theme => ({
     borderWidth: 0,
   }),
   container: props => ({
-    background: ThemeBackground(props, theme, 'light')
+    background: ThemeBackground(props, theme, 'light'),
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(10)}px ${theme.spacing(1)}px`,
+    },
   }),
   cta: {
     padding: `${theme.spacing(2)}px 0`,
@@ -407,7 +413,7 @@ function ServicesLayout (props: {
         {device === 'mobile' && (
           <Paper className={classes.container}>
             <Callout
-              align="center"
+              align="justify"
               title={copy.title}
               subtitle={copy.body}
               variant={variant}
@@ -420,7 +426,9 @@ function ServicesLayout (props: {
                   {item}
                 </Fragment>
               ),
-            }))} />
+              }))}
+              auto={false}
+            />
           </Paper>
         )}
       </Fragment>

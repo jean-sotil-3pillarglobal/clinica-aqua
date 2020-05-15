@@ -16,8 +16,10 @@ import ThemeBackground from './../../../../providers/utils/theme.background';
 import ThemeColor from './../../../../providers/utils/theme.color';
 
 // components
-import Stepper from './../../../commons/stepper';
 import SVGComponent from './../../../commons/svg';
+import Stepper from './../../../commons/stepper';
+
+import config from './../../../../providers/config';
 
 const styles = theme => ({
   callout: props => ({
@@ -64,8 +66,11 @@ const copy = LangGenerateTree([NODE, SLOT], [
   'forms',
   'id',
   'services',
-  'svg_show',
   'svg',
+  'svg_show',
+  'thank_label',
+  'thank_subtitle',
+  'thank_title',
   'title',
 ]);
 
@@ -168,7 +173,7 @@ class ContactFormLayout extends Component {
       const request = {
         data: cloneDocu,
         method: 'post',
-        url: 'http://localhost:3000/submit',
+        url: config.urls.form,
       };
 
       if (valid) {
@@ -176,7 +181,8 @@ class ContactFormLayout extends Component {
           try {
             const result = await axios(request);
 
-            if (result) {
+            if (result && result.status === 200) {
+              console.log(result);
               this.setState({
                 valid,
               });

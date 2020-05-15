@@ -64,6 +64,18 @@ const Verbiage = {
       services,
       svg_show: true,
       svg: CONTACT_FORM_SVG,
+      thank_label: {
+        en: 'Se envió tu solicitud',
+        es: 'Se envió tu solicitud',
+      },
+      thank_subtitle: {
+        en: 'Será un placer atenderte',
+        es: 'Será un placer atenderte',
+      },
+      thank_title: {
+        en: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+        es: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+      },
     },
     default: {},
     services_1: {

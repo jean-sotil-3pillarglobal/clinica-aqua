@@ -40,6 +40,7 @@ const styles = theme => ({
 });
 
 function SliderLayout (props: {
+  auto: Boolean,
   classes: Object,
   items: Array,
   lg: Integer,
@@ -49,6 +50,7 @@ function SliderLayout (props: {
   sm: Integer,
 }) {
   const {
+    auto,
     classes,
     items,
     lg,
@@ -58,7 +60,7 @@ function SliderLayout (props: {
   } = props;
 
   const sliderProps = {
-    autoplay: true,
+    autoplay: auto === undefined || auto,
     dots: true,
     infinite: false,
     infinite: true,
@@ -70,8 +72,8 @@ function SliderLayout (props: {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
+          slidesToShow: slidesToShow || 4,
+          slidesToScroll: slidesToShow || 4,
           infinite: true,
           dots: true
         }
@@ -79,16 +81,16 @@ function SliderLayout (props: {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          initialSlide: 3
+          slidesToShow: slidesToShow || 3,
+          slidesToScroll: slidesToShow || 3,
+          initialSlide: slidesToShow || 3
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: slidesToShow || 1,
+          slidesToScroll: slidesToShow || 1,
         }
       }
     ]
