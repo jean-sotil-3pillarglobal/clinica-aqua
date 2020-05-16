@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Header from '../components/header';
 import Loading from '../components/commons/preloader';
 import ScrollToTopButton from '../components/commons/scrollToTopButton';
 import ScrollToTopOnMount from '../components/commons/scrollToTopOnMount';
+import MainWrapper from '../components/layouts/wrapper';
 
 const asyncComponent = (importComponent) => {
   return class extends Component {
@@ -20,15 +21,14 @@ const asyncComponent = (importComponent) => {
 
     render = () => {
       const C = this.state.component;
-
       return C ? (
-        <Fragment>
+        <MainWrapper>
           <Header {...this.props} />
           <C {...this.props} />
           <ScrollToTopOnMount />
           <ScrollToTopButton />
-        </Fragment>
-      ) : <Loading />;
+        </MainWrapper>
+      ) : <Loading show />;
     }
   };
 };

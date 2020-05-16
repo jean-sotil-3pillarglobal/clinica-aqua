@@ -1,6 +1,13 @@
 
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Fragment } from 'react';
+
+import {
+  Dialog,
+  DialogContent,
+  Typography,
+  withStyles,
+} from '@material-ui/core';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import ThemeBackground from './../../../providers/utils/theme.background';
@@ -11,31 +18,37 @@ const variant = {
 
 const styles = theme => ({
   container: {
-    background: ThemeBackground(variant, theme, 'light'),
-    flexGrow: 1,
-    paddingBottom: '50vh',
-    paddingLeft: '10%',
-    paddingRight: '10%',
-    paddingTop: '50vh',
-    textAlign: 'center',
+    padding: 0,
   },
   loading: {
     margin: '0 auto',
-    width: '100%',
   },
 });
 
 const Loading = (props: {
-  classes: Object
+  classes: Object,
+  show: Boolean,
 }) => {
   const {
     classes,
+    show,
   } = props;
 
   return (
-    <div className={props.classes.container}>
-      <CircularProgress className={classes.loading} color="secondary" />
-    </div>
+    <Dialog
+      aria-labelledby="customized-dialog-title"
+      className={classes.container}
+      disableBackdropClick
+      disableEscapeKeyDown
+      elevation={0}
+      fullWidth
+      maxWidth="xs"
+      open={show}
+    >
+      <DialogContent className={classes.container} elevation={0}>
+        <CircularProgress className={classes.loading} color="secondary" />
+      </DialogContent>
+    </Dialog>
   );
 };
 

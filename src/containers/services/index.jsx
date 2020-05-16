@@ -224,6 +224,7 @@ class Services extends Component {
                 <ContactFormLayout
                   proxy={proxy}
                   variant="dark"
+                  to={constants.LINK_CONTACT_FORM_2}
                 />
               </SectionA>
             )}

@@ -13,6 +13,7 @@ import {
   StepIcon,
   StepLabel,
   Stepper,
+  Typography,
   withStyles,
 } from '@material-ui/core';
 
@@ -60,6 +61,9 @@ const styles = theme => ({
     background: ThemeBackground(props, theme, 'dark'),
     color: ThemeColor(props, theme),
   }),
+  thank: {
+    padding: theme.spacing(2),
+  }
 });
 
 const getSteps = (forms, language) => {
@@ -281,24 +285,22 @@ function StepperForm (props: {
                           </Step>
                         );
                       })}
-                      {valid && (
-                        <Step>
-                          <StepLabel StepIconComponent={QontoStepIcon} className={classes.item}>
-                            <LangToggler id={copy.thank_label} />
-                          </StepLabel>
-                          <StepContent>
-                            <Callout
-                              align="center"
-                              title={copy.thank_title}
-                              subtitle={copy.thank_subtitle}
-                              variant="light"
-                              className={classes.callout} />
-                          </StepContent>
-                        </Step>
-                      )}
                     </Stepper>
                   </Paper>
                 </Grid>
+                {valid && (
+                  <Grid item sm={sm} md={md} lg={lg} className={classes.item}>
+                    <Typography className={classnames(classes.item, classes.thank)}>
+                      <LangToggler id={copy.thank_label} />
+                    </Typography>
+                    <Callout
+                      align="center"
+                      title={copy.thank_title}
+                      subtitle={copy.thank_subtitle}
+                      variant="light"
+                      className={classes.callout} />
+                  </Grid>
+                )}
               </Grid>
             </form>
           </Element>

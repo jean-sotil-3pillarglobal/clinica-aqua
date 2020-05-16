@@ -1,14 +1,17 @@
 
-import { cloneDeep } from 'lodash';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 import Fade from 'react-reveal/Fade';
 import React, { Component } from 'react';
+import axios from 'axios';
+import { bindActionCreators } from 'redux';
+import { cloneDeep } from 'lodash';
+import { connect } from 'react-redux';
 
 import {
   Paper,
   withStyles,
 } from '@material-ui/core';
+
+import { Element, scroller } from 'react-scroll';
 
 // provider
 import LangGenerateTree from './../../../../providers/utils/lang.generate.tree';
@@ -21,6 +24,8 @@ import Stepper from './../../../commons/stepper';
 
 import config from './../../../../providers/config';
 
+import { setLoadingAction } from './../../../../store/actions/global';
+
 const styles = theme => ({
   callout: props => ({
     backgroundColor: ThemeBackground(props, theme),
@@ -30,7 +35,7 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
-    maxWidth: 900,
+    maxWidth: 800,
   },
   stepper: () => ({
     borderRadius: '0 0 0 0',
@@ -119,6 +124,7 @@ class ContactFormLayout extends Component {
   props: {
     classes: Object,
     proxy: Object,
+    setLoading: Function,
     variant: String,
   }
 
@@ -144,8 +150,9 @@ class ContactFormLayout extends Component {
     const {
       proxy: {
         language,
-        // verbiage,
       },
+      setLoading,
+      to,
     } = this.props;
 
     const {
@@ -167,6 +174,8 @@ class ContactFormLayout extends Component {
     // Current Lang:
     cloneDocu.language = language;
 
+    // show loader
+    setLoading(true);
     return new Promise((resolve, reject) => {
       const request = {
         data: cloneDocu,
@@ -178,13 +187,15 @@ class ContactFormLayout extends Component {
         const makeRequest = async () => {
           try {
             const result = await axios(request);
-
             if (result && result.status === 200) {
               this.setState({
                 valid,
               });
 
               resolve();
+              // hide loader
+              setLoading(false);
+              scroller.scrollTo(`${to}-form`);
             }
           } catch (error) {
             let message = error.response
@@ -192,6 +203,8 @@ class ContactFormLayout extends Component {
               : error.message;
             message = message || 'Oops something went wrong';
             reject(message);
+            // hide loader
+            setLoading(false);
           }
         };
 
@@ -210,6 +223,7 @@ class ContactFormLayout extends Component {
     const {
       classes,
       proxy,
+      to,
       variant,
     } = this.props;
 
@@ -227,23 +241,32 @@ class ContactFormLayout extends Component {
       verbiage &&
       <Paper className={classes.stepper}>
         {verbiage(copy.svg_show) && <SVGComponent src={verbiage(copy.svg)} className={classes.svg} variant="primary" />}
-        <Fade left>
-          <Stepper
-            className={classes.container}
-            copy={copy}
-            document={document}
-            forms={forms}
-            onBlur={this.handleBlur}
-            onChange={this.handleChange}
-            onSubmit={this.handleSubmit}
-            proxy={proxy}
-            variant={variant}
-            valid={valid}
-          />
-        </Fade>
+        <Element name={`${to}-form`}>
+          <Fade left>
+            <Stepper
+              className={classes.container}
+              copy={copy}
+              document={document}
+              forms={forms}
+              onBlur={this.handleBlur}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              proxy={proxy}
+              variant={variant}
+              valid={valid}
+            />
+          </Fade>
+        </Element>
       </Paper>
     );
   }
 }
 
-export default withStyles(styles)(withRouter(ContactFormLayout));
+// dispatch actionCreators
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    setLoading: setLoadingAction,
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(ContactFormLayout));

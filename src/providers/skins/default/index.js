@@ -146,6 +146,18 @@ const overrides = {
       padding: 0,
     },
   },
+  MuiDialog: {
+    paper: {
+      background: 'transparent',
+      boxShadow: 'initial',
+    },
+  },
+  MuiDialogContent: {
+    root: {
+      overflowY: 'hidden',
+      textAlign: 'center',
+    },
+  },
   MuiDialogActions: {
     root: {
       '& *': {

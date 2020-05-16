@@ -68,7 +68,7 @@ const customStyles = {
     textTransform: 'capitalize',
   }),
   placeholder: () => ({
-    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+    fontFamily: config.font,
     fontSize: '1rem',
     fontWeight: 400,
     opacity: 0.5,
@@ -142,7 +142,6 @@ const ForwardTextField = React.forwardRef((props: {
       border: `2px solid ${theme.palette.error.main}`,
       borderRadius: '0 0 0 0',
       fontSize: '16px',
-      padding: '.6em 0',
       textTransform: 'capitalize',
     });
   } else {
@@ -156,7 +155,7 @@ const ForwardTextField = React.forwardRef((props: {
       fontFamily: config.font,
       fontSize: '.7rem',
       fontWeight: 700,
-      padding: '4px 0',
+      padding: '5px 0',
       position: 'relative',
       textTransform: 'capitalize',
     });
