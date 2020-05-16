@@ -219,11 +219,10 @@ const overrides = {
       fontFamily: config.font,
       fontSize: '1rem',
       fontWeight: 400,
-      height: '1.8em',
       padding: '8px',
     },
     multiline: {
-      padding: '10px',
+      padding: '8px',
     },
     root: {
       '&.Mui-error.Mui-focused.MuiInput-root': {

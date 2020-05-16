@@ -156,7 +156,7 @@ const ForwardTextField = React.forwardRef((props: {
       fontFamily: config.font,
       fontSize: '.7rem',
       fontWeight: 700,
-      padding: '7px 0',
+      padding: '4px 0',
       position: 'relative',
       textTransform: 'capitalize',
     });
@@ -190,7 +190,7 @@ const ForwardTextField = React.forwardRef((props: {
         style={{
           fontSize: '1rem',
           position: 'relative',
-          top: '-12px',
+          top: '-4px',
           transform: 'initial',
         }}
         focused={focused}

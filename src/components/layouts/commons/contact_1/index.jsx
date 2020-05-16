@@ -32,7 +32,7 @@ const styles = theme => ({
     background: 'transparent',
     maxWidth: 900,
   },
-  stepper: props => ({
+  stepper: () => ({
     borderRadius: '0 0 0 0',
     marginBottom: theme.spacing(20),
   }),
