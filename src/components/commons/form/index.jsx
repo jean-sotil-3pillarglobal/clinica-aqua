@@ -117,7 +117,7 @@ class FormBlock extends Component {
             }
 
             <CardContent className={classes.root}>
-              <Grid container className={classes.row} spacing={4}>
+              <Grid container className={classes.row} spacing={2}>
                 {copy.fields.map((field) => {
                   const fieldType = field.input_type;
                   const sm = field.size_sm;

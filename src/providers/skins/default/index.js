@@ -196,6 +196,7 @@ const overrides = {
         fontWeight: 600,
       },
       '&[class*="MuiInputLabel"]': {
+        fontFamily: config.font,
         fontSize: '1.3rem',
         fontWeight: 400,
       },
@@ -215,6 +216,7 @@ const overrides = {
   MuiInputBase: {
     input: {
       color: PRIMARY.contrastText,
+      fontFamily: config.font,
       fontSize: '1rem',
       fontWeight: 400,
       height: '1.8em',
@@ -414,11 +416,17 @@ const typography = {
     fontSize: '2.2rem',
     fontWeight: 600,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.5rem',
+    },
   },
   h3: {
-    fontSize: '1.8rem',
+    fontSize: '1.2rem',
     fontWeight: 600,
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1rem',
+    },
   },
   h4: {
     fontSize: '1.2rem',

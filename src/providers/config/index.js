@@ -66,7 +66,7 @@ export const constants = {
 
 // backend
 export const root = {
-  prod: 'https://clinica-aqua-api.uc.r.appspot.com/',
+  prod: 'https://clinica-aqua-api-277301.uc.r.appspot.com/',
 };
 
 export const urls = {

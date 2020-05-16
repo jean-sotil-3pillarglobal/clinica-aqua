@@ -33,8 +33,8 @@ const styles = theme => ({
     maxWidth: 900,
   },
   stepper: props => ({
-    background: ThemeBackground(props, theme, 'main'),
     borderRadius: '0 0 0 0',
+    marginBottom: theme.spacing(20),
   }),
   subtitle: props => ({
     color: ThemeColor(props, theme),
@@ -166,8 +166,6 @@ class ContactFormLayout extends Component {
     cloneDocu.source = window.location.href;
     // Current Lang:
     cloneDocu.language = language;
-    // Copy for email:
-    // cloneDocu.categories = verbiage(copy.categories);
 
     return new Promise((resolve, reject) => {
       const request = {
@@ -182,7 +180,6 @@ class ContactFormLayout extends Component {
             const result = await axios(request);
 
             if (result && result.status === 200) {
-              console.log(result);
               this.setState({
                 valid,
               });
@@ -228,7 +225,7 @@ class ContactFormLayout extends Component {
 
     return (
       verbiage &&
-      <Paper className={classes.container}>
+      <Paper className={classes.stepper}>
         {verbiage(copy.svg_show) && <SVGComponent src={verbiage(copy.svg)} className={classes.svg} variant="primary" />}
         <Fade left>
           <Stepper

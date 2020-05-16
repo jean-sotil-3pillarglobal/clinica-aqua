@@ -18,6 +18,7 @@ import Icon from '../../../icon';
 
 import ThemeBackground from '../../../../../providers/utils/theme.background';
 import ThemeColor from '../../../../../providers/utils/theme.color';
+import config from '../../../../../providers/config';
 
 const styles = () => ({
   root: {},
@@ -52,13 +53,17 @@ const customStyles = {
         width: '90%',
       },
       borderRadius: '0 0 0 0',
-      fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+      cursor: 'pointer',
+      fontFamily: config.font,
       fontSize: '.7rem',
       padding: '0',
       textTransform: 'capitalize',
     });
   },
   option: () => ({
+    fontFamily: config.font,
+    fontSize: '.7rem',
+    fontWeight: 700,
     padding: '0',
     textTransform: 'capitalize',
   }),
@@ -148,8 +153,9 @@ const ForwardTextField = React.forwardRef((props: {
       background: `${theme.palette.primary.light}`,
       border: `2px solid ${isFocused ? theme.palette.utils.highlight : theme.palette.primary.main}`,
       borderRadius: '0 0 0 0',
-      fontSize: '1rem',
-      fontWeight: 400,
+      fontFamily: config.font,
+      fontSize: '.7rem',
+      fontWeight: 700,
       padding: '7px 0',
       position: 'relative',
       textTransform: 'capitalize',

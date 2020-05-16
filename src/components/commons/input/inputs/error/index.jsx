@@ -18,16 +18,17 @@ const styles = theme => ({
     top: theme.spacing(0.5),
   },
   icon: {
+    display: 'inline-block!important',
     fontSize: '.8rem!important',
     lineHeight: '18px',
     marginRight: '4px',
   },
   message: {
-    color: theme.palette.error.main,
+    color: theme.palette.primary.contrastText,
     display: 'inline',
     position: 'relative',
     top: '-3px',
-    fontSize: '.8rem',
+    fontSize: '.6rem',
   },
 });
 
