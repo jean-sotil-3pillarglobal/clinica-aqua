@@ -45,7 +45,7 @@ export const SERVICES_INFORMATION_1_1 = [
     input_type: 'input',
     key: 'last_name',
     label: {
-      en: 'last name',
+      en: 'apellidos',
       es: 'apellidos',
     },
     placeholder: {
@@ -65,12 +65,12 @@ export const SERVICES_INFORMATION_1_1 = [
     input_type: 'input',
     key: 'email',
     label: {
-      en: 'email',
+      en: 'correo eléctronico',
       es: 'correo eléctronico',
     },
     placeholder: {
       en: 'jean.sotil@gmail.com',
-      es: 'juan@gmail.com',
+      es: 'jean.sotil@gmail.com',
     },
     required: true,
     rules: [
@@ -86,7 +86,7 @@ export const SERVICES_INFORMATION_1_1 = [
     input_type: 'phone',
     key: 'phone',
     label: {
-      en: 'phone',
+      en: 'télefono',
       es: 'télefono',
     },
     placeholder: {
@@ -116,12 +116,12 @@ export const SERVICES_INFORMATION_1_2 = [
     input_type: 'multiselect',
     key: 'services',
     label: {
-      en: 'available services',
+      en: 'servicios disponibles',
       es: 'servicios disponibles',
     },
     options: [],
     placeholder: {
-      en: 'choose service',
+      en: 'seleccionar servicio',
       es: 'seleccionar servicio',
     },
     required: true,
@@ -168,12 +168,12 @@ export const SERVICES_INFORMATION_1_2 = [
     input_type: 'input',
     key: 'message',
     label: {
-      en: 'Your message',
+      en: 'Tú mensaje',
       es: 'Tú mensaje',
     },
     multiline: true,
     placeholder: {
-      en: 'Write your message here.',
+      en: 'Escribe tu mensaje aquí.',
       es: 'Escribe tu mensaje aquí.',
     },
     required: false,
@@ -197,8 +197,8 @@ export const SERVICES_INFORMATION_1_2 = [
     input_type: 'checkbox',
     key: 'general_disclaimer',
     label: {
-      en: 'disclaimer here.',
-      es: 'estoy deacuerdo, aqui.',
+      en: 'Estoy deacuerdo con recibir información por parte de la clínica.',
+      es: 'Estoy deacuerdo con recibir información por parte de la clínica.',
     },
     required: true,
     rules: [
