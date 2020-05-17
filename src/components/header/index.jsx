@@ -1,7 +1,8 @@
 
-import { connect } from 'react-redux';
-import classnames from 'classnames';
 import React, { Component, Fragment } from 'react';
+import classnames from 'classnames';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import {
   AppBar,
@@ -11,10 +12,7 @@ import {
   Drawer,
   Grid,
   IconButton,
-  List,
-  ListItem,
   Toolbar,
-  Typography,
   withStyles,
 } from '@material-ui/core';
 
@@ -24,10 +22,18 @@ import {
   Menu,
 } from '@material-ui/icons';
 
-import { Link } from 'react-scroll';
+import { Events, Link } from 'react-scroll';
+
+// Config
+import {
+  constants,
+} from '../../providers/config';
+
+import {
+  setSectionAction,
+} from '../../store/actions/global';
 
 // provider
-import LangToggler from '../../providers/lang/toggler';
 import LangGenerateTree from '../../providers/utils/lang.generate.tree';
 import ThemeBackground from './../../providers/utils/theme.background';
 import ThemeColor from './../../providers/utils/theme.color';
@@ -37,11 +43,18 @@ import { LangButton, TYPES } from './../commons/button';
 import SmartImg from './../commons/img';
 import Icon from './../commons/icon';
 
+// paths
+const {
+  PATHS: {
+    SERVICES,
+  },
+} = constants;
+
 const drawerWidth = 240;
 
 const styles = theme => ({
   appBar: {
-    background: ThemeBackground({ variant: 'primary' }, theme, 'light'),
+    background: ThemeBackground({ variant: 'primary' }, theme),
     padding: 0,
     transition: theme.transitions.create(['background-color', 'margin', 'width'], {
       duration: theme.transitions.duration.leavingScreen,
@@ -55,9 +68,6 @@ const styles = theme => ({
       easing: theme.transitions.easing.easeOut,
     }),
     width: `calc(100% - ${drawerWidth}px)`,
-  },
-  back: {
-    background: ThemeBackground({ variant: 'primary' }, theme, 'light'),
   },
   burger: {
     color: theme.palette.secondary.contrastText,
@@ -92,12 +102,13 @@ const styles = theme => ({
     color: theme.palette.secondary.contrastText,
     width: drawerWidth,
   },
-  fab: {
+  fab: props => ({
     '&:hover': {
       background: ThemeBackground({ variant: 'primary' }, theme, 'dark'),
     },
     background: ThemeBackground({ variant: 'primary' }, theme),
-  },
+    marginRight: props.device === 'mobile' ? 0 : theme.spacing(4),
+  }),
   h3: {
     color: theme.palette.primary.contrastText,
     marginBottom: 0,
@@ -126,23 +137,30 @@ const styles = theme => ({
   },
   navbar: {
     background: 'transparent',
+    margin: 0,
     padding: 0,
+    textAlign: 'left',
+  },
+  navbarItem: props => ({
+    textAlign: props.device === 'mobile' ? 'left' : 'initial',
+    width: props.device === 'mobile' ? '100%' : 'initial',
+  }),
+  navbarItemSelected: {
+    fontWeight: 600,
+    textDecoration: 'underline',
   },
   phone: () => ({
     color: theme.palette.utils.hightlight,
     marginRight: theme.spacing(1),
   }),
   root: () => ({}),
-  socialButtons: {
-    padding: 0,
-  },
-  socialButtonsFixed: {
+  socialButtonsFixed: props => ({
     display: 'block',
     position: 'fixed',
-    right: theme.spacing(3),
-    top: theme.spacing(14),
+    right: 0,
+    top: props.device === 'mobile' ? theme.spacing(18) : theme.spacing(8),
     zIndex: 999,
-  },
+  }),
   toolbar: {
     margin: '0 auto',
     maxWidth: 1240,
@@ -182,6 +200,16 @@ class Header extends Component {
     open: false,
   };
 
+  componentDidMount = () => {
+    const {
+      setSection,
+    } = this.props;
+
+    Events.scrollEvent.register('begin', (to) => {
+      setSection(to);
+    });
+  }
+
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -198,6 +226,10 @@ class Header extends Component {
     category: Object,
     classes: Object,
     device: String,
+    history: Object,
+    language: String,
+    section: String,
+    setSection: Function,
     theme: Object,
     verbiage: Object,
   };
@@ -207,179 +239,182 @@ class Header extends Component {
       category,
       classes,
       device,
-      verbiage,
+      history,
+      language,
+      section,
       theme,
+      verbiage,
     } = this.props;
 
     const proxy = {
       category,
       device,
+      language,
       verbiage,
     };
 
     const { open } = this.state;
     const isMobile = device === 'mobile';
 
+    const isLanding = (`/${language}/${SERVICES[language]}` !== this.props.history.location.pathname) && category === null;
+
+    const HeaderLinks = (
+      <Fragment>
+        {isLanding && (
+          <Fragment>
+            <Grid
+              item
+              sm={12}
+              md={7}
+              lg={7}
+            >
+              <Box
+                display="flex"
+                flexDirection={isMobile ? 'column' : 'row'}
+                justifyContent="flex-start"
+                p={1}
+                m={1}
+                className={classes.navbar}>
+                {copy.publics.map((item) => {
+                  return (
+                    <Link
+                      activeClass="active"
+                      key={item.id}
+                      smooth
+                      spy
+                      to={verbiage(item.id)}
+                    >
+                      <LangButton
+                        className={classnames(classes.navbarItem, (section && verbiage(item.id) === section) && classes.navbarItemSelected)}
+                        key={item.label}
+                        lang={item.label}
+                        pos="right"
+                        typeButton={isMobile ? TYPES.BUTTON : TYPES.LINK}
+                        active={section && verbiage(item.id) === section}
+                        variant={isMobile ? 'light2' : 'light'}
+                      />
+                    </Link>
+                  );
+                })}
+              </Box>
+            </Grid>
+            <Grid
+              item
+              sm={10}
+              md={3}
+              lg={3}
+            >
+              <Box
+                display="flex"
+                flexDirection={isMobile ? 'column' : 'row'}
+                justifyContent="flex-end"
+                p={1}
+                m={1}
+                className={classes.navbar}>
+                {copy.featured.map((featured) => {
+                  return (
+                    <Link
+                      activeClass="active"
+                      key={featured.id}
+                      smooth
+                      spy
+                      to={verbiage(featured.id)}
+                    >
+                      <LangButton
+                        className={classes.navbarItem}
+                        key={featured.label}
+                        lang={featured.label}
+                        pos="right"
+                        typeButton={TYPES.CONTAINED}
+                        variant={isMobile ? 'secondary' : 'dark'}
+                      />
+                    </Link>
+                  );
+                })}
+              </Box>
+            </Grid>
+          </Fragment>
+        )}
+        {!isLanding && (
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="flex-start"
+            p={1}
+            m={1}
+            className={classes.navbar}>
+            <LangButton
+              className={classes.navbarItem}
+              key={copy.back}
+              lang={copy.back}
+              pos="left"
+              typeButton={TYPES.BUTTON}
+              variant="light"
+              onClick={() => {
+                history.push('/');
+              }}
+            />
+          </Box>
+        )}
+      </Fragment>
+    );
+
     return (
       verbiage &&
       <div className={classes.root}>
         <CssBaseline />
-        <Grid
-          container
-          alignItems="flex-start"
-          direction="row"
-          justify="flex-start"
-          className={classes.topHeader}>
-          <Grid
-            item
-            sm={12}
-            md={9}
-            lg={9}
-            className={classes.socialButtons}
-          >
-            <Box display="flex" flexDirection="row" justifyContent="flex-end" p={1} m={1} className={classnames(classes.topHeaderSocial, classes.socialButtonsFixed)}>
-              {copy.social.map(item => (
-                <Box key={item.label} p={2}>
-                  <LangButton
-                    href={verbiage(item.link)}
-                    key={item.label}
-                    typeButton={TYPES.FAB}
-                    variant="primary"
-                    className={classes.fab}
-                  >
-                    <Icon image={verbiage(item.icon)} className={classes.iconFab} />
-                  </LangButton>
-                </Box>
-              ))}
+        <Box display="flex" flexDirection="row" justifyContent="flex-end" p={1} m={1} className={classnames(classes.topHeaderSocial, classes.socialButtonsFixed)}>
+          {copy.social.map(item => (
+            <Box key={item.label} p={2}>
+              <LangButton
+                href={verbiage(item.link)}
+                key={item.label}
+                typeButton={TYPES.FAB}
+                variant="primary"
+                className={classes.fab}
+              >
+                <Icon image={verbiage(item.icon)} className={classes.iconFab} />
+              </LangButton>
             </Box>
-          </Grid>
-        </Grid>
+          ))}
+        </Box>
         <AppBar
-          position="fixed"
           className={classnames(classes.appBar, {
             [classes.appBarShift]: open,
-          })}>
+          })}
+          elevation={0}
+          position="fixed"
+        >
           <Toolbar variant="dense" disableGutters={!open} className={classes.toolbar}>
             <Grid
+              alignItems="center"
               container
               direction="row"
-              justify="flex-end"
-              alignItems="center">
-              <Grid
-                item
-                sm={10}
-                md={1}
-                lg={1}>
-                {isMobile ?
+              justify={isMobile ? 'flex-start' : isLanding ? 'space-between' : 'flex-end'}
+            >
+              {isMobile && (
+                <Grid
+                  item
+                  sm={10}
+                  md={1}
+                  lg={1}>
                   <IconButton
                     aria-label="Open drawer"
                     onClick={this.handleDrawerOpen}
                     className={classnames(classes.menuButton, open && classes.hide)}>
                     <Menu />
-                  </IconButton> : null
-                }
+                  </IconButton>
+                </Grid>
+              )}
+              <Grid
+                item
+                sm={10}
+                md={1}
+                lg={1}
+              >
                 <SmartImg proxy={proxy} src={verbiage(copy.logo)} className={classes.logo} />
               </Grid>
-              {!category && (
-                <Fragment>
-                  <Grid
-                    item
-                    sm={12}
-                    md={8}
-                    lg={8}
-                  >
-                    {(!open && !isMobile) &&
-                      <Box
-                        display="flex"
-                        flexDirection="row"
-                        justifyContent="flex-start"
-                        p={1}
-                        m={1}
-                        className={classes.navbar}>
-                        {copy.publics.map((item) => {
-                          return (
-                            <Link
-                              activeClass="active"
-                              key={item.id}
-                              smooth
-                              spy
-                              to={verbiage(item.id)}
-                            >
-                              <Box p={1} className={classes.navbarItem} key={item.id}>
-                                <LangButton
-                                  key={item.label}
-                                  lang={item.label}
-                                  pos="right"
-                                  typeButton={TYPES.LINK}
-                                  variant="light"
-                                />
-                              </Box>
-                            </Link>
-                          );
-                        })}
-                      </Box>
-                    }
-                  </Grid>
-                  <Grid
-                    item
-                    sm={10}
-                    md={3}
-                    lg={3}
-                  >
-                    {(!open && !isMobile) && (
-                      <Box
-                        display="flex"
-                        flexDirection="row"
-                        justifyContent="flex-end"
-                        p={1}
-                        m={1}
-                        className={classes.navbar}>
-                        {copy.featured.map((featured) => {
-                          return (
-                            <Link
-                              activeClass="active"
-                              key={featured.id}
-                              smooth
-                              spy
-                              to={verbiage(featured.id)}
-                            >
-                              <Box p={1} className={classes.navbarItem} key={featured.id}>
-                                <LangButton
-                                  key={featured.label}
-                                  lang={featured.label}
-                                  pos="right"
-                                  typeButton={TYPES.CONTAINED}
-                                  variant="dark"
-                                />
-                              </Box>
-                            </Link>
-                          );
-                        })}
-                      </Box>
-                    )}
-                  </Grid>
-                </Fragment>
-              )}
-              {category && (
-                <Box
-                  display="flex"
-                  flexDirection="row"
-                  justifyContent="flex-start"
-                  p={1}
-                  m={1}
-                  className={classes.navbar}>
-                  <Box p={1} className={classes.navbarItem} key={copy.back}>
-                    <LangButton
-                      className={classes.back}
-                      key={copy.back}
-                      lang={copy.back}
-                      pos="left"
-                      typeButton={TYPES.BUTTON}
-                      variant="light"
-                    />
-                  </Box>
-                </Box>
-              )}
+              {!isMobile && HeaderLinks}
             </Grid>
           </Toolbar>
         </AppBar>
@@ -398,15 +433,7 @@ class Header extends Component {
               </IconButton>
             </div>
             <Divider className={classes.divider} />
-            <List>
-              {copy.publics.map(item => (
-                <ListItem button key={item.label} className={classes.menuItem}>
-                  <Typography variant="body1" component="span" className={classes.menuLabel}>
-                    <LangToggler id={item.label} />
-                  </Typography>
-                </ListItem>
-              ))}
-            </List>
+            {isMobile && HeaderLinks}
           </Drawer>
         }
       </div>
@@ -415,14 +442,21 @@ class Header extends Component {
   }
 }
 
-
 // map state to props
 function mapStateToProps (state) {
   return {
     category: state.category,
     device: state.device,
+    language: state.language,
+    section: state.section,
     verbiage: state.verbiage,
   };
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles, { withTheme: true })(Header));
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    setSection: setSectionAction,
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(Header));

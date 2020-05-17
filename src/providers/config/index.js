@@ -1,3 +1,10 @@
+import SVG_SOCIAL_1 from '../../static/svg/social/fb.svg';
+import SVG_SOCIAL_2 from '../../static/svg/social/ig.svg';
+import SVG_SOCIAL_3 from '../../static/svg/social/email.svg';
+
+import IMG_INFO_1 from '../../static/svg/social/phone.svg';
+import IMG_INFO_4 from '../../static/svg/social/location.svg';
+
 // constants
 export const constants = {
   // categories
@@ -30,7 +37,7 @@ export const constants = {
 
   PATHS: {
     SERVICES: {
-      en: 'specialities',
+      en: 'services',
       es: 'especialidades',
     },
     SERVICES_DETAILS: {
@@ -57,17 +64,26 @@ export const constants = {
   SERVICE_10: 'service_10',
 };
 
+// backend
+export const root = {
+  prod: 'https://clinica-aqua-api-277301.uc.r.appspot.com/',
+};
+
+export const urls = {
+  form: `${root.prod}api/email`,
+};
+
 // public routes
 export const publics = [
   {
     id: constants.LINK_SERVICES_1,
     label: {
       en: 'services',
-      es: 'servicios',
+      es: 'especialidades',
     },
     route: {
       en: '/services',
-      es: '/servicios',
+      es: '/especialidades',
     },
   },
   {
@@ -112,19 +128,19 @@ export const privates = [];
 // social links
 export const social = [
   {
-    icon: '/src/static/svg/social/fb.svg',
+    icon: SVG_SOCIAL_1,
     isFab: true,
     label: 'facebook',
     link: 'https://www.facebook.com/AQUApz/',
   },
   {
-    icon: '/src/static/svg/social/ig.svg',
+    icon: SVG_SOCIAL_2,
     isFab: true,
     label: 'instagram',
     link: 'https://www.instagram.com/clinicaaquapz/',
   },
   {
-    icon: '/src/static/svg/social/email.svg',
+    icon: SVG_SOCIAL_3,
     isFab: true,
     label: 'email',
     link: 'mailto:contacto@clinicaaqua.com',
@@ -133,22 +149,22 @@ export const social = [
 
 export const info = [
   {
-    icon: '/src/static/svg/social/phone.svg',
+    icon: IMG_INFO_1,
     isFab: false,
     label: '+506 2772-0960',
   },
   {
-    icon: '/src/static/svg/social/phone.svg',
+    icon: IMG_INFO_1,
     isFab: false,
     label: '+506 8801-2626',
   },
   {
-    icon: '/src/static/svg/social/email.svg',
+    icon: SVG_SOCIAL_3,
     isFab: false,
     label: 'contacto@clinicaaqua.com',
   },
   {
-    icon: '/src/static/svg/social/location.svg',
+    icon: IMG_INFO_4,
     isFab: false,
     label: 'Pérez Zeledón, Costa Rica',
   },
@@ -185,6 +201,7 @@ export const assets = {
 const config = {
   assets,
   defaultLang: 'es',
+  font: 'Poppins!important',
   info,
   langs,
   routes: {
@@ -193,6 +210,7 @@ const config = {
     publics,
   },
   social,
+  urls,
 };
 
 

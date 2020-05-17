@@ -8,6 +8,7 @@ import {
 } from 'lodash';
 
 import {
+  Paper,
   withStyles,
 } from '@material-ui/core';
 
@@ -27,6 +28,7 @@ import {
 import Helmet from '../../components/commons/helmet';
 import Footer from '../../components/footer';
 
+import BannerA from '../home/banner-1';
 import SectionA from './section-1/index';
 
 // commons
@@ -34,6 +36,7 @@ import ContactFormLayout from '../../components/layouts/commons/contact_1';
 import Loading from './../../components/commons/preloader';
 import ScrollToTopOnMount from '../../components/commons/scrollToTopOnMount';
 import ServicesLayout from '../../components/layouts/commons/services_1';
+import ClerksLayout from '../../components/layouts/commons/clerks_1';
 
 // provider
 import LangGenerateTree from './../../providers/utils/lang.generate.tree';
@@ -53,15 +56,8 @@ import {
 
 const styles = (theme) => ({
   container: {
-    margin: 0,
-  },
-  logo: {
-    display: 'block',
-    margin: 0,
-    width: '50%',
-  },
-  navigation: {
-    padding: theme.spacing(2),
+    margin: `${theme.spacing(11)}px 0 0 0`,
+    position: 'relative',
   },
 });
 
@@ -91,7 +87,7 @@ class Services extends Component {
       selectVariantVerbiage('default');
     }
 
-    this.setServicesState();
+    this.setServicesState(true);
   }
 
   componentDidUpdate = (prevProps) => {
@@ -194,6 +190,7 @@ class Services extends Component {
   render () {
     const {
       category,
+      classes,
       device,
       language,
       service,
@@ -227,12 +224,16 @@ class Services extends Component {
                 <ContactFormLayout
                   proxy={proxy}
                   variant="dark"
+                  to={constants.LINK_CONTACT_FORM_2}
                 />
               </SectionA>
             )}
-
-            <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="secondary" />
-            <Footer proxy={proxy} variant="light" />
+            <Paper className={classes.container}>
+              <BannerA proxy={proxy} />
+              <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant={category && category.id ? 'secondary' : 'primary'} />
+              <ClerksLayout proxy={proxy} variant="dark2" />
+              <Footer proxy={proxy} variant="light" />
+            </Paper>
             <ScrollToTopOnMount />
           </Fragment>
         ) || <Loading />

@@ -1,6 +1,5 @@
 
 import classnames from 'classnames';
-import Fade from 'react-reveal/Fade';
 import React from 'react';
 
 import {
@@ -25,13 +24,14 @@ const styles = theme => ({
   subtitle: props => ({
     color: ThemeColor(props, theme),
     marginBottom: theme.spacing(3),
+    textAlign: props.align || 'left',
     width: '100%',
   }),
   title: props => ({
     color: ThemeColor(props, theme),
     marginBottom: theme.spacing(3),
     textAlign: props.align || 'left',
-    textTransform: 'initial',
+    textTransform: 'capitalize',
   }),
 });
 
@@ -54,11 +54,9 @@ function Callout (props: {
   return (
     <Card className={classnames(classes.card, className)} elevation={0}>
       <CardContent className={classes.container}>
-        <Fade top>
-          <Typography variant="h1" component="p" className={classes.title}>
-            <LangToggler id={title} />
-          </Typography>
-        </Fade>
+        <Typography variant="h1" component="p" className={classes.title}>
+          <LangToggler id={title} />
+        </Typography>
         {subtitle && (
           <Typography variant="body1" component="p" className={classes.subtitle}>
             <LangToggler id={subtitle} />

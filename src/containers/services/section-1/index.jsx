@@ -37,6 +37,7 @@ import ThemeBackground from './../../../providers/utils/theme.background';
 import ThemeColor from './../../../providers/utils/theme.color';
 
 // components
+import { LangButton } from './../../../components/commons/button';
 import { TYPES } from './../../../components/commons/button';
 import Callout from './../../../components/commons/callout/';
 import Icon from './../../../components/commons/icon';
@@ -59,15 +60,19 @@ const styles = theme => ({
     lineHeight: '38px',
   },
   body1: {
-    padding: theme.spacing(1),
+    marginBottom: theme.spacing(2),
+    textAlign: 'justify',
   },
   body2: {
-    background: ThemeBackground({ variant }, theme, 'main'),
-    padding: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    textAlign: 'justify',
   },
   button: {
     cursor: 'pointer',
     margin: '0 auto',
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
   },
   caption: () => ({
     background: ThemeBackground({ variant }, theme, 'dark'),
@@ -77,10 +82,11 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
+    padding: theme.spacing(2),
+    position: 'relative',
   },
   copy: {
     margin: `${theme.spacing(2)}px 0 0 0`,
-    textAlign: 'justify',
   },
   crumb: () => ({
     color: ThemeColor({ variant }, theme),
@@ -97,40 +103,61 @@ const styles = theme => ({
   },
   description: {
     color: theme.palette.primary.contrastText,
+    margin: theme.spacing(1),
     textAlign: 'center',
   },
   descriptionContainer: {
-    background: ThemeBackground({ variant }, theme, 'light'),
+    background: ThemeBackground({ variant }, theme, 'main'),
     maxWidth: 'initial',
     minHeight: 'initial',
-    padding: `${theme.spacing(1)}px 0`,
+    padding: `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(16)}px`,
   },
   details: {
     padding: `${theme.spacing(10)}px 0 0 0`,
   },
   divider: {
-    margin: `${theme.spacing(4)}px 0`,
+    margin: `${theme.spacing(2)}px 0`,
   },
   h3: {
-    background: ThemeBackground({ variant }, theme, 'dark'),
+    background: ThemeBackground({ variant }, theme, 'light'),
+    border: `4px solid ${ThemeBackground({ variant }, theme, 'light')}`,
     display: 'inline-block',
-    padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+    marginBottom: theme.spacing(2),
+    padding: `${theme.spacing(0.5)}px ${theme.spacing(5)}px`,
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`,
+    },
   },
+  header: props => ({
+    background: ThemeBackground({ variant }, theme, 'light'),
+    display: 'flex',
+    flexFlow: 'column',
+    margin: `0 0 ${theme.spacing(2)}px 0`,
+    maxWidth: '100%',
+    minHeight: '100vh',
+    overflow: 'hidden',
+    padding: `${theme.spacing(16)}px 0`,
+    textAlign: 'justify',
+    [theme.breakpoints.down('md')]: {
+      padding: 0,
+    },
+  }),
   icon: {
     lineHeight: 0,
   },
-
   images: {
     '&:hover': {
       filter: 'initial',
       imageRendering: 'initial',
+      transform: 'scale(1.05)',
     },
-    border: `1px solid ${ThemeBackground({ variant }, theme, 'light')}`,
-    filter: 'grayscale(100%) blur(.4px) contrast(90%)',
+    border: `1px solid ${ThemeBackground({ variant }, theme, 'dark')}`,
+    filter: 'grayscale(100%) contrast(90%)',
     imageRendering: 'pixelated',
-    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    transform: 'scale(1)',
     transition: theme.transitions.create(
-      ['filter'],
+      ['filter', 'transform'],
       { duration: theme.transitions.duration.complex },
     ),
   },
@@ -149,6 +176,9 @@ const styles = theme => ({
     padding: theme.spacing(2),
     position: 'relative',
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(1),
+    },
   },
   itemActions: {
     bottom: 0,
@@ -157,6 +187,10 @@ const styles = theme => ({
     position: 'absolute',
     right: theme.spacing(1),
     zIndex: 2,
+    [theme.breakpoints.down('md')]: {
+      position: 'relative',
+      paddingBottom: 0,
+    },
   },
   itemContent: {
     padding: 0,
@@ -164,11 +198,16 @@ const styles = theme => ({
   itemHeader: {},
   itemList: {},
   itemMedia: {
-    backgroundSize: '100%',
+    backgroundSize: 'cover',
     border: `4px solid ${theme.palette.primary.main}`,
     height: 500,
     marginTop: theme.spacing(2),
     position: 'relative',
+    [theme.breakpoints.down('md')]: {
+      border: 'initial',
+      height: 200,
+      margin: 0,
+    },
   },
   itemSelected: {
     borderColor: ThemeColor({ variant }, theme),
@@ -179,6 +218,9 @@ const styles = theme => ({
     background: 'transparent',
     color: ThemeColor({ variant }, theme),
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.2rem',
+    },
   },
   logo: {
     display: 'block',
@@ -253,7 +295,7 @@ function SectionA (props: {
     history,
     match: {
       params: {
-        serviceUrl,
+        url,
       },
     },
     onReset,
@@ -278,6 +320,29 @@ function SectionA (props: {
 
   const servicePath = SERVICES[language];
 
+  const LinkForm = (() => (
+    <Link
+      className={classes.button}
+      activeClass="active"
+      smooth
+      spy
+      to={constants.LINK_CONTACT_FORM_2}
+    >
+      <LangButtonAnimate
+        color="white"
+        iconClassName={classes.icon}
+        iconx="arrowUp"
+        icony="fwd"
+        lang={category && category.cta}
+        onClick={() => setShowForm(true)}
+        pos="right"
+        size={30}
+        typeButton={TYPES.BUTTON}
+        variant="dark2"
+      />
+    </Link>
+  ));
+
   if (!showForm) {
     if (!service) {
       view = category.images && category.images.map((image, i) => {
@@ -288,7 +353,7 @@ function SectionA (props: {
         );
       });
 
-      if (!service && serviceUrl) {
+      if (url && !service) {
         view = (
           <Fragment>
             <Callout
@@ -332,7 +397,7 @@ function SectionA (props: {
 
                     return (
                       <Typography
-                        className={classnames(classes.copy, classes[item.component])}
+                        className={classnames(classes[item.component])}
                         variant={item.component}
                         key={k}
                       >
@@ -348,26 +413,7 @@ function SectionA (props: {
             <CardActions
               disableSpacing
             >
-              <Link
-                className={classes.button}
-                activeClass="active"
-                smooth
-                spy
-                to={constants.LINK_CONTACT_FORM_2}
-              >
-                <LangButtonAnimate
-                  color="white"
-                  iconClassName={classes.icon}
-                  iconx="arrowUp"
-                  icony="fwd"
-                  lang={service.cta}
-                  onClick={() => setShowForm(true)}
-                  pos="right"
-                  size={30}
-                  typeButton={TYPES.BUTTON}
-                  variant="dark2"
-                />
-              </Link>
+              {LinkForm()}
             </CardActions>
           </Card>
         </Paper>
@@ -441,8 +487,9 @@ function SectionA (props: {
                 direction="row"
                 justify="flex-start"
                 alignItems="flex-start"
+                spacing={4}
               >
-                {!service && (
+                {(!showForm && !service) && (
                   <Grid
                     item
                     sm={12}
@@ -450,11 +497,13 @@ function SectionA (props: {
                     lg={6}
                   >
                     <Callout
+                      className={classes.header}
                       align="left"
-                      title={category.description}
+                      title={category.title}
+                      subtitle={category.description}
                       variant={variant}
-                      transparent
                     />
+                    {LinkForm()}
                   </Grid>)
                 }
                 {showForm && (
@@ -465,10 +514,11 @@ function SectionA (props: {
                     lg={(!service || showForm) ? 6 : 12}
                   >
                     <Callout
+                      className={classes.header}
                       align="left"
-                      title={category.description}
+                      title={category.title}
+                      subtitle={category.description}
                       variant={variant}
-                      transparent
                     />
                   </Grid>
                 )}
@@ -516,22 +566,17 @@ function SectionA (props: {
                       className={classes.itemActions}
                       disableSpacing
                     >
-                      <LangButtonAnimate
+                      <LangButton
                         className={classnames(classes.button, seleted && classes.itemSelected)}
-                        color="black"
-                        iconClassName={classes.icon}
-                        iconx="arrowUp"
-                        icony="fwd"
-                        lang={category.cta}
+                        lang={item.cta}
                         onClick={() => {
                           setShowForm(false);
                           onServiceListClick(category, item);
                         }}
-                        pos="right"
-                        size={30}
                         typeButton={TYPES.BUTTON}
-                        variant="light"
-                      />
+                        variant="dark"
+                      >
+                      </LangButton>
                     </CardActions>
                   </Card>
                 );

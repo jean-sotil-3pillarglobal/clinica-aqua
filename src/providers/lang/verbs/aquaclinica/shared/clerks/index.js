@@ -1,9 +1,8 @@
-import CLERK_1_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
-import CLERK_2_IMAGE from './../../../../../../static/images/clerks/IMG-1400.jpg';
-import CLERK_3_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
-import CLERK_4_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
-import CLERK_5_IMAGE from './../../../../../../static/images/clerks/IMG-1397.jpg';
-import CLERK_6_IMAGE from './../../../../../../static/images/clerks/_MG_6998.jpg';
+import CLERK_1_IMAGE from './../../../../../../static/images/clerks/clerk-1.jpg';
+import CLERK_2_IMAGE from './../../../../../../static/images/clerks/clerk-2.jpg';
+import CLERK_3_IMAGE from './../../../../../../static/images/clerks/clerk-3.jpg';
+import CLERK_4_IMAGE from './../../../../../../static/images/clerks/clerk-4.jpg';
+import CLERK_5_IMAGE from './../../../../../../static/images/clerks/clerk-5.jpg';
 
 import {
   constants,
@@ -142,8 +141,8 @@ const Clerks = [
     id: CLERK_4,
     image: CLERK_4_IMAGE,
     label: {
-      en: 'Médica Cirujana Dermatóloga',
-      es: 'Médica Cirujana Dermatóloga',
+      en: 'Médica Homeopata',
+      es: 'Médica Homeopata',
     },
     less: {
       en: 'Cerrar',
@@ -154,8 +153,8 @@ const Clerks = [
       es: 'Conocer más',
     },
     name: {
-      en: 'Dra. Diana Ulate Ovares',
-      es: 'Dra. Diana Ulate Ovares',
+      en: 'Dra. Diana Ulate Rodriguez',
+      es: 'Dra. Diana Ulate Rodriguez',
     },
     size_md: 6,
     size_sm: 6,
@@ -204,10 +203,18 @@ const Clerks = [
       `,
     },
     id: CLERK_6,
-    image: CLERK_6_IMAGE,
+    image: CLERK_5_IMAGE,
     label: {
       en: 'Fisioterapeuta',
       es: 'Fisioterapeuta',
+    },
+    less: {
+      en: 'Cerrar',
+      es: 'Cerrar',
+    },
+    more: {
+      en: 'Conocer más',
+      es: 'Conocer más',
     },
     name: {
       en: 'Lic. Helyani Lopez Solano',

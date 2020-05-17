@@ -20,7 +20,7 @@ import Icon from '../../../icon';
 
 const styles = () => ({
   input: {
-    marginTop: '32px !important',
+    marginTop: '22px !important',
   },
 });
 

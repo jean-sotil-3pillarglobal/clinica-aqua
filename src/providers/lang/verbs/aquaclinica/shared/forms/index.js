@@ -22,23 +22,23 @@ export default [
   // SERVICE 1
   {
     cta: {
-      en: 'next',
+      en: 'siguiente',
       es: 'siguiente',
     },
     icon: icons.general,
     label: {
-      en: 'Create quote',
-      es: 'Iniciar consulta ',
+      en: 'Iniciar consulta',
+      es: 'Iniciar consulta',
     },
     rows: [
       {
         fields: SERVICES_INFORMATION_1_2,
         label: {
-          en: 'How can we help?',
+          en: '¿En qué te podemos ayudar?',
           es: '¿En qué te podemos ayudar?',
         },
         label_helper: {
-          en: 'Let&#39; us know which service you feel instered and we will contact you inmediatly with more information.',
+          en: 'Dejanos saber el servicio de tu interés y te contactaremos inmediatamente con más información.',
           es: 'Dejanos saber el servicio de tu interés y te contactaremos inmediatamente con más información.',
         },
       },
@@ -50,8 +50,8 @@ export default [
   // SERVICE 1
   {
     cta: {
-      en: 'create quote',
-      es: 'iniciar consulta',
+      en: 'confirmar',
+      es: 'confirmar',
     },
     icon: icons.service1,
     label: {

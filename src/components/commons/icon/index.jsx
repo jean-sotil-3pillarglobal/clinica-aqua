@@ -12,6 +12,7 @@ import ThemeBackground from '../../../providers/utils/theme.background';
 const styles = theme => ({
   root: props => ({
     color: (props.variant && ThemeBackground(props, theme, 'dark')) || props.color || theme.palette.primary.main,
+    display: 'flex!important',
   }),
   svg: {
     height: 'initial',

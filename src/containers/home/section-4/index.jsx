@@ -22,6 +22,8 @@ import BannerA from './../banner-1';
 // components
 import SectionBlock from './../../../components/layouts/section';
 
+import { constants } from './../../../providers/config';
+
 const variant = 'light';
 
 const styles = theme => ({
@@ -36,7 +38,7 @@ const styles = theme => ({
   },
   title: {
     color: ThemeColor({ variant }, theme),
-    margin: `0 0 ${theme.spacing(10)}px 0`,
+    margin: 0,
     textAlign: 'right',
     textTransform: 'capitalize',
   },
@@ -90,6 +92,7 @@ const SectionD = (props: {
                 />
                 <ContactFormLayout
                   proxy={proxy}
+                  to={constants.LINK_CONTACT_FORM_1}
                   variant="primary"
                 />
               </Fragment>

@@ -1,14 +1,17 @@
 
-import { cloneDeep } from 'lodash';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 import Fade from 'react-reveal/Fade';
 import React, { Component } from 'react';
+import axios from 'axios';
+import { bindActionCreators } from 'redux';
+import { cloneDeep } from 'lodash';
+import { connect } from 'react-redux';
 
 import {
   Paper,
   withStyles,
 } from '@material-ui/core';
+
+import { Element, scroller } from 'react-scroll';
 
 // provider
 import LangGenerateTree from './../../../../providers/utils/lang.generate.tree';
@@ -16,8 +19,12 @@ import ThemeBackground from './../../../../providers/utils/theme.background';
 import ThemeColor from './../../../../providers/utils/theme.color';
 
 // components
-import Stepper from './../../../commons/stepper';
 import SVGComponent from './../../../commons/svg';
+import Stepper from './../../../commons/stepper';
+
+import config from './../../../../providers/config';
+
+import { setLoadingAction } from './../../../../store/actions/global';
 
 const styles = theme => ({
   callout: props => ({
@@ -28,10 +35,11 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
+    maxWidth: 800,
   },
-  stepper: props => ({
-    background: ThemeBackground(props, theme, 'main'),
+  stepper: () => ({
     borderRadius: '0 0 0 0',
+    marginBottom: theme.spacing(20),
   }),
   subtitle: props => ({
     color: ThemeColor(props, theme),
@@ -42,7 +50,7 @@ const styles = theme => ({
     bottom: 0,
     position: 'absolute',
     right: 0,
-    width: '100%',
+    width: '120%',
     zIndex: -1,
   },
   title: props => ({
@@ -63,8 +71,11 @@ const copy = LangGenerateTree([NODE, SLOT], [
   'forms',
   'id',
   'services',
-  'svg_show',
   'svg',
+  'svg_show',
+  'thank_label',
+  'thank_subtitle',
+  'thank_title',
   'title',
 ]);
 
@@ -113,6 +124,7 @@ class ContactFormLayout extends Component {
   props: {
     classes: Object,
     proxy: Object,
+    setLoading: Function,
     variant: String,
   }
 
@@ -138,8 +150,9 @@ class ContactFormLayout extends Component {
     const {
       proxy: {
         language,
-        // verbiage,
       },
+      setLoading,
+      to,
     } = this.props;
 
     const {
@@ -160,27 +173,29 @@ class ContactFormLayout extends Component {
     cloneDocu.source = window.location.href;
     // Current Lang:
     cloneDocu.language = language;
-    // Copy for email:
-    // cloneDocu.categories = verbiage(copy.categories);
 
+    // show loader
+    setLoading(true);
     return new Promise((resolve, reject) => {
       const request = {
         data: cloneDocu,
         method: 'post',
-        url: 'http://localhost:3000/submit',
+        url: config.urls.form,
       };
 
       if (valid) {
         const makeRequest = async () => {
           try {
             const result = await axios(request);
-
-            if (result) {
+            if (result && result.status === 200) {
               this.setState({
                 valid,
               });
 
               resolve();
+              // hide loader
+              setLoading(false);
+              scroller.scrollTo(`${to}-form`);
             }
           } catch (error) {
             let message = error.response
@@ -188,6 +203,8 @@ class ContactFormLayout extends Component {
               : error.message;
             message = message || 'Oops something went wrong';
             reject(message);
+            // hide loader
+            setLoading(false);
           }
         };
 
@@ -206,6 +223,7 @@ class ContactFormLayout extends Component {
     const {
       classes,
       proxy,
+      to,
       variant,
     } = this.props;
 
@@ -221,25 +239,34 @@ class ContactFormLayout extends Component {
 
     return (
       verbiage &&
-      <Paper className={classes.container}>
+      <Paper className={classes.stepper}>
         {verbiage(copy.svg_show) && <SVGComponent src={verbiage(copy.svg)} className={classes.svg} variant="primary" />}
-        <Fade left>
-          <Stepper
-            className={classes.container}
-            copy={copy}
-            document={document}
-            forms={forms}
-            onBlur={this.handleBlur}
-            onChange={this.handleChange}
-            onSubmit={this.handleSubmit}
-            proxy={proxy}
-            variant={variant}
-            valid={valid}
-          />
-        </Fade>
+        <Element name={`${to}-form`}>
+          <Fade left>
+            <Stepper
+              className={classes.container}
+              copy={copy}
+              document={document}
+              forms={forms}
+              onBlur={this.handleBlur}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              proxy={proxy}
+              variant={variant}
+              valid={valid}
+            />
+          </Fade>
+        </Element>
       </Paper>
     );
   }
 }
 
-export default withStyles(styles)(withRouter(ContactFormLayout));
+// dispatch actionCreators
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    setLoading: setLoadingAction,
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(ContactFormLayout));

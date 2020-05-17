@@ -16,6 +16,20 @@ import promos from '../shared/promos';
 import services from '../shared/services';
 
 import CONTACT_FORM_SVG from '../../../../../static/svg/coming.svg';
+import IMG_LOGO from '../../../../../static/images/logo.jpg';
+import IMG_SECTION_1 from '../../../../../static/images/d-bg-1.png';
+
+import IMG_BANNER_1 from '../../../../../static/images/logos/dysport.png';
+import IMG_BANNER_2 from '../../../../../static/images/logos/emsculpt.png';
+import IMG_BANNER_3 from '../../../../../static/images/logos/fotona.png';
+import IMG_BANNER_4 from '../../../../../static/images/logos/geneo.png';
+import IMG_BANNER_5 from '../../../../../static/images/logos/lumenis.png';
+import IMG_BANNER_6 from '../../../../../static/images/logos/neauvia.png';
+import IMG_BANNER_7 from '../../../../../static/images/logos/tentrek.png';
+import IMG_BANNER_8 from '../../../../../static/images/logos/venus.png';
+import IMG_BANNER_9 from '../../../../../static/images/logos/storzmedical.png';
+import IMG_BANNER_10 from '../../../../../static/images/logos/chattanooga.png';
+import IMG_BANNER_11 from '../../../../../static/images/logos/radiesse.png';
 
 const {
   LINK_CONTACT_FORM_1,
@@ -30,13 +44,13 @@ const Verbiage = {
   commons: {
     clerks_1: {
       body: {
-        en: 'Somos un equipo de profesionales altamente calificado<br/>Trabajando con la tecnología más moderna de la zona sur.',
-        es: 'Somos un equipo de profesionales altamente calificado<br/>Trabajando con la tecnología más moderna de la zona sur.',
+        en: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
+        es: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
       },
       clerks,
       title: {
-        en: 'Nuestros Profesionales a Cargo<br/>De tu Salud y Bienestar',
-        es: 'Nuestros Profesionales a Cargo<br/>De tu Salud y Bienestar',
+        en: 'Nuestros Profesionales a Cargo <br/>De tu Salud y Bienestar',
+        es: 'Nuestros Profesionales a Cargo <br/>De tu Salud y Bienestar',
       },
     },
     contact_1: {
@@ -50,12 +64,28 @@ const Verbiage = {
       services,
       svg_show: true,
       svg: CONTACT_FORM_SVG,
+      thank_label: {
+        en: 'Se envió tu solicitud',
+        es: 'Se envió tu solicitud',
+      },
+      thank_subtitle: {
+        en: 'Será un placer atenderte',
+        es: 'Será un placer atenderte',
+      },
+      thank_title: {
+        en: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+        es: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+      },
     },
     default: {},
     services_1: {
       body: {
         en: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
         es: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
+      },
+      cta: {
+        en: 'conocer más',
+        es: 'conocer más',
       },
       categories,
       id: LINK_SERVICES_1,
@@ -86,8 +116,8 @@ const Verbiage = {
       ],
       langs,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
     },
     header: {
@@ -97,8 +127,8 @@ const Verbiage = {
       },
       featured,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       publics,
       social,
@@ -155,61 +185,82 @@ const Verbiage = {
             en: 'dysport',
             es: 'dysport',
           },
-          logo: '/src/static/images/logos/dysport.png',
+          logo: IMG_BANNER_1,
         },
         {
           alt: {
             en: 'EMSCULPT',
             es: 'EMSCULPT',
           },
-          logo: '/src/static/images/logos/emsculpt.png',
+          logo: IMG_BANNER_2,
         },
         {
           alt: {
             en: 'fotona',
             es: 'fotona',
           },
-          logo: '/src/static/images/logos/fotona.png',
+          logo: IMG_BANNER_3,
         },
         {
           alt: {
             en: 'geneo',
             es: 'geneo',
           },
-          logo: '/src/static/images/logos/geneo.png',
+          logo: IMG_BANNER_4,
         },
         {
           alt: {
             en: 'lumenis',
             es: 'lumenis',
           },
-          logo: '/src/static/images/logos/lumenis.png',
+          logo: IMG_BANNER_5,
         },
         {
           alt: {
             en: 'neauvia',
             es: 'neauvia',
           },
-          logo: '/src/static/images/logos/neauvia.png',
+          logo: IMG_BANNER_6,
         },
         {
           alt: {
             en: 'tentrek',
             es: 'tentrek',
           },
-          logo: '/src/static/images/logos/tentrek.png',
+          logo: IMG_BANNER_7,
         },
         {
           alt: {
             en: 'venus',
             es: 'venus',
           },
-          logo: '/src/static/images/logos/venus.png',
+          logo: IMG_BANNER_8,
+        },
+        {
+          alt: {
+            en: 'storzmedical',
+            es: 'storzmedical',
+          },
+          logo: IMG_BANNER_9,
+        },
+        {
+          alt: {
+            en: 'chattanooga',
+            es: 'chattanooga',
+          },
+          logo: IMG_BANNER_10,
+        },
+        {
+          alt: {
+            en: 'radiesse',
+            es: 'radiesse',
+          },
+          logo: IMG_BANNER_11,
         },
       ],
     },
     section_1: {
-      background: '/src/static/images/d-bg-1.png',
+      background: IMG_SECTION_1,
       background_show: true,
       cta: {
         en: 'ver todas las especialidades',
@@ -217,8 +268,8 @@ const Verbiage = {
       },
       id: LINK_SECTION_1,
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       subtitle: {
         en: '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
@@ -356,8 +407,8 @@ const Verbiage = {
       categories,
       id: 'services_index',
       logo: {
-        desktop: '/src/static/images/logo.jpg',
-        mobile: '/src/static/images/logo.jpg',
+        desktop: IMG_LOGO,
+        mobile: IMG_LOGO,
       },
       promos,
       services,

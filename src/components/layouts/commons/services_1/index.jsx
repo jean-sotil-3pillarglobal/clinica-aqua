@@ -18,6 +18,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Paper,
   Typography,
   useTheme,
   withStyles,
@@ -38,6 +39,7 @@ import {
 import Callout from './../../../commons/callout/';
 import Icon from './../../../commons/icon';
 import SectionBlock from './../../section';
+import Slider from './../../../commons/slider';
 
 import { LangButton, TYPES } from './../../../commons/button';
 
@@ -84,6 +86,9 @@ const styles = theme => ({
     border: `${theme.spacing(1)}px solid ${ThemeBackground(props, theme, 'main')}`,
     padding: `${theme.spacing(2)}px 20%`,
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(1)}px 20%`,
+    },
   }),
   cardTitleHover: () => ({
     textDecoration: 'underline',
@@ -95,6 +100,19 @@ const styles = theme => ({
     cursor: 'default',
     display: 'block',
     padding: theme.spacing(1),
+    transition: theme.transitions.create(
+      ['borderWidth'],
+      { duration: theme.transitions.duration.complex },
+    ),
+  }),
+  cardTitleImageHover: props => ({
+    borderWidth: 0,
+  }),
+  container: props => ({
+    background: ThemeBackground(props, theme, 'light'),
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(10)}px ${theme.spacing(1)}px`,
+    },
   }),
   cta: {
     padding: `${theme.spacing(2)}px 0`,
@@ -124,6 +142,7 @@ const styles = theme => ({
     border: `0 solid ${ThemeColor(props, theme)}`,
     marginBottom: theme.spacing(1),
     overflow: 'hidden',
+    width: '100%',
   }),
   items: {
     padding: `${theme.spacing(6)}px 0`,
@@ -160,6 +179,7 @@ const SLOT = 'services_1';
 const copy = LangGenerateTree([NODE, SLOT], [
   'body',
   'categories',
+  'cta',
   'id',
   'services',
   'title',
@@ -181,6 +201,7 @@ function ServicesLayout (props: {
   } = props;
 
   const {
+    device,
     language,
     verbiage,
   } = proxy;
@@ -203,7 +224,8 @@ function ServicesLayout (props: {
   const services = verbiage && verbiage(copy.services);
 
   const categories = verbiage && verbiage(copy.categories).map((item, id) => {
-    const isHover = useHover.id === `item-${id}`;
+    let isHover = useHover.id === `item-${id}`;
+    isHover = (isHover || device === 'mobile');
 
     const filteredServices = services.filter(service => service.categories && service.categories.includes(item.id)) || [];
 
@@ -235,15 +257,16 @@ function ServicesLayout (props: {
                 </Fab>
               </Fragment>
             }
-            className={classes.cardTitleImage}
+            className={classnames(classes.cardTitleImage, isHover && classes.cardTitleImageHover)}
             style={{
               backgroundImage: `url(${item.background})`,
               backgroundPosition: 'center',
-              filter: !isHover ? 'grayscale(100%) blur(.4px) contrast(90%)' : '',
+              filter: !isHover ? 'grayscale(100%) contrast(90%)' : '',
+              transform: !isHover ? 'scale(1)' : 'scale(1.05)',
               height: 300,
               imageRendering: isHover ? 'pixelated' : '',
               transition: theme.transitions.create(
-                ['filter'],
+                ['filter', 'transform'],
                 { duration: theme.transitions.duration.complex },
               ),
               width: '100%',
@@ -322,7 +345,7 @@ function ServicesLayout (props: {
             >
               <LangButton
                 className={classnames(classes.button, isHover && classes.buttonHover)}
-                lang={item.cta}
+                lang={copy.cta}
                 typeButton={TYPES.CONTAINED}
                 variant={variant}
               />
@@ -333,52 +356,84 @@ function ServicesLayout (props: {
     });
   });
 
-  return (
-    verbiage &&
-    <SectionBlock
-      id={verbiage(copy.id)}
-      variant={variant}
+  const items = categories.map(item => (
+    <Grid
+      item
+      key={item.id}
+      className={classes.item}
+      onMouseEnter={() => handleHover({
+        hover: true,
+        id: item.id,
+      })}
+      onMouseLeave={() => handleHover({
+        hover: false,
+      })}
+      xs={12}
+      sm={12}
+      md={4}
+      lg={4}
     >
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className={classes.items}
-        spacing={2}>
-        <Grid
-          item
-          sm={12}
-          md={12}>
-          <Callout
-            align="center"
-            title={copy.title}
-            subtitle={copy.body}
+      {item.render()}
+    </Grid>
+  ));
+
+  return (
+    verbiage && (
+      <Fragment>
+        {device !== 'mobile' && (
+          <SectionBlock
+            id={verbiage(copy.id)}
             variant={variant}
-            transparent
-          />
-        </Grid>
-        {categories.map(item => (
-          <Grid
-            item
-            key={item.id}
-            className={classes.item}
-            onMouseEnter={() => handleHover({
-              hover: true,
-              id: item.id,
-            })}
-            onMouseLeave={() => handleHover({
-              hover: false,
-            })}
-            sm={12}
-            md={4}
-            lg={4}
           >
-            {item.render()}
-          </Grid>
-        ))}
-      </Grid>
-    </SectionBlock>
+            <Grid
+              container
+              spacing={4}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid
+                item
+                xs={10}
+                sm={10}
+                md={12}
+                lg={12}
+                >
+                <Callout
+                  align="center"
+                  title={copy.title}
+                  subtitle={copy.body}
+                  variant={variant}
+                  transparent
+                />
+              </Grid>
+              {items}
+            </Grid>
+          </SectionBlock>
+        )}
+        {device === 'mobile' && (
+          <Paper className={classes.container}>
+            <Callout
+              align="justify"
+              title={copy.title}
+              subtitle={copy.body}
+              variant={variant}
+              transparent
+            />
+            <Slider sm={12} items={items.map((item, i) => ({
+              key: i,
+              render: () => (
+                <Fragment>
+                  {item}
+                </Fragment>
+              ),
+              }))}
+              auto={false}
+            />
+          </Paper>
+        )}
+      </Fragment>
+    )
   );
 }
 

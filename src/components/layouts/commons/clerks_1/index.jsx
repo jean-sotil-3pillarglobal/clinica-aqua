@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import ShowMoreText from 'react-show-more-text';
 import classnames from 'classnames';
 
@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Paper,
   Typography,
   withStyles,
 } from '@material-ui/core';
@@ -19,6 +20,7 @@ import ThemeColor from './../../../../providers/utils/theme.color';
 // provider
 import SectionBlock from './../../section';
 
+import Slider from './../../../commons/slider';
 import Callout from './../../../commons/callout/';
 
 const styles = theme => ({
@@ -26,14 +28,20 @@ const styles = theme => ({
     borderRadius: '0 0 0 0',
     display: 'flex',
   }),
-  container: {
+  callout: props => ({
+    margin: '0 auto',
+  }),
+  container: props => ({
+    background: ThemeBackground(props, theme),
     textAlign: 'center',
-  },
+    [theme.breakpoints.down('md')]: {
+      padding: `${theme.spacing(10)}px ${theme.spacing(1)}px`,
+    },
+  }),
   description: props => ({
     color: ThemeColor(props, theme),
-    display: 'block',
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(2),
+    display: 'inline-block',
+    margin: `${theme.spacing(2)}px auto`,
     maxHeight: 160,
     overflowY: 'scroll',
     padding: theme.spacing(1),
@@ -70,8 +78,8 @@ const styles = theme => ({
   }),
   media: {
     backgroundPosition: 'center',
-    filter: 'grayscale(100%) blur(.4px) contrast(90%)',
-    height: 400,
+    filter: 'grayscale(100%) contrast(90%)',
+    height: 550,
     imageRendering: 'pixelated',
     padding: `${theme.spacing(2)}px`,
     transition: theme.transitions.create(
@@ -114,94 +122,117 @@ function ClerksLayout (props: {
     variant,
   } = props;
 
-  const { verbiage, language } = proxy;
-  const items = [];
+  const {
+    device,
+    language,
+    verbiage,
+  } = proxy;
 
-  if (verbiage && language) {
-    verbiage(copy.clerks).forEach((item, i) => {
-      items.push({
-        key: i,
-        render: () => (
+  const items = verbiage && verbiage(copy.clerks).map((item, i) => {
+    const hover = device === 'mobile' || isHover;
+    const key = `${i}-item`;
+
+    return (
+      <Grid
+        item
+        className={classnames(classes.item, (hover || device === 'mobile') && classes.itemHover)}
+        key={item.id}
+        md={item.size_md || 12}
+        sm={item.size_sm || 12}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        key={key}
+      >
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
           <Grid
             item
-            className={classnames(classes.item, isHover && classes.itemHover)}
-            key={item.id}
-            md={item.size_md || 12}
-            sm={item.size_sm || 12}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
+            xs={12}
+            sm={12}
+            md={5}
           >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-            >
-              <Grid
-                item
-                sm={12}
-                md={5}
-              >
-                <Card key={item.id} dense="true" elevation={0} className={classes.card}>
-                  <CardMedia
-                    className={classnames(classes.media, isHover && classes.mediaHover)}
-                    image={item.image}
-                  />
-                </Card>
-              </Grid>
-              <Grid
-                item
-                sm={12}
-                md={7}
-              >
-                <div className={classes.details}>
-                  <CardContent
-                    className={classes.content}>
-                    <Typography
-                      variant="h3"
-                      className={classes.title}
-                    >
-                      <LangToggler id={item.name} />
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      className={classes.label}
-                    >
-                      <LangToggler id={item.label} />
-                    </Typography>
-
-                    <Typography
-                      variant="caption"
-                      className={classes.description}
-                    >
-                      <ShowMoreText
-                          anchorClass={classes.expand}
-                          expanded={false}
-                          less={verbiage(item.less)[language]}
-                          lines={3}
-                          more={verbiage(item.more)[language]}
-                          width={"100%"}
-                      >
-                        <LangToggler id={item.description} />
-                      </ShowMoreText>
-                    </Typography>
-                  </CardContent>
-                </div>
-              </Grid>
-            </Grid>
+            <Card key={item.id} dense="true" elevation={0} className={classes.card}>
+              <CardMedia
+                className={classnames(classes.media, hover && classes.mediaHover)}
+                image={item.image}
+              />
+            </Card>
           </Grid>
-        ),
-      });
-    });
-  }
+          <Grid
+            item
+            sm={12}
+            md={7}
+          >
+            <div className={classes.details}>
+              <CardContent
+                className={classes.content}>
+                <Typography
+                  variant="h3"
+                  className={classes.title}
+                >
+                  <LangToggler id={item.name} />
+                </Typography>
+                <Typography
+                  variant="caption"
+                  className={classes.label}
+                >
+                  <LangToggler id={item.label} />
+                </Typography>
 
-  return (
-    <SectionBlock variant={variant} className={classes.container}>
-      <Grid
-        container
-        spacing={8}
-      >
-        <Grid item sm={12} md={12}>
+                <Typography
+                  variant="caption"
+                  className={classes.description}
+                >
+                  <ShowMoreText
+                      anchorClass={classes.expand}
+                      expanded={false}
+                      less={verbiage(item.less)[language]}
+                      lines={3}
+                      more={verbiage(item.more)[language]}
+                      width={"100%"}
+                  >
+                    <LangToggler id={item.description} />
+                  </ShowMoreText>
+                </Typography>
+              </CardContent>
+            </div>
+          </Grid>
+        </Grid>
+      </Grid>
+    );
+  }) || [];
+
+  return verbiage && (
+    <Fragment>
+      {device !== 'mobile' && (
+        <SectionBlock variant={variant} className={classes.container}>
+          <Grid
+            container
+            spacing={4}
+            direction="row"
+            justify="flex-start"
+            alignItems="flex-start"
+          >
+            <Grid item xs={10} sm={12} md={12}>
+              <Callout
+                align="center"
+                className={classes.callout}
+                subtitle={copy.body}
+                title={copy.title}
+                transparent
+                variant={variant}
+              />
+            </Grid>
+            {items}
+          </Grid>
+        </SectionBlock>
+      )}
+      {device === 'mobile' && (
+        <Paper className={classes.container}>
           <Callout
             align="center"
             title={copy.title}
@@ -209,10 +240,19 @@ function ClerksLayout (props: {
             variant={variant}
             transparent
           />
-        </Grid>
-        {items.map((item, i) => item.render())}
-      </Grid>
-    </SectionBlock>
+          <Slider sm={12} items={items.map((item, i) => ({
+            key: i,
+            render: () => (
+              <Fragment>
+                {item}
+              </Fragment>
+            ),
+            }))}
+            auto={false}
+          />
+        </Paper>
+      )}
+    </Fragment>
   );
 }
 

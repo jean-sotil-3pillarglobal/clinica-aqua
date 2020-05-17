@@ -1,5 +1,11 @@
 import Color from 'color';
 
+import {
+  createMuiTheme,
+} from '@material-ui/core';
+
+import config from '../../config/index';
+
 const PRIMARY = {
   contrastText: 'rgba(0,0,0,1)',
   dark: 'rgba(151,153,154,0.9)',
@@ -13,8 +19,6 @@ const SECONDARY = {
   light: 'rgba(72,72,72,0.9)',
   main: 'rgba(33,33,33,0.9)',
 };
-
-const fontFamily = 'Poppins!important';
 
 const palette = {
   background: {
@@ -76,7 +80,7 @@ const palette = {
     blur: 'rgba(255,255,255,0.3)',
     darker: Color(PRIMARY.dark).fade(0.5).string(),
     grey: '#e1e2e1',
-    highlight: 'rgba(0,0,0,0.2)',
+    highlight: 'rgb(102,255,255)',
     input: '#f7f7f7',
     light: Color(PRIMARY.main).fade(0.2).string(),
     lighter: Color(PRIMARY.main).fade(0.35).toString(),
@@ -91,6 +95,8 @@ const palette = {
   },
 };
 
+const theme = createMuiTheme();
+
 const overrides = {
   MuiButton: {
     root: {
@@ -98,13 +104,13 @@ const overrides = {
       borderColor: 'transparent',
       borderRadius: '0 0 0 0',
       boxShadow: 'none',
-      fontFamily,
+      fontFamily: config.font,
       fontSize: '.7em',
       fontWeight: 600,
       textTransform: 'uppercase',
     },
     text: {
-      padding: '8px 16px',
+      padding: '10px 16px',
     },
   },
   MuiCard: {
@@ -138,6 +144,18 @@ const overrides = {
       borderRadius: '0 0 0 0',
       margin: 0,
       padding: 0,
+    },
+  },
+  MuiDialog: {
+    paper: {
+      background: 'transparent',
+      boxShadow: 'initial',
+    },
+  },
+  MuiDialogContent: {
+    root: {
+      overflowY: 'hidden',
+      textAlign: 'center',
     },
   },
   MuiDialogActions: {
@@ -178,10 +196,8 @@ const overrides = {
       '&.Mui-error': {
         color: PRIMARY.contrastText,
       },
-      bottom: '-1.6em',
-      fontSize: '.5em',
+      fontSize: '.8rem',
       fontWeight: 300,
-      position: 'absolute',
       textTransform: 'capitalize',
     },
   },
@@ -189,9 +205,13 @@ const overrides = {
     root: {
       '&$focused': {
         color: palette.utils.highlight,
+        fontWeight: 600,
       },
-      fontSize: '.8em',
-      fontWeight: 300,
+      '&[class*="MuiInputLabel"]': {
+        fontFamily: config.font,
+        fontSize: '1.3rem',
+        fontWeight: 400,
+      },
     },
   },
   MuiIconButton: {
@@ -208,20 +228,20 @@ const overrides = {
   MuiInputBase: {
     input: {
       color: PRIMARY.contrastText,
+      fontFamily: config.font,
       fontSize: '1rem',
       fontWeight: 400,
-      height: '1.8em',
       padding: '8px',
     },
     multiline: {
-      padding: '10px',
+      padding: '8px',
     },
     root: {
       '&.Mui-error.Mui-focused.MuiInput-root': {
         border: `1px solid ${PRIMARY.dark}`,
       },
       '&.Mui-error.MuiInput-root': {
-        border: `1px solid ${palette.error.main}`,
+        border: `1px solid ${palette.error.main}!important`,
       },
       '&.Mui-focused.MuiInput-root': {
         border: `2px solid ${palette.utils.highlight}`,
@@ -244,17 +264,24 @@ const overrides = {
   MuiLink: {
     root: {
       borderBottom: '0 solid transparent',
-      fontSize: '1rem',
+      fontSize: '1.02rem',
       fontWeight: 400,
       textTransform: 'capitalize',
     },
     underlineHover: {
       '&:hover *, &:hover': {
-        fontWeight: 500,
+        fontWeight: 800,
       },
     },
   },
   MuiListItem: {},
+  MuiListItemText: {
+    primary: {
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.6rem',
+      },
+    },
+  },
   MuiMobileStepper: {
     dotActive: {
       backgroundColor: PRIMARY.contrastText,
@@ -352,7 +379,7 @@ const overrides = {
   },
   MuiTypography: {
     root: {
-      fontFamily,
+      fontFamily: config.font,
       lineHeight: 'normal!important',
     },
   },
@@ -363,11 +390,20 @@ const typography = {
     fontSize: '1.2em',
     fontWeight: 400,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      '& br': {
+        display: 'none',
+      },
+      fontSize: '.8rem',
+    },
   },
   body2: {
     fontSize: '1.2em',
     fontWeight: 500,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '.7rem',
+    },
   },
   caption: {
     display: 'inline-block',
@@ -380,20 +416,35 @@ const typography = {
     fontSize: '2.2rem',
     fontWeight: 600,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      '& br': {
+        display: 'none',
+      },
+      fontSize: '1.5rem',
+    },
   },
   h2: {
     fontSize: '2.2rem',
     fontWeight: 600,
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.5rem',
+    },
   },
   h3: {
-    fontSize: '1.8rem',
+    fontSize: '1.2rem',
     fontWeight: 600,
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1rem',
+    },
   },
   h4: {
     fontSize: '1.2rem',
-    fontWeight: 300,
+    fontWeight: 400,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.6rem',
+    },
   },
   h5: {
     fontSize: '1rem',

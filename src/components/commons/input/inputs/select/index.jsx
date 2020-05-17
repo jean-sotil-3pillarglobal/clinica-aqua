@@ -18,6 +18,7 @@ import Icon from '../../../icon';
 
 import ThemeBackground from '../../../../../providers/utils/theme.background';
 import ThemeColor from '../../../../../providers/utils/theme.color';
+import config from '../../../../../providers/config';
 
 const styles = () => ({
   root: {},
@@ -26,9 +27,13 @@ const styles = () => ({
 const customStyles = {
   container: () => ({
     background: 'transparent',
+    position: 'relative',
   }),
   indicatorsContainer: () => ({
-    padding: '4px',
+    '& div[class*="indicatorContainer"]:last-child': {
+      display: 'none',
+    },
+    padding: '8px 4px',
     position: 'absolute',
     right: 0,
     top: 0,
@@ -48,18 +53,22 @@ const customStyles = {
         width: '90%',
       },
       borderRadius: '0 0 0 0',
-      fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-      fontSize: '.6rem',
+      cursor: 'pointer',
+      fontFamily: config.font,
+      fontSize: '.7rem',
       padding: '0',
       textTransform: 'capitalize',
     });
   },
   option: () => ({
+    fontFamily: config.font,
+    fontSize: '.7rem',
+    fontWeight: 700,
     padding: '0',
     textTransform: 'capitalize',
   }),
   placeholder: () => ({
-    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+    fontFamily: config.font,
     fontSize: '1rem',
     fontWeight: 400,
     opacity: 0.5,
@@ -133,7 +142,6 @@ const ForwardTextField = React.forwardRef((props: {
       border: `2px solid ${theme.palette.error.main}`,
       borderRadius: '0 0 0 0',
       fontSize: '16px',
-      padding: '.6em 0',
       textTransform: 'capitalize',
     });
   } else {
@@ -144,9 +152,11 @@ const ForwardTextField = React.forwardRef((props: {
       background: `${theme.palette.primary.light}`,
       border: `2px solid ${isFocused ? theme.palette.utils.highlight : theme.palette.primary.main}`,
       borderRadius: '0 0 0 0',
-      fontSize: '1rem',
-      fontWeight: 400,
-      padding: '8px',
+      fontFamily: config.font,
+      fontSize: '.7rem',
+      fontWeight: 700,
+      padding: '5px 0',
+      position: 'relative',
       textTransform: 'capitalize',
     });
   }
@@ -177,9 +187,9 @@ const ForwardTextField = React.forwardRef((props: {
     <FormControl>
       <InputLabel
         style={{
-          fontSize: '0.6em',
+          fontSize: '1rem',
           position: 'relative',
-          top: '-12px',
+          top: '-4px',
           transform: 'initial',
         }}
         focused={focused}

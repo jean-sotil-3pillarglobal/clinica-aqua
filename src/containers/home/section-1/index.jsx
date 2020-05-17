@@ -38,6 +38,10 @@ const styles = (theme) => ({
     textAlign: 'center',
     width: '70%',
     zIndex: 999,
+    [theme.breakpoints.down('md')]: {
+      margin: `${theme.spacing(4)}px ${theme.spacing(2)}px`,
+      width: 'initial',
+    },
   },
   content: {
     marginTop: theme.spacing(10),

@@ -13,6 +13,7 @@ import {
   StepIcon,
   StepLabel,
   Stepper,
+  Typography,
   withStyles,
 } from '@material-ui/core';
 
@@ -22,6 +23,7 @@ import { Element, scroller } from 'react-scroll';
 import { LangButton, TYPES } from './../button';
 import FormBlock from './../form';
 import Icon from './../icon';
+import Callout from './../callout';
 
 import {
   CheckNext,
@@ -29,6 +31,7 @@ import {
 
 import ThemeBackground from '../../../providers/utils/theme.background';
 import ThemeColor from '../../../providers/utils/theme.color';
+import LangToggler from '../../../providers/lang/toggler';
 
 const styles = theme => ({
   button: props => ({
@@ -58,6 +61,9 @@ const styles = theme => ({
     background: ThemeBackground(props, theme, 'dark'),
     color: ThemeColor(props, theme),
   }),
+  thank: {
+    padding: theme.spacing(2),
+  }
 });
 
 const getSteps = (forms, language) => {
@@ -279,29 +285,22 @@ function StepperForm (props: {
                           </Step>
                         );
                       })}
-                      {valid && (
-                        <Step>
-                          <StepLabel StepIconComponent={QontoStepIcon} className={classes.item}>
-                            Thank you
-                          </StepLabel>
-                          <StepContent>
-                            <LangButton
-                              disabled={activeStep === 0}
-                              lang={copy.back}
-                              onClick={handleBack}
-                              typeButton={TYPES.CONTAINED}
-                              variant={variant}
-                              className={classnames(classes.button, activeStep !== 0 && classes.mobileStepperActive)}
-                              pos="left"
-                            >
-                              <Icon name="arrow_left" className={classes.icon} />
-                            </LangButton>
-                          </StepContent>
-                        </Step>
-                      )}
                     </Stepper>
                   </Paper>
                 </Grid>
+                {valid && (
+                  <Grid item sm={sm} md={md} lg={lg} className={classes.item}>
+                    <Typography className={classnames(classes.item, classes.thank)}>
+                      <LangToggler id={copy.thank_label} />
+                    </Typography>
+                    <Callout
+                      align="center"
+                      title={copy.thank_title}
+                      subtitle={copy.thank_subtitle}
+                      variant="light"
+                      className={classes.callout} />
+                  </Grid>
+                )}
               </Grid>
             </form>
           </Element>

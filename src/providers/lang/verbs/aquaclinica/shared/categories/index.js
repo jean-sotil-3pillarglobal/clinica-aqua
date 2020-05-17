@@ -1,3 +1,19 @@
+import IMG_SERVICE_1 from '../../../../../../static/images/derma-clinica/derma-clinica.jpg';
+import IMG_SERVICE_1_1 from '../../../../../../static/images/derma-clinica/derma-clinica-1.jpg';
+import IMG_SERVICE_1_2 from '../../../../../../static/images/derma-clinica/derma-clinica-2.jpg';
+import IMG_SERVICE_2 from '../../../../../../static/images/derma-estetica/derma-estetica.jpg';
+import IMG_SERVICE_2_1 from '../../../../../../static/images/derma-estetica/derma-estetica-1.jpg';
+import IMG_SERVICE_2_2 from '../../../../../../static/images/derma-estetica/derma-estetica-2.jpg';
+import IMG_SERVICE_3 from '../../../../../../static/images/spa-clinico/spa.jpg';
+import IMG_SERVICE_3_1 from '../../../../../../static/images/spa-clinico/spa-1.jpg';
+import IMG_SERVICE_3_2 from '../../../../../../static/images/spa-clinico/spa-2.jpg';
+import IMG_SERVICE_4 from '../../../../../../static/images/nutri/nutri.jpg';
+import IMG_SERVICE_4_1 from '../../../../../../static/images/nutri/nutri-1.jpg';
+import IMG_SERVICE_4_2 from '../../../../../../static/images/nutri/nutri-2.jpg';
+import IMG_SERVICE_5 from '../../../../../../static/images/terapia-fisica/terapia-fisica.jpg';
+import IMG_SERVICE_5_1 from '../../../../../../static/images/terapia-fisica/terapia-fisica-1.jpg';
+import IMG_SERVICE_5_2 from '../../../../../../static/images/terapia-fisica/terapia-fisica-2.jpg';
+
 import {
   constants,
 } from './../../../../../config';
@@ -23,19 +39,19 @@ const url = CreateUrlOnePath(SERVICES);
 
 const Services = [
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/fr/e15/s1080x1080/61222867_599969850486835_2454545587056835682_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=107&_nc_ohc=d1kcgW2fcf8AX9gAHXD&oh=00b3f3b54ae58d9eb7c9144338a2c6b8&oe=5EB9ADF2',
+    background: IMG_SERVICE_1,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     description: {
-      en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-      es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+      en: 'Un cuidado de la piel especializado siempre será mejor que cualquier remedio casero improvisado que puede traer efectos adversos. Así que si desea revitalizar la piel y darle un nuevo aire más saludable, la dermatología clinica es lo que necesitas.',
+      es: 'Un cuidado de la piel especializado siempre será mejor que cualquier remedio casero improvisado que puede traer efectos adversos. Así que si desea revitalizar la piel y darle un nuevo aire más saludable, la dermatología clinica es lo que necesitas.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_1,
@@ -45,17 +61,17 @@ const Services = [
     },
     images: [
       {
-        desktop: `/src/static/images/${CATEGORY_1}/derma-clinica-1.jpg`,
-        mobile: `/src/static/images/${CATEGORY_1}/derma-clinica-1.jpg`,
+        desktop: IMG_SERVICE_1_1,
+        mobile: IMG_SERVICE_1_1,
       },
       {
-        desktop: `/src/static/images/${CATEGORY_1}/derma-clinica-1.jpg`,
-        mobile: `/src/static/images/${CATEGORY_1}/derma-clinica-1.jpg`,
+        desktop: IMG_SERVICE_1_2,
+        mobile: IMG_SERVICE_1_2,
       },
     ],
     svg: '/src/static/svg/team_work.svg',
     title: {
-      en: 'clinic dermatology',
+      en: 'dermatologia-clinica',
       es: 'dermatología clinica',
     },
     unknown: {
@@ -63,39 +79,39 @@ const Services = [
       es: 'disculpa, no pudimos encontrar ese servicio.',
     },
     url: {
-      en: url('clinic-dermatology', 'en'),
+      en: url('dermatologia-clinica', 'en'),
       es: url('dermatologia-clinica', 'es'),
     },
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/19985133_245235955981183_6249423126464036864_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=107&_nc_ohc=JxSeHkYVZzcAX89BCTB&oh=6f27c84d5f7baf8811be61b2ca9e97d8&oe=5EBB9FBA',
+    background: IMG_SERVICE_2,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
     },
     description: {
-      en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-      es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+      en: 'La dermatología estética se define como un área de la medicina que tiene como objetivo mejorar el aspecto de la piel de una persona que no padece ninguna patología, pero que desea corregir o retrasar el envejecimiento cutáneo, o paliar cualquier otro defecto físico.',
+      es: 'La dermatología estética se define como un área de la medicina que tiene como objetivo mejorar el aspecto de la piel de una persona que no padece ninguna patología, pero que desea corregir o retrasar el envejecimiento cutáneo, o paliar cualquier otro defecto físico.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_2,
     image: {
-      desktop: `/src/static/images/${CATEGORY_2}/3.png`,
-      mobile: `/src/static/images/${CATEGORY_2}/3.png`,
+      desktop: IMG_SERVICE_2_2,
+      mobile: IMG_SERVICE_2_2,
     },
     images: [
       {
-        desktop: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/90985031_3187027017974276_7358354085671600128_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnV2fBTKN5GGlBW_KxH0tA6IYy-i-qdPIhijmEio8FB91S6eYbfPrqez7kUJESkBGo&_nc_ht=scontent.fsyq2-1.fna&oh=a3b546be40ead4bcde9d17f510aec2ed&oe=5EB5FFEB',
-        mobile: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/90985031_3187027017974276_7358354085671600128_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnV2fBTKN5GGlBW_KxH0tA6IYy-i-qdPIhijmEio8FB91S6eYbfPrqez7kUJESkBGo&_nc_ht=scontent.fsyq2-1.fna&oh=a3b546be40ead4bcde9d17f510aec2ed&oe=5EB5FFEB',
+        desktop: IMG_SERVICE_2_1,
+        mobile: IMG_SERVICE_2_1,
       },
       {
-        desktop: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/90985031_3187027017974276_7358354085671600128_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnV2fBTKN5GGlBW_KxH0tA6IYy-i-qdPIhijmEio8FB91S6eYbfPrqez7kUJESkBGo&_nc_ht=scontent.fsyq2-1.fna&oh=a3b546be40ead4bcde9d17f510aec2ed&oe=5EB5FFEB',
-        mobile: 'https://scontent.fsyq2-1.fna.fbcdn.net/v/t1.0-9/90985031_3187027017974276_7358354085671600128_o.jpg?_nc_cat=111&_nc_sid=2d5d41&_nc_oc=AQnV2fBTKN5GGlBW_KxH0tA6IYy-i-qdPIhijmEio8FB91S6eYbfPrqez7kUJESkBGo&_nc_ht=scontent.fsyq2-1.fna&oh=a3b546be40ead4bcde9d17f510aec2ed&oe=5EB5FFEB',
+        desktop: IMG_SERVICE_2_2,
+        mobile: IMG_SERVICE_2_2,
       },
     ],
     svg: '/src/static/svg/team_work.svg',
@@ -108,20 +124,24 @@ const Services = [
       es: 'disculpa, no pudimos encontrar ese servicio.',
     },
     url: {
-      en: url('estetic-dermatology', 'en'),
+      en: url('dermatologia-estetica', 'en'),
       es: url('dermatologia-estetica', 'es'),
     },
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/92382469_3188032791228262_5207382019394217333_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=110&_nc_ohc=34gopARCYQ4AX9711UT&oh=28474904b4de72ce0dea0c3dcef4e448&oe=5EBA8490',
+    background: IMG_SERVICE_3,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
+    },
+    description: {
+      en: 'En Clinica Aqua ofrecemos tratamientos corporales reductores, faciales, relajantes y de spa.',
+      es: 'En Clinica Aqua ofrecemos tratamientos corporales reductores, faciales, relajantes y de spa.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_3,
@@ -131,12 +151,12 @@ const Services = [
     },
     images: [
       {
-        desktop: `/src/static/images/${CATEGORY_3}/spa-clinico-1.jpg`,
-        mobile: `/src/static/images/${CATEGORY_3}/spa-clinico-1.jpg`,
+        desktop: IMG_SERVICE_3_1,
+        mobile: IMG_SERVICE_3_1,
       },
       {
-        desktop: `/src/static/images/${CATEGORY_3}/spa-clinico-2.jpg`,
-        mobile: `/src/static/images/${CATEGORY_3}/spa-clinico-2.jpg`,
+        desktop: IMG_SERVICE_3_2,
+        mobile: IMG_SERVICE_3_2,
       },
     ],
     title: {
@@ -153,15 +173,19 @@ const Services = [
     },
   },
   {
-    background: `/src/static/images/${CATEGORY_4}/nutricion.jpg`,
+    background: IMG_SERVICE_4,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
+    },
+    description: {
+      en: 'La nutrición es el proceso biológico en el que los organismos asimilan los alimentos y los líquidos necesarios para el funcionamiento, el crecimiento y el mantenimiento de sus funciones vitales. La nutrición es el estudio de la relación que existe entre los alimentos y la salud, especialmente en la determinación de una dieta.',
+      es: 'La nutrición es el proceso biológico en el que los organismos asimilan los alimentos y los líquidos necesarios para el funcionamiento, el crecimiento y el mantenimiento de sus funciones vitales. La nutrición es el estudio de la relación que existe entre los alimentos y la salud, especialmente en la determinación de una dieta.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_4,
@@ -169,9 +193,19 @@ const Services = [
       desktop: `/src/static/images/${CATEGORY_4}/3.jpg`,
       mobile: `/src/static/images/${CATEGORY_4}/3.jpg`,
     },
+    images: [
+      {
+        desktop: IMG_SERVICE_4_1,
+        mobile: IMG_SERVICE_4_1,
+      },
+      {
+        desktop: IMG_SERVICE_4_2,
+        mobile: IMG_SERVICE_4_2,
+      },
+    ],
     title: {
-      en: 'nutricion',
-      es: 'nutricion',
+      en: 'nutrición',
+      es: 'nutrición',
     },
     unknown: {
       en: 'sorry, we could not find that service.',
@@ -183,15 +217,19 @@ const Services = [
     },
   },
   {
-    background: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/92215681_641448976430563_2703385061286868230_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=107&_nc_ohc=o4zx3udX-lAAX9vMBEr&oh=cdd5a5a6f1bee8b81461f222abebb8a7&oe=5EB90D27',
+    background: IMG_SERVICE_5,
     body: {
       en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
       es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     },
     color: '#878a8c',
     cta: {
-      en: 'learn more',
-      es: 'conoce más',
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
+    },
+    description: {
+      en: 'La terapia física tiene gran cantidad de beneficios para aquellos que se encuentran en proceso de recuperación de una lesión o enfermedad. Sirve también para los que necesitan asistencia adicional con respecto a la movilidad de los miembros afectados e incluso en caso de padecer alguna discapacidad.',
+      es: 'La terapia física tiene gran cantidad de beneficios para aquellos que se encuentran en proceso de recuperación de una lesión o enfermedad. Sirve también para los que necesitan asistencia adicional con respecto a la movilidad de los miembros afectados e incluso en caso de padecer alguna discapacidad.',
     },
     ico: 'keyboard_arrow_right',
     id: CATEGORY_5,
@@ -199,6 +237,16 @@ const Services = [
       desktop: `/src/static/images/${CATEGORY_5}/3.jpg`,
       mobile: `/src/static/images/${CATEGORY_5}/3.jpg`,
     },
+    images: [
+      {
+        desktop: IMG_SERVICE_5_1,
+        mobile: IMG_SERVICE_5_1,
+      },
+      {
+        desktop: IMG_SERVICE_5_2,
+        mobile: IMG_SERVICE_5_2,
+      },
+    ],
     title: {
       en: 'terapia fisica',
       es: 'terapia fisica',

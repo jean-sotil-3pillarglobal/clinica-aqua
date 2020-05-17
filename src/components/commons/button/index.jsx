@@ -50,6 +50,7 @@ const styles = theme => ({
     color: ThemeColor(props, theme),
     cursor: 'pointer',
     padding: `0 ${theme.spacing(2)}px`,
+    textAlign: 'left',
   }),
 });
 
