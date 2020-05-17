@@ -2,10 +2,9 @@ runtime: python27
 api_version: 1
 threadsafe: true
 handlers:
-- url: /
-  static_files: build/index.html
-  upload: build/index.html
-  expiration: 1s
-- url: /(.*)
+- url: /(.*\.(gif|media|json|ico|eot|ttf|woff|woff2|png|jpg|css|js))$
   static_files: build/\1
   upload: build/(.*)
+- url: /(.*)
+  static_files: build/index.html
+  upload: build/index.html
