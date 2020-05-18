@@ -111,8 +111,8 @@ function Footer (props: {
         {copy.column.map(column => (
           <Grid
             item
-            sx={6}
-            sm={6}
+            xs={10}
+            sm={10}
             md={5}
             lg={5}
             key={column.title}
@@ -170,10 +170,10 @@ function Footer (props: {
         ))}
         <Grid
           item
-          lg={2}
-          md={2}
-          sm={6}
           xs={6}
+          sm={6}
+          md={2}
+          lg={2}
           className={classes.logo}
         >
           <SmartImg proxy={proxy} src={verbiage(copy.logo)} />
