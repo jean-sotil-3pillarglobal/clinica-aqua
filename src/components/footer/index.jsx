@@ -121,8 +121,8 @@ function Footer (props: {
               alignItems="center"
               className={classes.items}
               container
-              direction={isMobile ? 'column' : 'row'}
-              justify={isMobile ? 'center' : 'center'}
+              direction="row-reverse"
+              justify="center"
               spacing={2}
             >
               <Grid item key={column.title} xs={12} sm={12} md={12} lg={12}>
@@ -147,18 +147,18 @@ function Footer (props: {
                   )}
                   {!item.isFab && (
                     <Grid
-                      alignItems="flex-start"
+                      alignItems="center"
                       container
                       direction="row"
-                      justify="flex-start"
-                      spacing={2}
+                      justify="center"
+                      spacing={4}
                     >
                       <Grid item xs={2} sm={2} md={2} lg={2}>
                         <Icon image={item.icon} className={classes.icon} variant={variant} />
                       </Grid>
                       <Grid item xs={10} sm={10} md={10} lg={10}>
                         <Typography
-                          variant={isMobile ? 'h3' : 'caption'}
+                          variant={isMobile ? 'body2' : 'caption'}
                           className={classes.body}>
                           {item.label}
                         </Typography>
