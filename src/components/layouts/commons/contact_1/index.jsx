@@ -40,6 +40,9 @@ const styles = theme => ({
   stepper: () => ({
     borderRadius: '0 0 0 0',
     marginBottom: theme.spacing(20),
+    [theme.breakpoints.down('md')]: {
+      padding: `0 ${theme.spacing(2)}px`,
+    },
   }),
   subtitle: props => ({
     color: ThemeColor(props, theme),

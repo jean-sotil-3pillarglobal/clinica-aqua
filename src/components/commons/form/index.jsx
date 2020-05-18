@@ -78,6 +78,7 @@ class FormBlock extends Component {
     } = this.props;
 
     const {
+      device,
       disabled,
       verbiage,
     } = proxy;
@@ -88,7 +89,7 @@ class FormBlock extends Component {
           <Card className={classes.card} elevation={0}>
             {copy.label &&
               <Fragment>
-                <Typography variant="body2" align="left" className={classes.title}>
+                <Typography variant={device === 'mobile' ? 'h3' : 'body2'} align="left" className={classes.title}>
                   <LangToggler id={copy.label} />
                 </Typography>
                 <Grid
@@ -100,12 +101,16 @@ class FormBlock extends Component {
                 >
                   <Grid
                     item
+                    xs={2}
+                    sm={2}
                     md={1}
                   >
                     <Icon name="info_oulined" className={classes.icon} />
                   </Grid>
                   <Grid
                     item
+                    xs={10}
+                    sm={10}
                     md={11}
                   >
                     <Typography variant="caption" className={classes.copy}>
