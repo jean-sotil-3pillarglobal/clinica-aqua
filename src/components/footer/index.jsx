@@ -117,19 +117,21 @@ function Footer (props: {
             lg={5}
             key={column.title}
           >
-            <Typography
-              variant="h3"
-              className={classes.body}>
-              <LangToggler id={column.title} />
-            </Typography>
             <Grid
-              alignItems="flex-start"
+              alignItems="center"
               className={classes.items}
               container
               direction={isMobile ? 'column' : 'row'}
-              justify={isMobile ? 'center' : 'flex-start'}
+              justify={isMobile ? 'center' : 'center'}
               spacing={2}
             >
+              <Grid item key={column.title} xs={12} sm={12} md={12} lg={12}>
+                <Typography
+                  variant="h3"
+                  className={classes.body}>
+                  <LangToggler id={column.title} />
+                </Typography>
+              </Grid>
               {verbiage(column.items).map(item => (
                 <Grid item key={item.label} xs={12} sm={12} md={item.isFab ? 2 : 12}>
                   {(!isMobile && item.isFab) && (
@@ -145,16 +147,16 @@ function Footer (props: {
                   )}
                   {!item.isFab && (
                     <Grid
-                      alignItems="center"
+                      alignItems="flex-start"
                       container
                       direction="row"
-                      justify="center"
+                      justify="flex-start"
                       spacing={2}
                     >
-                      <Grid item sm={2}>
+                      <Grid item xs={2} sm={2} md={2} lg={2}>
                         <Icon image={item.icon} className={classes.icon} variant={variant} />
                       </Grid>
-                      <Grid item sm={10}>
+                      <Grid item xs={10} sm={10} md={10} lg={10}>
                         <Typography
                           variant={isMobile ? 'h3' : 'caption'}
                           className={classes.body}>
