@@ -18,6 +18,7 @@ const variant = {
 
 const styles = theme => ({
   container: {
+    background: 'transparent',
     padding: 0,
   },
   loading: {

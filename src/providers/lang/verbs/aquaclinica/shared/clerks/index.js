@@ -3,6 +3,7 @@ import CLERK_2_IMAGE from './../../../../../../static/images/clerks/clerk-2.jpg'
 import CLERK_3_IMAGE from './../../../../../../static/images/clerks/clerk-3.jpg';
 import CLERK_4_IMAGE from './../../../../../../static/images/clerks/clerk-4.jpg';
 import CLERK_5_IMAGE from './../../../../../../static/images/clerks/clerk-5.jpg';
+import CLERK_6_IMAGE from './../../../../../../static/images/clerks/clerk-6.jpg';
 
 import {
   constants,
@@ -203,7 +204,7 @@ const Clerks = [
       `,
     },
     id: CLERK_6,
-    image: CLERK_5_IMAGE,
+    image: CLERK_6_IMAGE,
     label: {
       en: 'Fisioterapeuta',
       es: 'Fisioterapeuta',

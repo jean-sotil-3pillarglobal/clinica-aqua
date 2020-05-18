@@ -35,7 +35,7 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
-    maxWidth: 800,
+    maxWidth: 850,
   },
   stepper: () => ({
     borderRadius: '0 0 0 0',

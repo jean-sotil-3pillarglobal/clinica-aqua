@@ -2,6 +2,7 @@ import SVG_SOCIAL_1 from '../../static/svg/social/fb.svg';
 import SVG_SOCIAL_2 from '../../static/svg/social/ig.svg';
 import SVG_SOCIAL_3 from '../../static/svg/social/email.svg';
 
+import IMG_FAVICON from '../../static/images/favicon.png';
 import IMG_INFO_1 from '../../static/svg/social/phone.svg';
 import IMG_INFO_4 from '../../static/svg/social/location.svg';
 
@@ -35,6 +36,7 @@ export const constants = {
   LINK_SECTION_5: 'link_section_5',
   LINK_SERVICES_1: 'link_services_1',
 
+  // paths
   PATHS: {
     SERVICES: {
       en: 'services',
@@ -204,6 +206,7 @@ const config = {
   font: 'Poppins!important',
   info,
   langs,
+  favicon: IMG_FAVICON,
   routes: {
     featured,
     privates,

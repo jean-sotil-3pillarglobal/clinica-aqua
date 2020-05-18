@@ -27,7 +27,7 @@ import {
 } from 'react-transition-group';
 
 // Config
-import {
+import config, {
   constants,
 } from './providers/config';
 
@@ -135,7 +135,9 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={skin}>
         <Helmet>
-          <title>Clinica Aqua ...</title>
+          <title>Clínica Aqua</title>
+          <link rel="icon" type="image/png" sizes="32x32" href={config.favicon} />
+          <link rel="manifest" href="/manifest.json" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
           <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
