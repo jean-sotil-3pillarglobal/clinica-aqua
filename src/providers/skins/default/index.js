@@ -436,7 +436,7 @@ const typography = {
     fontWeight: 600,
     textTransform: 'capitalize',
     [theme.breakpoints.down('md')]: {
-      fontSize: '1rem',
+      fontSize: '1.2rem',
     },
   },
   h4: {

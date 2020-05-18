@@ -120,6 +120,7 @@ function StepperForm (props: {
     // onReset,
     onSubmit,
     proxy: {
+      device,
       language,
       verbiage,
     },
@@ -241,6 +242,7 @@ function StepperForm (props: {
                                     document={document}
                                     key={key}
                                     proxy={{
+                                      device,
                                       handleBlur,
                                       handleChange,
                                       language,

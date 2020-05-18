@@ -35,11 +35,14 @@ const styles = theme => ({
   }),
   container: {
     background: 'transparent',
-    maxWidth: 800,
+    maxWidth: 850,
   },
   stepper: () => ({
     borderRadius: '0 0 0 0',
     marginBottom: theme.spacing(20),
+    [theme.breakpoints.down('md')]: {
+      padding: `0 ${theme.spacing(2)}px`,
+    },
   }),
   subtitle: props => ({
     color: ThemeColor(props, theme),

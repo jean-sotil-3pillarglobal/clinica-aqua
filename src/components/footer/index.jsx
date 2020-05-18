@@ -96,20 +96,23 @@ function Footer (props: {
     }
   };
 
+  const isMobile = device === 'mobile';
+
   return verbiage && (
     <SectionBlock className={classes.container} variant={variant}>
       <Grid
-        alignItems={device === 'mobile' ? 'center' : 'flex-start'}
+        alignItems={isMobile ? 'center' : 'flex-start'}
         className={classes.container}
         container
-        direction={device === 'mobile' ? 'row' : 'row'}
+        direction={isMobile ? 'column' : 'row'}
         justify="center"
         spacing={8}
       >
         {copy.column.map(column => (
           <Grid
             item
-            sm={10}
+            sx={6}
+            sm={6}
             md={5}
             lg={5}
             key={column.title}
@@ -123,12 +126,13 @@ function Footer (props: {
               alignItems="flex-start"
               className={classes.items}
               container
-              direction={device === 'mobile' ? 'row' : 'row'}
-              justify="flex-start"
+              direction={isMobile ? 'column' : 'row'}
+              justify={isMobile ? 'center' : 'flex-start'}
+              spacing={2}
             >
               {verbiage(column.items).map(item => (
                 <Grid item key={item.label} xs={12} sm={12} md={item.isFab ? 2 : 12}>
-                  {item.isFab && (
+                  {(!isMobile && item.isFab) && (
                     <LangButton
                       href={item.link}
                       key={item.label}
@@ -145,13 +149,14 @@ function Footer (props: {
                       container
                       direction="row"
                       justify="center"
+                      spacing={2}
                     >
                       <Grid item sm={2}>
                         <Icon image={item.icon} className={classes.icon} variant={variant} />
                       </Grid>
                       <Grid item sm={10}>
                         <Typography
-                          variant="caption"
+                          variant={isMobile ? 'h3' : 'caption'}
                           className={classes.body}>
                           {item.label}
                         </Typography>
@@ -167,7 +172,8 @@ function Footer (props: {
           item
           lg={2}
           md={2}
-          sm={12}
+          sm={6}
+          xs={6}
           className={classes.logo}
         >
           <SmartImg proxy={proxy} src={verbiage(copy.logo)} />
@@ -181,13 +187,19 @@ function Footer (props: {
             ))}
           </select>
         </Grid>
-      </Grid>
-      <Grid item sm={12} md={12}>
-        <Typography
-          variant="caption"
-          className={classes.copyright}>
-          ibudi.dev • 2020
-        </Typography>
+        <Grid
+          item
+          lg={12}
+          md={12}
+          sm={6}
+          xs={6}
+        >
+          <Typography
+            variant="caption"
+            className={classes.copyright}>
+            ibudi.dev • 2020
+          </Typography>
+        </Grid>
       </Grid>
     </SectionBlock>
   ) || null;
