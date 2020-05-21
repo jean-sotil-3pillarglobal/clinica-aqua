@@ -136,6 +136,7 @@ class App extends Component {
       <MuiThemeProvider theme={skin}>
         <Helmet>
           <title>Clínica Aqua</title>
+          <meta name="google-site-verification" content="fBuxwqC9X5QiWh0GJHxTzlGRGBcgjVyg0E8Lt5ir5ls" />
           <link rel="icon" type="image/png" sizes="32x32" href={config.favicon} />
           <link rel="manifest" href="/manifest.json" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />

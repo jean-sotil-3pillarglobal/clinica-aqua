@@ -19,8 +19,7 @@ function IconAnimate (props: {
   iconx: string,
   icony: string,
 }) {
-  const { onClick, className, ...rest } = props;
-  const { iconx, icony, focused } = props;
+  const { onClick, className, iconx, icony, focused, ...rest } = props;
 
   return (
     <Fragment>

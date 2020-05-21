@@ -158,8 +158,8 @@ const Verbiage = {
         es: 'seguros, otros',
       },
       title: {
-        en: 'Clinica Aqua | Health Care | Welcome',
-        es: 'Clinica Aqua | Salud | Bienvenido',
+        en: 'Clinica Aqua | Dermatología Estética | Bienvenido',
+        es: 'Clinica Aqua | Dermatología Estética | Bienvenido',
       },
     },
     services: {

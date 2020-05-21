@@ -111,25 +111,27 @@ function Footer (props: {
         {copy.column.map(column => (
           <Grid
             item
-            sx={6}
-            sm={6}
+            xs={10}
+            sm={10}
             md={5}
             lg={5}
             key={column.title}
           >
-            <Typography
-              variant="h3"
-              className={classes.body}>
-              <LangToggler id={column.title} />
-            </Typography>
             <Grid
-              alignItems="flex-start"
+              alignItems="center"
               className={classes.items}
               container
-              direction={isMobile ? 'column' : 'row'}
-              justify={isMobile ? 'center' : 'flex-start'}
+              direction="row-reverse"
+              justify="center"
               spacing={2}
             >
+              <Grid item key={column.title} xs={12} sm={12} md={12} lg={12}>
+                <Typography
+                  variant="h3"
+                  className={classes.body}>
+                  <LangToggler id={column.title} />
+                </Typography>
+              </Grid>
               {verbiage(column.items).map(item => (
                 <Grid item key={item.label} xs={12} sm={12} md={item.isFab ? 2 : 12}>
                   {(!isMobile && item.isFab) && (
@@ -149,14 +151,14 @@ function Footer (props: {
                       container
                       direction="row"
                       justify="center"
-                      spacing={2}
+                      spacing={4}
                     >
-                      <Grid item sm={2}>
+                      <Grid item xs={2} sm={2} md={2} lg={2}>
                         <Icon image={item.icon} className={classes.icon} variant={variant} />
                       </Grid>
-                      <Grid item sm={10}>
+                      <Grid item xs={10} sm={10} md={10} lg={10}>
                         <Typography
-                          variant={isMobile ? 'h3' : 'caption'}
+                          variant={isMobile ? 'body2' : 'caption'}
                           className={classes.body}>
                           {item.label}
                         </Typography>
@@ -170,10 +172,10 @@ function Footer (props: {
         ))}
         <Grid
           item
-          lg={2}
-          md={2}
-          sm={6}
           xs={6}
+          sm={6}
+          md={2}
+          lg={2}
           className={classes.logo}
         >
           <SmartImg proxy={proxy} src={verbiage(copy.logo)} />

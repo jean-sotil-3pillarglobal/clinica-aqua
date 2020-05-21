@@ -42,10 +42,10 @@ const styles = theme => ({
     color: ThemeColor(props, theme),
     display: 'inline-block',
     margin: `${theme.spacing(2)}px auto`,
-    maxHeight: 160,
+    maxHeight: 140,
     overflowY: 'scroll',
     padding: theme.spacing(1),
-    textAlign: 'justify',
+    textAlign: 'left',
     width: '100%',
   }),
   details: {
@@ -71,10 +71,11 @@ const styles = theme => ({
     border: `1px solid ${ThemeBackground(props, theme, 'main')}`,
   }),
   label: props => ({
-    background: ThemeBackground(props, theme, 'light'),
+    background: ThemeBackground(props, theme, 'main'),
     color: ThemeColor(props, theme),
-    padding: theme.spacing(1),
+    fontWeight: 600,
     margin: `${theme.spacing(4)}px 0`,
+    padding: theme.spacing(1),
   }),
   media: {
     backgroundPosition: 'center',
@@ -193,7 +194,7 @@ function ClerksLayout (props: {
                       less={verbiage(item.less)[language]}
                       lines={3}
                       more={verbiage(item.more)[language]}
-                      width={"100%"}
+                      width={500}
                   >
                     <LangToggler id={item.description} />
                   </ShowMoreText>

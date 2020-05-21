@@ -94,19 +94,22 @@ function LayoutButton (props: {
 
   if (typeButton === TYPES.FAB) {
     btn = (
-      <Fab
-        className={classnames(
-          classes.fab,
-          className,
-        )}
+      <a
         href={href}
-        target="_blank"
-        onClick={onClick}
-        onMouseLeave={onMouseLeave}
-        onMouseOver={onMouseOver}
-        variant="round">
-        {props.children}
-      </Fab>
+        target="_top"
+      >
+        <Fab
+          className={classnames(
+            classes.fab,
+            className,
+          )}
+          onClick={onClick}
+          onMouseLeave={onMouseLeave}
+          onMouseOver={onMouseOver}
+          variant="round">
+          {props.children}
+        </Fab>
+      </a>
     );
   } else if (typeButton === TYPES.LINK) {
     btn = (
