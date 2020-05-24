@@ -242,7 +242,7 @@ class ContactFormLayout extends Component {
 
     return (
       verbiage &&
-      <Paper className={classes.stepper}>
+      <Paper className={classes.stepper} elevation={0}>
         {verbiage(copy.svg_show) && <SVGComponent src={verbiage(copy.svg)} className={classes.svg} variant="primary" />}
         <Element name={`${to}-form`}>
           <Fade left>
