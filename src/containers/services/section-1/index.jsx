@@ -59,6 +59,9 @@ const styles = theme => ({
   back: {
     lineHeight: '38px',
   },
+  background: {
+    marginTop: theme.spacing(6),
+  },
   body1: {
     marginBottom: theme.spacing(2),
     textAlign: 'justify',
@@ -111,9 +114,16 @@ const styles = theme => ({
     maxWidth: 'initial',
     minHeight: 'initial',
     padding: `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(16)}px`,
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
+    },
   },
   details: {
     padding: `${theme.spacing(10)}px 0 0 0`,
+    [theme.breakpoints.down('md')]: {
+      paddingTop: theme.spacing(1),
+    },
   },
   divider: {
     margin: `${theme.spacing(2)}px 0`,
@@ -139,6 +149,7 @@ const styles = theme => ({
     padding: `${theme.spacing(16)}px 0`,
     textAlign: 'justify',
     [theme.breakpoints.down('md')]: {
+      minHeight: 'initial',
       padding: 0,
     },
   }),
@@ -247,6 +258,10 @@ const styles = theme => ({
     opacity: 0.8,
     padding: `${theme.spacing(1)}px ${theme.spacing(6)}px`,
     textTransform: 'capitalize',
+    [theme.breakpoints.down('md')]: {
+      marginTop: theme.spacing(2),
+      padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+    },
   },
 });
 

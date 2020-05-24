@@ -4,6 +4,7 @@ import CLERK_3_IMAGE from './../../../../../../static/images/clerks/clerk-3.jpg'
 import CLERK_4_IMAGE from './../../../../../../static/images/clerks/clerk-4.jpg';
 import CLERK_5_IMAGE from './../../../../../../static/images/clerks/clerk-5.jpg';
 import CLERK_6_IMAGE from './../../../../../../static/images/clerks/clerk-6.jpg';
+import CLERK_7_IMAGE from './../../../../../../static/images/clerks/clerk-7.jpg';
 
 import {
   constants,
@@ -17,6 +18,7 @@ const {
   CLERK_4,
   CLERK_5,
   CLERK_6,
+  CLERK_7,
 } = constants;
 
 const Clerks = [
@@ -220,6 +222,36 @@ const Clerks = [
     name: {
       en: 'Lic. Helyani Lopez Solano',
       es: 'Lic. Helyani Lopez Solano',
+    },
+    size_md: 6,
+    size_sm: 6,
+  },
+  {
+    description: {
+      en: `
+        Especialidad principal en Cosmiatria y tramientos faciales y corporales.
+      `,
+      es: `
+        Especialidad principal en Cosmiatria y tramientos faciales y corporales.
+      `,
+    },
+    id: CLERK_7,
+    image: CLERK_7_IMAGE,
+    label: {
+      en: 'Cosmetóloga',
+      es: 'Cosmetóloga',
+    },
+    less: {
+      en: 'Cerrar',
+      es: 'Cerrar',
+    },
+    more: {
+      en: 'Conocer más',
+      es: 'Conocer más',
+    },
+    name: {
+      en: 'Paulette Jean Francois Ramírez',
+      es: 'Paulette Jean Francois Ramírez',
     },
     size_md: 6,
     size_sm: 6,

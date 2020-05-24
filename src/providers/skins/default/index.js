@@ -108,6 +108,9 @@ const overrides = {
       fontSize: '.7em',
       fontWeight: 600,
       textTransform: 'uppercase',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.1rem',
+      },
     },
     text: {
       padding: '10px 16px',
@@ -411,6 +414,9 @@ const typography = {
     fontWeight: 500,
     lineHeight: 'normal',
     textTransform: 'initial',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '.9rem',
+    },
   },
   h1: {
     fontSize: '2.2rem',

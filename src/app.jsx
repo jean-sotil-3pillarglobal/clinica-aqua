@@ -145,7 +145,7 @@ class App extends Component {
           <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
         </Helmet>
         <CssBaseline />
-        <Paper className={classes.root}>
+        <Paper className={classes.root} elevation={0}>
           <Paper className={classes.container}>
             <Router>
               <TransitionGroup className={classes.transitions}>
@@ -158,7 +158,7 @@ class App extends Component {
                     exit: classes.exit,
                     exitActive: classes.exitActive,
                   }}>
-                  <Paper className={classes.switch}>
+                  <Paper className={classes.switch} elevation={0}>
                     <Switch>
                       <Route exact path="/:locale" component={Home} />
                       <Route exact path={`/:locale/${SERVICES[language]}`} component={Services} />
