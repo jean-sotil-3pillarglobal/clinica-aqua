@@ -64,8 +64,8 @@ const Services = [
       es: 'rellenos de ácido hialurónico',
     },
     url: {
-      en: 'rellenos-de-ácido-hialurónico',
-      es: 'rellenos-de-ácido-hialurónico',
+      en: 'rellenos-de-acido-hialuronico',
+      es: 'rellenos-de-acido-hialuronico',
     },
     value: `${CATEGORY_2}-${SERVICE_1}`,
   },
@@ -219,8 +219,8 @@ const Services = [
       es: 'eliminación de tatuajes',
     },
     url: {
-      en: 'eliminación-de-tatuajes',
-      es: 'eliminación-de-tatuajes',
+      en: 'eliminacio-de-tatuajes',
+      es: 'eliminacio-de-tatuajes',
     },
     value: `${CATEGORY_2}-${SERVICE_6}`,
   },
@@ -309,8 +309,8 @@ const Services = [
       es: 'plex air, blefaroplatia sin cirugía',
     },
     url: {
-      en: 'plex-air-blefaroplatia-sin-cirugía',
-      es: 'plex-air-blefaroplatia-sin-cirugía',
+      en: 'plex-air-blefaroplatia-sin-cirugia',
+      es: 'plex-air-blefaroplatia-sin-cirugia',
     },
     value: `${CATEGORY_2}-${SERVICE_9}`,
   },
