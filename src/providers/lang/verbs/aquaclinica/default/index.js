@@ -44,8 +44,10 @@ const Verbiage = {
   commons: {
     clerks_1: {
       body: {
-        en: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
-        es: 'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
+        en:
+          'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
+        es:
+          'Somos un equipo de profesionales altamente calificado. <br/>Trabajando con la tecnología más moderna de la zona sur.',
       },
       clerks,
       title: {
@@ -73,15 +75,19 @@ const Verbiage = {
         es: 'Será un placer atenderte',
       },
       thank_title: {
-        en: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
-        es: 'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+        en:
+          'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
+        es:
+          'Recibirás un correo con la información solicidata y la confirmación de tu cita.',
       },
     },
     default: {},
     services_1: {
       body: {
-        en: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
-        es: 'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
+        en:
+          'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
+        es:
+          'Nuestros tratamientos están diseñados para maximizar los beneficios. Contamos con productos dermatológicos de uso profesional, tecnología de punta, personal altamente calificado e identificado con sus necesidades y tratamientos comprobados.',
       },
       cta: {
         en: 'conocer más',
@@ -136,7 +142,6 @@ const Verbiage = {
         en: 'clinica aqua',
         es: 'clinica aqua',
       },
-
     },
   },
   err404: {
@@ -150,30 +155,18 @@ const Verbiage = {
   headers: {
     home: {
       description: {
-        en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
-        es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
+        en:
+          'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
+        es:
+          'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
       },
       keywords: {
         en: 'insurances, others',
         es: 'seguros, otros',
       },
       title: {
-        en: 'Clinica Aqua | Dermatología Estética | Bienvenido',
-        es: 'Clinica Aqua | Dermatología Estética | Bienvenido',
-      },
-    },
-    services: {
-      description: {
-        en: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
-        es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
-      },
-      keywords: {
-        en: 'insurances, others',
-        es: 'seguros, otros',
-      },
-      title: {
-        en: 'Clinica Aqua | Healthcare | Healthcare Help',
-        es: 'Clinica Aqua | Salud | Solicitar Ayuda',
+        en: 'Dermatología | Estética | Pérez Zeledón',
+        es: 'Dermatología | Estética | Pérez Zeledón',
       },
     },
   },
@@ -272,8 +265,10 @@ const Verbiage = {
         mobile: IMG_LOGO,
       },
       subtitle: {
-        en: '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
-        es: '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
+        en:
+          '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
+        es:
+          '<span>Brindamos servicios especializados de dermatologia, <br/>fisioestetica y nutrición en la zona sur.</span>',
       },
       svg: '/src/static/svg/coming.svg',
       svg_show: false,
@@ -284,8 +279,10 @@ const Verbiage = {
     },
     section_2: {
       body: {
-        en: 'Nuestra sede está ubicada en San Isidro de El General Pérez Zeledón. <br/>Brindamos una amplia gama de servicios dermatologicos, dermatoesteticos y fisioesteticos. Además de trabajar con la más alta tecnologia y personal 100% calificado.',
-        es: 'Nuestra sede está ubicada en San Isidro de El General Pérez Zeledón. <br/>Brindamos una amplia gama de servicios dermatologicos, dermatoesteticos y fisioesteticos. Además de trabajar con la más alta tecnologia y personal 100% calificado.',
+        en:
+          'Nuestra sede está ubicada en San Isidro de El General Pérez Zeledón. <br/>Brindamos una amplia gama de servicios dermatologicos, dermatoesteticos y fisioesteticos. Además de trabajar con la más alta tecnologia y personal 100% calificado.',
+        es:
+          'Nuestra sede está ubicada en San Isidro de El General Pérez Zeledón. <br/>Brindamos una amplia gama de servicios dermatologicos, dermatoesteticos y fisioesteticos. Además de trabajar con la más alta tecnologia y personal 100% calificado.',
       },
       cta: {
         en: 'cita gratuita online',
@@ -293,8 +290,10 @@ const Verbiage = {
       },
       id: LINK_SECTION_2,
       subtitle: {
-        en: '<span>Get our health services</br> information, quick and free.</span>',
-        es: '<span>Obtén información sobre nuestros servicios</br> de manera fácil y gratuita.</span>',
+        en:
+          '<span>Get our health services</br> information, quick and free.</span>',
+        es:
+          '<span>Obtén información sobre nuestros servicios</br> de manera fácil y gratuita.</span>',
       },
       title: {
         en: 'Contamos con el Mejor Equipo<br/> para Cuidar de tu Salud',
@@ -305,13 +304,16 @@ const Verbiage = {
       id: LINK_SECTION_4,
       title: {
         en: 'Start your quote now. <br/>Start now.',
-        es: 'La valoración es gratuita.<br/> Llená nuestro formulario en linea.',
+        es:
+          'La valoración es gratuita.<br/> Llená nuestro formulario en linea.',
       },
     },
     section_5: {
       body: {
-        en: 'special enrollment: even though open enrollment is closed, you may still be able to get a health plan if you had a certain life changing event. continue to shop and your eligibility will be determined when you complete your marketplace application. if you have questions at any point, please feel free to chat or call us.',
-        es: 'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
+        en:
+          'special enrollment: even though open enrollment is closed, you may still be able to get a health plan if you had a certain life changing event. continue to shop and your eligibility will be determined when you complete your marketplace application. if you have questions at any point, please feel free to chat or call us.',
+        es:
+          'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
       },
       id: LINK_SECTION_5,
       items: [
@@ -416,6 +418,6 @@ const Verbiage = {
   },
 };
 
-export default function VerbiageSchema (id) {
+export default function VerbiageSchema(id) {
   return LangProxy(Verbiage, id);
 }

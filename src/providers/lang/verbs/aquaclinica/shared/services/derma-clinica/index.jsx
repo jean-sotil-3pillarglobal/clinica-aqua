@@ -117,8 +117,8 @@ const Services = [
       es: 'diagnóstico y tratramiento para cáncer de piel',
     },
     url: {
-      en: 'diagnóstico-y-tratramiento-para-cáncer-de-piel',
-      es: 'diagnóstico-y-tratramiento-para-cáncer-de-piel',
+      en: 'diagnostico-y-tratramiento-para-cancer-de-piel',
+      es: 'diagnostico-y-tratramiento-para-cancer-de-piel',
     },
     value: `${CATEGORY_1}-${SERVICE_3}`,
   },
@@ -177,8 +177,8 @@ const Services = [
       es: 'tratamiento para acné',
     },
     url: {
-      en: 'tratamiento-para-acné',
-      es: 'tratamiento-para-acné',
+      en: 'tratamiento-para-acne',
+      es: 'tratamiento-para-acne',
     },
     value: `${CATEGORY_1}-${SERVICE_5}`,
   },
@@ -207,8 +207,8 @@ const Services = [
       es: 'caída de cabello y tratamiento capilar',
     },
     url: {
-      en: 'caída-de-cabello-y-tratamiento-capilar',
-      es: 'caída-de-cabello-y-tratamiento-capilar',
+      en: 'caida-de-cabello-y-tratamiento-capilar',
+      es: 'caida-de-cabello-y-tratamiento-capilar',
     },
     value: `${CATEGORY_1}-${SERVICE_6}`,
   },
