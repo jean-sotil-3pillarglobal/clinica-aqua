@@ -2,15 +2,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component, Fragment } from 'react';
 
-import {
-  withStyles,
-} from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 
 import { Element } from 'react-scroll';
 
-import {
-  setServiceCategoryAction,
-} from './../../store/actions/services';
+import { setServiceCategoryAction } from './../../store/actions/services';
 
 import {
   selectLanguageAction,
@@ -43,11 +39,10 @@ const styles = () => ({
 const NODE = 'headers';
 const SLOT = 'home';
 // copy:
-const copy = LangGenerateTree([NODE, SLOT], [
-  'description',
-  'keywords',
-  'title',
-]);
+const copy = LangGenerateTree(
+  [NODE, SLOT],
+  ['description', 'keywords', 'title'],
+);
 
 class Home extends Component {
   state = {
@@ -56,9 +51,7 @@ class Home extends Component {
 
   static getDerivedStateFromProps = (nextProps, nextState) => {
     const {
-      match: {
-        params,
-      },
+      match: { params },
       selectLanguage,
       selectVariantVerbiage,
       verbiage,
@@ -83,7 +76,7 @@ class Home extends Component {
     }
 
     return init;
-  }
+  };
 
   props: {
     device: string,
@@ -92,29 +85,19 @@ class Home extends Component {
     lead: Object,
     leadType: string,
     setServiceCategory: Function,
-  }
+  };
 
   handleServiceCategory = (item, cb) => {
-    const {
-      setServiceCategory,
-    } = this.props;
+    const { setServiceCategory } = this.props;
 
     setServiceCategory(item);
     cb(true);
-  }
+  };
 
-  render () {
-    const {
-      device,
-      isHeaderVisible,
-      language,
-      lead,
-      leadType,
-    } = this.props;
+  render() {
+    const { device, isHeaderVisible, language, lead, leadType } = this.props;
 
-    const {
-      verbiage,
-    } = this.state;
+    const { verbiage } = this.state;
 
     const proxy = {
       device,
@@ -127,12 +110,22 @@ class Home extends Component {
 
     return (
       <Fragment>
-        <Helmet proxy={proxy} copy={copy} />
+        <Helmet
+          proxy={proxy}
+          title={copy.title}
+          description={copy.description}
+          keywords={copy.keywords}
+          isRaw
+        />
         <SectionA proxy={proxy} />
         <BannerA proxy={proxy} />
 
         <Element name={constants.LINK_SERVICES_1}>
-          <ServicesLayout setServiceCategory={this.handleServiceCategory} proxy={proxy} variant="primary" />
+          <ServicesLayout
+            setServiceCategory={this.handleServiceCategory}
+            proxy={proxy}
+            variant="primary"
+          />
         </Element>
 
         <Element name={constants.LINK_SECTION_2}>
@@ -154,7 +147,7 @@ class Home extends Component {
 }
 
 // map state to props
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     device: state.device,
     isHeaderVisible: state.isHeaderVisible,
@@ -165,12 +158,18 @@ function mapStateToProps (state) {
   };
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({
-    selectLanguage: selectLanguageAction,
-    selectVariantVerbiage: selectVariantVerbiageAction,
-    setServiceCategory: setServiceCategoryAction,
-  }, dispatch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      selectLanguage: selectLanguageAction,
+      selectVariantVerbiage: selectVariantVerbiageAction,
+      setServiceCategory: setServiceCategoryAction,
+    },
+    dispatch,
+  );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Home));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withStyles(styles)(Home));

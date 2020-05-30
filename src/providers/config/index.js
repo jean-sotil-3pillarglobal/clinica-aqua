@@ -8,6 +8,8 @@ import IMG_INFO_4 from '../../static/svg/social/location.svg';
 
 // constants
 export const constants = {
+  APP_TITLE: 'Clínica Aqua',
+
   // categories
   CATEGORY_1: 'derma-clinica',
   CATEGORY_2: 'derma-estetica',
@@ -112,17 +114,19 @@ export const publics = [
   },
 ];
 
-export const featured = [{
-  id: constants.LINK_SECTION_4,
-  label: {
-    en: 'cita gratuita online',
-    es: 'cita gratuita online',
+export const featured = [
+  {
+    id: constants.LINK_SECTION_4,
+    label: {
+      en: 'cita gratuita online',
+      es: 'cita gratuita online',
+    },
+    route: {
+      en: '/contact',
+      es: '/contacto',
+    },
   },
-  route: {
-    en: '/contact',
-    es: '/contacto',
-  },
-}];
+];
 
 // private routes
 export const privates = [];
@@ -215,6 +219,5 @@ const config = {
   social,
   urls,
 };
-
 
 export default config;
