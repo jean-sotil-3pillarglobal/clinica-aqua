@@ -1,4 +1,3 @@
-
 import React, { Component, Fragment } from 'react';
 import classnames from 'classnames';
 import { bindActionCreators } from 'redux';
@@ -16,22 +15,14 @@ import {
   withStyles,
 } from '@material-ui/core';
 
-import {
-  ChevronLeft,
-  ChevronRight,
-  Menu,
-} from '@material-ui/icons';
+import { ChevronLeft, ChevronRight, Menu } from '@material-ui/icons';
 
 import { Events, Link } from 'react-scroll';
 
 // Config
-import {
-  constants,
-} from '../../providers/config';
+import { constants } from '../../providers/config';
 
-import {
-  setSectionAction,
-} from '../../store/actions/global';
+import { setSectionAction } from '../../store/actions/global';
 
 // provider
 import LangGenerateTree from '../../providers/utils/lang.generate.tree';
@@ -45,9 +36,7 @@ import Icon from './../commons/icon';
 
 // paths
 const {
-  PATHS: {
-    SERVICES,
-  },
+  PATHS: { SERVICES },
 } = constants;
 
 const drawerWidth = 240;
@@ -56,10 +45,13 @@ const styles = theme => ({
   appBar: {
     background: ThemeBackground({ variant: 'primary' }, theme),
     padding: 0,
-    transition: theme.transitions.create(['background-color', 'margin', 'width'], {
-      duration: theme.transitions.duration.leavingScreen,
-      easing: theme.transitions.easing.sharp,
-    }),
+    transition: theme.transitions.create(
+      ['background-color', 'margin', 'width'],
+      {
+        duration: theme.transitions.duration.leavingScreen,
+        easing: theme.transitions.easing.sharp,
+      },
+    ),
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -178,22 +170,25 @@ const styles = theme => ({
 const NODE_ROOT = 'components';
 const NODE_TYPE = 'header';
 // copy:
-const copy = LangGenerateTree([NODE_ROOT, NODE_TYPE], [
-  'back',
-  'featured-1-id',
-  'featured-1-label',
-  'featured-1-route',
-  'logo',
-  'phone_icon',
-  'phone',
-  'publics-3-id',
-  'publics-3-label',
-  'publics-3-route',
-  'social-3-icon',
-  'social-3-label',
-  'social-3-link',
-  'title',
-]);
+const copy = LangGenerateTree(
+  [NODE_ROOT, NODE_TYPE],
+  [
+    'back',
+    'featured-1-id',
+    'featured-1-label',
+    'featured-1-route',
+    'logo',
+    'phone_icon',
+    'phone',
+    'publics-3-id',
+    'publics-3-label',
+    'publics-3-route',
+    'social-3-icon',
+    'social-3-label',
+    'social-3-link',
+    'title',
+  ],
+);
 
 class Header extends Component {
   state = {
@@ -201,14 +196,12 @@ class Header extends Component {
   };
 
   componentDidMount = () => {
-    const {
-      setSection,
-    } = this.props;
+    const { setSection } = this.props;
 
-    Events.scrollEvent.register('begin', (to) => {
+    Events.scrollEvent.register('begin', to => {
       setSection(to);
     });
-  }
+  };
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -218,7 +211,7 @@ class Header extends Component {
     this.setState({ open: false });
   };
 
-  handleFabClick = (link) => {
+  handleFabClick = link => {
     console.log(link);
   };
 
@@ -256,26 +249,24 @@ class Header extends Component {
     const { open } = this.state;
     const isMobile = device === 'mobile';
 
-    const isLanding = (`/${language}/${SERVICES[language]}` !== this.props.history.location.pathname) && category === null;
+    const isLanding =
+      `/${language}/${SERVICES[language]}` !==
+        this.props.history.location.pathname && category === null;
 
     const HeaderLinks = (
       <Fragment>
         {isLanding && (
           <Fragment>
-            <Grid
-              item
-              sm={12}
-              md={7}
-              lg={7}
-            >
+            <Grid item sm={12} md={7} lg={7}>
               <Box
                 display="flex"
                 flexDirection={isMobile ? 'column' : 'row'}
                 justifyContent="flex-start"
                 p={1}
                 m={1}
-                className={classes.navbar}>
-                {copy.publics.map((item) => {
+                className={classes.navbar}
+              >
+                {copy.publics.map(item => {
                   return (
                     <Link
                       activeClass="active"
@@ -285,7 +276,12 @@ class Header extends Component {
                       to={verbiage(item.id)}
                     >
                       <LangButton
-                        className={classnames(classes.navbarItem, (section && verbiage(item.id) === section) && classes.navbarItemSelected)}
+                        className={classnames(
+                          classes.navbarItem,
+                          section &&
+                            verbiage(item.id) === section &&
+                            classes.navbarItemSelected,
+                        )}
                         key={item.label}
                         lang={item.label}
                         pos="right"
@@ -298,20 +294,16 @@ class Header extends Component {
                 })}
               </Box>
             </Grid>
-            <Grid
-              item
-              sm={10}
-              md={3}
-              lg={3}
-            >
+            <Grid item sm={10} md={3} lg={3}>
               <Box
                 display="flex"
                 flexDirection={isMobile ? 'column' : 'row'}
                 justifyContent="flex-end"
                 p={1}
                 m={1}
-                className={classes.navbar}>
-                {copy.featured.map((featured) => {
+                className={classes.navbar}
+              >
+                {copy.featured.map(featured => {
                   return (
                     <Link
                       activeClass="active"
@@ -342,7 +334,8 @@ class Header extends Component {
             justifyContent="flex-start"
             p={1}
             m={1}
-            className={classes.navbar}>
+            className={classes.navbar}
+          >
             <LangButton
               className={classes.navbarItem}
               key={copy.back}
@@ -359,91 +352,117 @@ class Header extends Component {
       </Fragment>
     );
 
-    return (
-      verbiage &&
-      <div className={classes.root}>
-        <CssBaseline />
-        <Box display="flex" flexDirection="row" justifyContent="flex-end" p={1} m={1} className={classnames(classes.topHeaderSocial, classes.socialButtonsFixed)}>
-          {copy.social.map(item => (
-            <Box key={item.label} p={2}>
-              <LangButton
-                href={verbiage(item.link)}
-                key={item.label}
-                typeButton={TYPES.FAB}
-                variant="primary"
-                className={classes.fab}
-              >
-                <Icon image={verbiage(item.icon)} className={classes.iconFab} />
-              </LangButton>
-            </Box>
-          ))}
-        </Box>
-        <AppBar
-          className={classnames(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-          elevation={0}
-          position="fixed"
-        >
-          <Toolbar variant="dense" disableGutters={!open} className={classes.toolbar}>
-            <Grid
-              alignItems="center"
-              container
-              direction="row"
-              justify={isMobile ? 'flex-start' : isLanding ? 'space-between' : 'flex-end'}
-            >
-              {isMobile && (
-                <Grid
-                  item
-                  sm={10}
-                  md={1}
-                  lg={1}>
-                  <IconButton
-                    aria-label="Open drawer"
-                    onClick={this.handleDrawerOpen}
-                    className={classnames(classes.menuButton, open && classes.hide)}>
-                    <Menu />
-                  </IconButton>
-                </Grid>
-              )}
-              <Grid
-                item
-                sm={10}
-                md={1}
-                lg={1}
-              >
-                <SmartImg proxy={proxy} src={verbiage(copy.logo)} className={classes.logo} />
-              </Grid>
-              {!isMobile && HeaderLinks}
-            </Grid>
-          </Toolbar>
-        </AppBar>
-        {isMobile &&
-          <Drawer
-            className={classes.drawer}
-            variant="persistent"
-            anchor="left"
-            open={open}
-            classes={{
-              paper: classes.drawerPaper,
-            }}>
-            <div className={classes.drawerHeader}>
-              <IconButton onClick={this.handleDrawerClose} className={classes.burger}>
-                {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
-              </IconButton>
-            </div>
-            <Divider className={classes.divider} />
-            {isMobile && HeaderLinks}
-          </Drawer>
-        }
-      </div>
+    const justify = isMobile ? 'flex-start' : (isLanding ? 'space-between' : 'flex-end')
 
+    return (
+      verbiage && (
+        <div className={classes.root}>
+          <CssBaseline />
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="flex-end"
+            p={1}
+            m={1}
+            className={classnames(
+              classes.topHeaderSocial,
+              classes.socialButtonsFixed,
+            )}
+          >
+            {copy.social.map(item => (
+              <Box key={item.label} p={2}>
+                <LangButton
+                  href={verbiage(item.link)}
+                  key={item.label}
+                  typeButton={TYPES.FAB}
+                  variant="primary"
+                  className={classes.fab}
+                >
+                  <Icon
+                    image={verbiage(item.icon)}
+                    className={classes.iconFab}
+                  />
+                </LangButton>
+              </Box>
+            ))}
+          </Box>
+          <AppBar
+            className={classnames(classes.appBar, {
+              [classes.appBarShift]: open,
+            })}
+            elevation={0}
+            position="fixed"
+          >
+            <Toolbar
+              variant="dense"
+              disableGutters={!open}
+              className={classes.toolbar}
+            >
+              <Grid
+                alignItems="center"
+                container
+                direction="row"
+                justify={justify}
+              >
+                {isMobile && (
+                  <Grid item sm={10} md={1} lg={1}>
+                    <IconButton
+                      aria-label="Open drawer"
+                      onClick={this.handleDrawerOpen}
+                      className={classnames(
+                        classes.menuButton,
+                        open && classes.hide,
+                      )}
+                    >
+                      <Menu />
+                    </IconButton>
+                  </Grid>
+                )}
+                <Grid item sm={10} md={1} lg={1}>
+                  <SmartImg
+                    proxy={proxy}
+                    src={verbiage(copy.logo)}
+                    className={classes.logo}
+                  />
+                </Grid>
+                {!isMobile && HeaderLinks}
+              </Grid>
+            </Toolbar>
+          </AppBar>
+          {isMobile && (
+            <Drawer
+              className={classes.drawer}
+              variant="persistent"
+              anchor="left"
+              open={open}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+            >
+              <div className={classes.drawerHeader}>
+                <IconButton
+                  onClick={this.handleDrawerClose}
+                  className={classes.burger}
+                >
+                  {theme.direction === 'ltr' ? (
+                    <ChevronLeft />
+                  ) : (
+                    <ChevronRight />
+                  )}
+                </IconButton>
+              </div>
+              <Divider className={classes.divider} />
+              {isMobile && HeaderLinks}
+            </Drawer>
+          )}
+        </div>
+      )
     );
   }
 }
 
 // map state to props
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     category: state.category,
     device: state.device,
@@ -453,10 +472,16 @@ function mapStateToProps (state) {
   };
 }
 
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators({
-    setSection: setSectionAction,
-  }, dispatch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      setSection: setSectionAction,
+    },
+    dispatch,
+  );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(Header));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withStyles(styles, { withTheme: true })(Header));

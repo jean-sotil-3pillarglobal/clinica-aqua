@@ -1,12 +1,7 @@
 import classnames from 'classnames';
 import React, { Fragment } from 'react';
 
-import {
-  Button,
-  Fab,
-  Link,
-  withStyles,
-} from '@material-ui/core';
+import { Button, Fab, Link, withStyles } from '@material-ui/core';
 
 // provider
 import LangToggler from '../../../providers/lang/toggler';
@@ -15,8 +10,8 @@ import ThemeColor from './../../../providers/utils/theme.color';
 
 import Icon from './../icon';
 
-const styles = theme => ({
-  button: props => ({
+const styles = (theme) => ({
+  button: (props) => ({
     '&:hover': {
       background: ThemeBackground(props, theme, 'light'),
       borderColor: ThemeColor(props, theme),
@@ -36,10 +31,10 @@ const styles = theme => ({
     background: 'transparent',
     color: 'transparent',
   }),
-  icon: props => ({
+  icon: (props) => ({
     color: ThemeColor(props, theme),
   }),
-  link: props => ({
+  link: (props) => ({
     '&:active': {
       boxShadow: 'none',
     },
@@ -62,7 +57,7 @@ export const TYPES = {
   RAISED: 'raised',
 };
 
-function LayoutButton (props: {
+function LayoutButton(props: {
   children: Object,
   classes: Object,
   className: Object,
@@ -94,19 +89,14 @@ function LayoutButton (props: {
 
   if (typeButton === TYPES.FAB) {
     btn = (
-      <a
-        href={href}
-        target="_top"
-      >
+      <a href={href} target="_blank">
         <Fab
-          className={classnames(
-            classes.fab,
-            className,
-          )}
+          className={classnames(classes.fab, className)}
           onClick={onClick}
           onMouseLeave={onMouseLeave}
           onMouseOver={onMouseOver}
-          variant="round">
+          variant="round"
+        >
           {props.children}
         </Fab>
       </a>
@@ -115,10 +105,7 @@ function LayoutButton (props: {
     btn = (
       <Link
         href={href}
-        className={classnames(
-          classes.link,
-          className,
-        )}
+        className={classnames(classes.link, className)}
         component="button"
         onClick={onClick}
         onMouseLeave={onMouseLeave}
@@ -131,15 +118,12 @@ function LayoutButton (props: {
   } else {
     btn = (
       <Fragment>
-        {lang &&
+        {lang && (
           <Button
             type={type}
             disabled={disabled}
             onClick={onClick}
-            className={classnames(
-              classes.button,
-              className,
-            )}
+            className={classnames(classes.button, className)}
             size="medium"
             startIcon={(pos === 'left' && props.children) || null}
             endIcon={(pos === 'right' && props.children) || null}
@@ -149,17 +133,21 @@ function LayoutButton (props: {
             {pos === 'right' && (
               <Fragment>
                 <LangToggler id={lang} />
-                {!props.children && <Icon className={classes.icon} name="keyboard_arrow_right" />}
+                {!props.children && (
+                  <Icon className={classes.icon} name="keyboard_arrow_right" />
+                )}
               </Fragment>
             )}
             {pos === 'left' && (
               <Fragment>
-                {!props.children && <Icon className={classes.icon} name="keyboard_arrow_left" />}
+                {!props.children && (
+                  <Icon className={classes.icon} name="keyboard_arrow_left" />
+                )}
                 <LangToggler id={lang} />
               </Fragment>
             )}
           </Button>
-        }
+        )}
       </Fragment>
     );
   }
