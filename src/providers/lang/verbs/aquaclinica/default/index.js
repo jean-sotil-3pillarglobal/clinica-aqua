@@ -156,13 +156,15 @@ const Verbiage = {
     home: {
       description: {
         en:
-          'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
+          'Brindamos servicios especializados de dermatologia, fisioestetica y nutrición en la zona sur. Obtén información sobre nuestros servicios de manera fácil y gratuita.',
         es:
-          'lorem ipsum dolor sit amet, consectetuer adipiscing elit. aenean commodo ligula eget dolor. aenean massa. cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. donec quam felis,',
+          'Brindamos servicios especializados de dermatologia, fisioestetica y nutrición en la zona sur. Obtén información sobre nuestros servicios de manera fácil y gratuita.',
       },
       keywords: {
-        en: 'insurances, others',
-        es: 'seguros, otros',
+        en:
+          'dermatología, estética, belleza, salud, perez zeledón, gratuito, consulta en linea, consulta online, mejorar, mejor cálidad de vida, tratamientos, especialidades, expertos en salúd',
+        es:
+          'dermatología, estética, belleza, salud, perez zeledón, gratuito, consulta en linea, consulta online, mejorar, mejor cálidad de vida, tratamientos, especialidades, expertos en salúd',
       },
       title: {
         en: 'Dermatología | Estética | Pérez Zeledón',
