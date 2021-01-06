@@ -25,7 +25,7 @@
     "@material-ui/styles": "^4.0.0",
     "@neutrinojs/compile-loader": "^9.1.0",
     "@neutrinojs/html-template": "^9.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "color": "^3.1.1",
     "core-js": "3",
