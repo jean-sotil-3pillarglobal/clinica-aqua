@@ -31,7 +31,7 @@
     "core-js": "3",
     "html-react-parser": "^0.7.0",
     "install": "^0.13.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "metro-react-native-babel-preset": "^0.59.0",
     "moment": "^2.24.0",
     "moment-timezone": "0.5.23",
